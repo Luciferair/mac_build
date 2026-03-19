@@ -153,6 +153,7 @@ struct ConnectedCirclesPath: View, PenToolPathProtocol {
             guard !ns.isEmpty else { return AnyView(EmptyView()) }
 
             let off = offset()
+            let frameSize = frame()
             let strokeLW = CGFloat(_drawnStyle.lineWidth)
             let connLW   = CGFloat(max(_drawnStyle.connectorLineWidth, 1))
             let baseColor = Color(red: _drawnStyle.color.r,
@@ -197,17 +198,17 @@ struct ConnectedCirclesPath: View, PenToolPathProtocol {
                                             clockwise: false)
                             }
                             .stroke(
-                                LinearGradient(
-                                    gradient: Gradient(colors: [
-                                        baseColor,
-                                        baseColor,
-                                        baseColor,
-                                        baseColor.opacity(0.8),
-                                        baseColor.opacity(0)
+                                AngularGradient(
+                                    gradient: Gradient(stops: [
+                                        .init(color: baseColor.opacity(0), location: 0.0),
+                                        .init(color: baseColor, location: 0.08),
+                                        .init(color: baseColor, location: 0.92),
+                                        .init(color: baseColor.opacity(0), location: 1.0)
                                     ]),
-                                    startPoint: .bottom,
-                                    endPoint: UnitPoint(x: 0.5,
-                                                        y: (sin(arcStart.radians) + 1) / 2)
+                                    center: UnitPoint(x: lx / max(frameSize.width, 1),
+                                                      y: ly / max(frameSize.height, 1)),
+                                    startAngle: arcStart,
+                                    endAngle: arcEnd
                                 ),
                                 lineWidth: strokeLW
                             )

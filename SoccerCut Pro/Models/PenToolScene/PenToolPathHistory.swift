@@ -35,7 +35,6 @@ class PenToolPathHistory {
         // ・一時停止中のstepやseek等による移動
         NotificationCenter.default.addObserver(self, selector: #selector(self.changeFrameToStartDrawing), name: AVPlayer.rateDidChangeNotification, object: self.player)
         NotificationCenter.default.addObserver(self, selector: #selector(self.changeFrameToStartDrawing), name: AVPlayerItem.timeJumpedNotification, object: self.player.currentItem)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.clearSelectedStateOfPath), name: .drawnPathDidChangeNotification, object: self)
     }
     
     
@@ -47,6 +46,7 @@ class PenToolPathHistory {
 
     func changeTargetFrame(to newTargetFrame: CMTime) {
         if currentTargetFrame == newTargetFrame { return }
+        clearSelectedStateOfPath()
         
         // 最終描画フレームの描画パスを描画履歴に保存
         if currentTargetFrame == .indefinite {
@@ -133,6 +133,15 @@ class PenToolPathHistory {
         return nil
     }
     
+    func selectPathWithoutClear(pathId: Int) {
+        for drawnPath in currentTargetFrameDrawns {
+            if drawnPath.id == pathId {
+                drawnPath.setIsSelected(true)
+                return
+            }
+        }
+    }
+
     func selectedPath() -> PenToolDrawnPath? {
         for drawnPath in currentTargetFrameDrawns {
             if drawnPath.isSelected {

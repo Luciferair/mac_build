@@ -74,16 +74,16 @@ struct CirclePath: View, PenToolPathProtocol {
             }
 //                .stroke(color, lineWidth: lineWidth)
                 .stroke(
-                    LinearGradient(
-                        gradient: Gradient(colors: [
-                            Color(red: _drawnStyle.color.r, green: _drawnStyle.color.g, blue: _drawnStyle.color.b, opacity: _drawnStyle.color.a),
-                            Color(red: _drawnStyle.color.r, green: _drawnStyle.color.g, blue: _drawnStyle.color.b, opacity: _drawnStyle.color.a),
-                            Color(red: _drawnStyle.color.r, green: _drawnStyle.color.g, blue: _drawnStyle.color.b, opacity: _drawnStyle.color.a),
-                            Color(red: _drawnStyle.color.r, green: _drawnStyle.color.g, blue: _drawnStyle.color.b, opacity: _drawnStyle.color.a * 0.8),
-                            Color(red: _drawnStyle.color.r, green: _drawnStyle.color.g, blue: _drawnStyle.color.b, opacity: 0)
+                    AngularGradient(
+                        gradient: Gradient(stops: [
+                            .init(color: Color(red: _drawnStyle.color.r, green: _drawnStyle.color.g, blue: _drawnStyle.color.b, opacity: 0), location: 0.0),
+                            .init(color: Color(red: _drawnStyle.color.r, green: _drawnStyle.color.g, blue: _drawnStyle.color.b, opacity: _drawnStyle.color.a), location: 0.08),
+                            .init(color: Color(red: _drawnStyle.color.r, green: _drawnStyle.color.g, blue: _drawnStyle.color.b, opacity: _drawnStyle.color.a), location: 0.92),
+                            .init(color: Color(red: _drawnStyle.color.r, green: _drawnStyle.color.g, blue: _drawnStyle.color.b, opacity: 0), location: 1.0)
                         ]),
-                        startPoint: .bottom,
-                        endPoint: UnitPoint(x: 0.5, y: (sin(startAngle().radians) + 1) / 2)
+                        center: .center,
+                        startAngle: startAngle(),
+                        endAngle: startAngle() + circleAngle()
                     ),
                     lineWidth: CGFloat(_drawnStyle.lineWidth)
                 )

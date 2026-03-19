@@ -71,11 +71,26 @@ class PenToolCanvasViewModel: ObservableObject {
                     NotificationCenter.default.post(name: .drawnPathDidChangeNotification,
                                                     object: pathHistory,
                                                     userInfo: ["targetFrame": pathHistory.currentTargetFrame])
+                    // Re-select the chain path so angle/style sliders work
+                    if let chainPath = pathHistory.currentTargetFrameDrawns.last(where: { $0.type == .connectedCircles }) {
+                        pathHistory.selectPathWithoutClear(pathId: chainPath.id)
+                    }
+                    // Auto-end chain after 2 circles (hold Shift to keep adding more)
+                    if (pathFactory.currentChain?.nodes.nodes.count ?? 0) >= 2 {
+                        let shiftHeld = NSApp.currentEvent?.modifierFlags.contains(.shift) ?? false
+                        if !shiftHeld {
+                            pathFactory.endChain()
+                        }
+                    }
                 } else {
                     // First circle — add chain to history
                     pathFactory.markChainInHistory()
                     pathHistory.confirmDrawing(type: pathFactory.currentType, path: chain)
                     pathFactory.saveStyle()
+                    // Auto-select so angle/degree sliders work immediately
+                    if let lastDrawn = pathHistory.currentTargetFrameDrawns.last {
+                        pathHistory.selectPathWithoutClear(pathId: lastDrawn.id)
+                    }
                 }
             }
             return

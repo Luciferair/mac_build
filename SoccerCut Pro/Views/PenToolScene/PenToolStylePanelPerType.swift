@@ -87,7 +87,7 @@ struct PenToolStylePanelPerType: View {
                 }
                 
                 if $style.useLineWidth.wrappedValue {
-                    Section(header: Text("線の太さ")) {
+                    Section(header: Text(type == .connectedCircles ? "円の輪郭の太さ" : "線の太さ")) {
                         PenToolStyleSlider(value: $style.lineWidth, minValue: 1, maxValue: 40, step: 1)
                             .padding(.horizontal, 10)
                             .padding(.bottom, spacing)
