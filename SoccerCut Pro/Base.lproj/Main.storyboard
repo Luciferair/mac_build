@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22690"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Application-->
+        <scene sceneID="JPo-4y-FX3">
+            <objects>
+                <application id="hnw-xV-0zn" sceneMemberID="viewController">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
+                        <items>
+                            <menuItem title="SoccerCut Pro" id="1Xt-HY-uBw">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="SoccerCut Pro" systemMenu="apple" id="uQy-DD-JDr">
+                                    <items>
+                                        <menuItem title="About" id="5kV-Vb-QxS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
+                                        <menuItem title="Services" id="NMo-om-nkz">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
+                                        <menuItem title="Hide SoccerCut Pro" keyEquivalent="h" id="Olw-nP-bQN">
+                                            <connections>
+                                                <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Hide Others" keyEquivalent="h" id="Vdr-fp-XzO">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="hideOtherApplications:" target="Ady-hI-5gd" id="VT4-aY-XCT"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Show All" id="Kd2-mp-pUS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="unhideAllApplications:" target="Ady-hI-5gd" id="Dhg-Le-xox"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
+                                        <menuItem title="Quit" keyEquivalent="q" id="4sb-4s-VLi">
+                                            <connections>
+                                                <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="ファイル" id="dMs-cI-mzQ">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="ファイル" autoenablesItems="NO" id="bib-Uj-vzu">
+                                    <items>
+                                        <menuItem title="プレーヤーで開く" keyEquivalent="o" id="IAo-SY-fd9">
+                                            <connections>
+                                                <action selector="menuOpenFileWithPlayer:" target="Voe-Tx-rLC" id="vEg-p2-siW"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="ペンツールで開く" id="Ryl-x2-iwt">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="menuOpenFileWithPenTool:" target="Voe-Tx-rLC" id="a5a-sw-Ac6"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
+                                        <menuItem title="閉じる" keyEquivalent="w" id="DVo-aG-piG">
+                                            <connections>
+                                                <action selector="menuClose:" target="Voe-Tx-rLC" id="6sl-6d-ZMV"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="再生" id="nTf-e3-LaZ">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="再生" autoenablesItems="NO" id="hIk-nw-0e9">
+                                    <items>
+                                        <menuItem title="再生/一時停止" keyEquivalent=" " id="HeC-zA-zHQ">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="menuPlayPause:" target="Voe-Tx-rLC" id="qzr-Pf-t6p"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="再生/一時停止" hidden="YES" keyEquivalent="k" allowsKeyEquivalentWhenHidden="YES" id="6Ls-ga-TWk">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="menuPlayPause:" target="Voe-Tx-rLC" id="uhc-lg-ajx"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="Dht-et-O1a"/>
+                                        <menuItem title="早送り" keyEquivalent="l" id="qo0-xY-j7s">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="menuSkip:" target="Voe-Tx-rLC" id="dEp-iV-oHz"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="巻き戻し" keyEquivalent="j" id="N0C-HD-8DR">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="menuRewind:" target="Voe-Tx-rLC" id="pLR-YZ-meg"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="zce-ow-m6H"/>
+                                        <menuItem title="2倍速早送り" keyEquivalent="" id="pdM-le-G9h">
+                                            <modifierMask key="keyEquivalentModifierMask" shift="YES"/>
+                                            <connections>
+                                                <action selector="menuSkip2x:" target="Voe-Tx-rLC" id="Ybr-1k-DMl"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="2倍速巻き戻し" keyEquivalent="" id="w0q-Ld-JgU">
+                                            <modifierMask key="keyEquivalentModifierMask" shift="YES"/>
+                                            <connections>
+                                                <action selector="menuRewind2x:" target="Voe-Tx-rLC" id="m50-Ec-omI"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="KLo-Ec-6sY"/>
+                                        <menuItem title="5秒進める" keyEquivalent="m" id="cII-u0-UTa">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="menuSeek5SecsForward:" target="Voe-Tx-rLC" id="8Od-NO-1fO"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="5秒戻す" keyEquivalent="z" id="NY3-CJ-FF5">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="menuSeek5SecsBackward:" target="Voe-Tx-rLC" id="WaN-W7-rjn"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="7zy-UO-OW6"/>
+                                        <menuItem title="1フレーム進める" keyEquivalent="" id="0yI-oi-PPo">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="menuStepForward:" target="Voe-Tx-rLC" id="4ga-f6-2A9"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="1フレーム戻す" keyEquivalent="" id="Evb-Gg-WHi">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="menuStepBackward:" target="Voe-Tx-rLC" id="tTu-QN-3qO"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="iOZ-sz-42U"/>
+                                        <menuItem title="音声切替" keyEquivalent="v" id="s8F-rg-00B">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="menuSwitchAudio:" target="Voe-Tx-rLC" id="gqC-6G-SE7"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Syncモード切替" keyEquivalent="s" id="sYv-jP-3A2">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="menuSwitchSyncMode:" target="Voe-Tx-rLC" id="imE-bS-rHe"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="編集" id="5QF-Oa-p0T">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="編集" autoenablesItems="NO" id="W48-6f-4Dl">
+                                    <items>
+                                        <menuItem title="シーン切り出し" id="nae-WS-qYv">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="シーン切り出し" autoenablesItems="NO" id="JaP-AK-KXG">
+                                                <items>
+                                                    <menuItem title="開始" keyEquivalent="i" id="aMB-ua-i2K">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="menuStartTrimming:" target="Voe-Tx-rLC" id="GZt-Bx-Awj"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="終了" keyEquivalent="o" id="7kC-1i-uUQ">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="menuFinishTrimming:" target="Voe-Tx-rLC" id="9nM-H4-5YO"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="全て選択" hidden="YES" keyEquivalent="a" allowsKeyEquivalentWhenHidden="YES" id="aQU-IR-uhf">
+                                            <connections>
+                                                <action selector="selectAll:" target="Ady-hI-5gd" id="W3D-0G-ZHx"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="コピー" hidden="YES" keyEquivalent="c" allowsKeyEquivalentWhenHidden="YES" id="ajo-3q-D7Y" userLabel="コピー">
+                                            <connections>
+                                                <action selector="copy:" target="Ady-hI-5gd" id="qff-AH-Pkj"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="ペースト" hidden="YES" keyEquivalent="v" allowsKeyEquivalentWhenHidden="YES" id="uDE-wW-FcP">
+                                            <connections>
+                                                <action selector="paste:" target="Ady-hI-5gd" id="FKq-Az-r0R"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="カット" hidden="YES" keyEquivalent="x" allowsKeyEquivalentWhenHidden="YES" id="CuR-cv-C5C" userLabel="カット">
+                                            <connections>
+                                                <action selector="cut:" target="Ady-hI-5gd" id="Cy7-s1-beK"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="アンドゥ" hidden="YES" keyEquivalent="z" allowsKeyEquivalentWhenHidden="YES" id="P6o-ES-EXi" userLabel="アンドゥ">
+                                            <connections>
+                                                <action selector="undo:" target="Ady-hI-5gd" id="XvQ-IW-6dj"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="リドゥ" hidden="YES" keyEquivalent="Z" allowsKeyEquivalentWhenHidden="YES" id="sTu-PZ-9Te" userLabel="リドゥ">
+                                            <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="redo:" target="Ady-hI-5gd" id="17F-Uj-8Sk"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="ペンツール" hidden="YES" id="Xzi-qI-1no" userLabel="ペンツール">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="ペンツール" autoenablesItems="NO" id="oJA-ws-43S">
+                                    <items>
+                                        <menuItem title="Undo" id="YA0-ng-TOu">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="menuPenToolUndo:" target="Voe-Tx-rLC" id="m1o-Pd-9nh"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Redo" keyEquivalent="y" id="f87-WL-3yb">
+                                            <connections>
+                                                <action selector="menuPenToolRedo:" target="Voe-Tx-rLC" id="nG3-je-kO8"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="選択中のパスを削除" id="QaT-RW-kK0">
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+CA
+</string>
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="menuPenToolRemoveSelectedPath:" target="Voe-Tx-rLC" id="E1D-oz-Uz7"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="表示" id="H8h-7b-M4v">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="表示" autoenablesItems="NO" id="HyV-fh-RgO">
+                                    <items>
+                                        <menuItem title="画面切替" id="lrf-lH-nb9">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="画面切替" id="zPf-R7-mzO">
+                                                <items>
+                                                    <menuItem title="画面1" keyEquivalent="1" id="q2I-Me-p0p">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="menuToggleScreen1:" target="Voe-Tx-rLC" id="btO-MN-ro9"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="画面2" keyEquivalent="2" id="P6h-cv-FEh">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="menuToggleScreen2:" target="Voe-Tx-rLC" id="mN8-T3-ckk"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="hB3-LF-h0Y"/>
+                                        <menuItem title="タブバーを表示" keyEquivalent="t" id="nWR-bV-OQG">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="toggleToolbarShown:" target="Ady-hI-5gd" id="e6P-fA-Mth"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="0Zt-7z-UIW"/>
+                                        <menuItem title="フルスクリーンにする" keyEquivalent="f" id="4J7-dP-txa">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="toggleFullScreen:" target="Ady-hI-5gd" id="dU3-MA-1Rq"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="ウィンドウ" id="aUF-d1-5bR">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="ウィンドウ" systemMenu="window" id="Td7-aD-5lo">
+                                    <items>
+                                        <menuItem title="しまう" keyEquivalent="m" id="OY7-WF-poV">
+                                            <connections>
+                                                <action selector="performMiniaturize:" target="Ady-hI-5gd" id="VwT-WD-YPe"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="拡大/縮小" id="R4o-n2-Eq4">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="performZoom:" target="Ady-hI-5gd" id="DIl-cC-cCs"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
+                                        <menuItem title="すべてを手前に表示" id="LE2-aR-0XJ">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="arrangeInFront:" target="Ady-hI-5gd" id="DRN-fu-gQh"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
+                    </connections>
+                </application>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SoccerCut_Pro" customModuleProvider="target">
+                    <connections>
+                        <outlet property="menuBtnFinishTrimming" destination="7kC-1i-uUQ" id="5J5-ew-RBX"/>
+                        <outlet property="menuBtnStartTrimming" destination="aMB-ua-i2K" id="Njz-wJ-KqK"/>
+                        <outlet property="menuGeneralRedo" destination="sTu-PZ-9Te" id="LqS-fh-3KE"/>
+                        <outlet property="menuGeneralUndo" destination="P6o-ES-EXi" id="kGv-un-KoQ"/>
+                        <outlet property="menuPenToolRedo" destination="f87-WL-3yb" id="ZiM-BK-yOj"/>
+                        <outlet property="menuPenToolUndo" destination="YA0-ng-TOu" id="bZS-tB-cBk"/>
+                        <outlet property="menuPlayerRewind2x" destination="w0q-Ld-JgU" id="RtY-NV-yxG"/>
+                        <outlet property="menuPlayerSkip2x" destination="pdM-le-G9h" id="rsn-5Q-vwx"/>
+                        <outlet property="menuPlayerStepBackward" destination="Evb-Gg-WHi" id="42B-Rd-G7M"/>
+                        <outlet property="menuPlayerStepForward" destination="0yI-oi-PPo" id="Guf-DD-gCB"/>
+                        <outlet property="menuSwitchSound" destination="s8F-rg-00B" id="Z6M-a4-Gl2"/>
+                        <outlet property="menuSwitchSyncMode" destination="sYv-jP-3A2" id="hJ1-Kb-g3o"/>
+                        <outlet property="parentMenuPenTool" destination="Xzi-qI-1no" id="pFK-cG-QAJ"/>
+                        <outlet property="parentMenuSwitchScreen" destination="lrf-lH-nb9" id="2OG-kH-Wdx"/>
+                        <outlet property="parentMenuTrimming" destination="nae-WS-qYv" id="RFd-Sf-nxl"/>
+                    </connections>
+                </customObject>
+                <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+                <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="83" y="-247"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="R2V-B0-nI4">
+            <objects>
+                <windowController storyboardIdentifier="PlayersWindowID" id="B8D-0N-5wS" customClass="MainWindowController" customModule="SoccerCut_Pro" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="SoccerCut Pro" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="cL8-br-hbg" kind="relationship" relationship="window.shadowedContentViewController" id="mEr-tP-JsM"/>
+                    </connections>
+                </windowController>
+                <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="83" y="24"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="6rv-VI-GsW">
+            <objects>
+                <viewController id="cL8-br-hbg" customClass="MainViewController" customModule="SoccerCut_Pro" customModuleProvider="target" sceneMemberID="viewController">
+                    <customView key="view" id="uYh-bQ-0J8">
+                        <rect key="frame" x="0.0" y="0.0" width="1280" height="720"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="X5C-8q-cFR" userLabel="Player Views" customClass="PlayersView" customModule="SoccerCut_Pro" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="1280" height="720"/>
+                                <subviews>
+                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hTc-EF-Woh" userLabel="Player View Left" customClass="PlayerView" customModule="SoccerCut_Pro" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="640" height="720"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    </customView>
+                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fdo-8u-LOa" userLabel="Player View Right" customClass="PlayerView" customModule="SoccerCut_Pro" customModuleProvider="target">
+                                        <rect key="frame" x="640" y="0.0" width="640" height="720"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    </customView>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="rce-kS-2a7" userLabel="Processing View" customClass="ProcessingView" customModule="SoccerCut_Pro" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="1280" height="720"/>
+                                <subviews>
+                                    <progressIndicator fixedFrame="YES" maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="9uK-zz-WhI">
+                                        <rect key="frame" x="624" y="345" width="32" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    </progressIndicator>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y6e-La-2Op">
+                                        <rect key="frame" x="613" y="344" width="54" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b5S-OK-3Y7">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="onClickOKInProcessingView:" target="cL8-br-hbg" id="Fa3-oF-GKi"/>
+                                        </connections>
+                                    </button>
+                                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aFp-ED-mC8">
+                                        <rect key="frame" x="338" y="450" width="604" height="85"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="動画を保存中です。この処理は数分かかることがあります。" id="8wi-8H-GIO">
+                                            <font key="font" metaFont="system" size="18"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="0.75321534863945583" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="X5C-8q-cFR" secondAttribute="trailing" id="2ct-qB-aJx"/>
+                            <constraint firstAttribute="bottom" secondItem="rce-kS-2a7" secondAttribute="bottom" id="Lkl-CR-6K0"/>
+                            <constraint firstAttribute="bottom" secondItem="X5C-8q-cFR" secondAttribute="bottom" id="UWw-Ne-fSZ"/>
+                            <constraint firstItem="rce-kS-2a7" firstAttribute="leading" secondItem="uYh-bQ-0J8" secondAttribute="leading" id="cAA-YK-INV"/>
+                            <constraint firstItem="X5C-8q-cFR" firstAttribute="leading" secondItem="uYh-bQ-0J8" secondAttribute="leading" id="dJ6-sE-E90"/>
+                            <constraint firstItem="rce-kS-2a7" firstAttribute="top" secondItem="uYh-bQ-0J8" secondAttribute="top" id="gnv-6x-vwW"/>
+                            <constraint firstAttribute="trailing" secondItem="rce-kS-2a7" secondAttribute="trailing" id="sP2-6a-FOY"/>
+                            <constraint firstItem="X5C-8q-cFR" firstAttribute="top" secondItem="uYh-bQ-0J8" secondAttribute="top" id="yx1-nR-kqV"/>
+                        </constraints>
+                    </customView>
+                    <connections>
+                        <outlet property="playerViewLeft" destination="hTc-EF-Woh" id="wJ6-lx-i8k"/>
+                        <outlet property="playerViewRight" destination="fdo-8u-LOa" id="gn9-Wc-0IK"/>
+                        <outlet property="playersView" destination="X5C-8q-cFR" id="CAe-lB-WWZ"/>
+                        <outlet property="processingView" destination="rce-kS-2a7" id="JNA-fu-ijy"/>
+                    </connections>
+                </viewController>
+                <customObject id="0rH-4c-LLg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="700.5"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="mmH-yD-HfN">
+            <objects>
+                <windowController storyboardIdentifier="PenToolWindowID" id="9ST-57-jVB" customClass="PenToolWindowController" customModule="SoccerCut_Pro" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="SoccerCut Pro (Pen Tool)" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="LB3-l3-5Kx">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="294" y="313" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
+                        <view key="contentView" id="2cQ-FI-me1">
+                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
+                        <connections>
+                            <outlet property="delegate" destination="9ST-57-jVB" id="k0U-3u-IuO"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="nqa-Yf-3fi" kind="relationship" relationship="window.shadowedContentViewController" id="x9R-cC-3NB"/>
+                    </connections>
+                </windowController>
+                <customObject id="lrt-MH-65u" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="643" y="24"/>
+        </scene>
+        <!--Pen Tool View Controller-->
+        <scene sceneID="kYl-4t-hoH">
+            <objects>
+                <viewController id="nqa-Yf-3fi" customClass="PenToolViewController" customModule="SoccerCut_Pro" customModuleProvider="target" sceneMemberID="viewController">
+                    <customView key="view" id="ztU-QW-aho">
+                        <rect key="frame" x="0.0" y="0.0" width="1280" height="720"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <customView id="4K7-c0-tRx" customClass="PenToolSceneRootView" customModule="SoccerCut_Pro" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="1280" height="720"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QaU-UR-Lfy" customClass="PenToolPlayerView" customModule="SoccerCut_Pro" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="1280" height="720"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </customView>
+                                </subviews>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="TVO-K8-W8G" userLabel="Processing View" customClass="PenToolProcessingView" customModule="SoccerCut_Pro" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="1280" height="720"/>
+                                <subviews>
+                                    <progressIndicator fixedFrame="YES" maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="qJP-xR-vxs">
+                                        <rect key="frame" x="624" y="345" width="32" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    </progressIndicator>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7FZ-uU-52h">
+                                        <rect key="frame" x="613" y="344" width="54" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OIz-18-Lyf">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="onClickOKInProcessingView:" target="nqa-Yf-3fi" id="lGk-Tt-xYq"/>
+                                        </connections>
+                                    </button>
+                                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZCq-bW-ohD">
+                                        <rect key="frame" x="338" y="450" width="604" height="85"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="動画を保存中です。この処理は数分かかることがあります。" id="BHC-HD-fMg">
+                                            <font key="font" metaFont="system" size="18"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="0.75321534859999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="TVO-K8-W8G" secondAttribute="bottom" id="9PT-db-35e"/>
+                            <constraint firstItem="TVO-K8-W8G" firstAttribute="top" secondItem="ztU-QW-aho" secondAttribute="top" id="9QS-xy-Wbk"/>
+                            <constraint firstItem="TVO-K8-W8G" firstAttribute="leading" secondItem="ztU-QW-aho" secondAttribute="leading" id="O79-MN-iR7"/>
+                            <constraint firstAttribute="trailing" secondItem="TVO-K8-W8G" secondAttribute="trailing" id="qlL-FJ-U2o"/>
+                        </constraints>
+                    </customView>
+                    <connections>
+                        <outlet property="processingView" destination="TVO-K8-W8G" id="M1L-1S-Cyd"/>
+                        <outlet property="sceneRootView" destination="4K7-c0-tRx" id="Wa5-C3-Xm8"/>
+                    </connections>
+                </viewController>
+                <customObject id="XCW-Le-1kU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1437" y="700"/>
+        </scene>
+    </scenes>
+</document>

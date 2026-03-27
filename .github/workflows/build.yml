@@ -1,0 +1,50 @@
+name: Build SoccerCut Pro
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14  # Apple Silicon, Xcode 15+
+
+    strategy:
+      matrix:
+        scheme: [Paid, Subscription]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_15.4.app
+
+      - name: Build ${{ matrix.scheme }}
+        run: |
+          xcodebuild \
+            -project "SoccerCut Pro.xcodeproj" \
+            -scheme "${{ matrix.scheme }}" \
+            -configuration Release \
+            -destination "platform=macOS" \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            DEVELOPMENT_TEAM="" \
+            -derivedDataPath build/DerivedData \
+            build
+
+      - name: Package app
+        run: |
+          APP_PATH=$(find build/DerivedData -name "SoccerCut Pro.app" -type d | head -1)
+          mkdir -p artifacts
+          ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" "artifacts/SoccerCut-Pro-${{ matrix.scheme }}.zip"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SoccerCut-Pro-${{ matrix.scheme }}
+          path: artifacts/SoccerCut-Pro-${{ matrix.scheme }}.zip
+          retention-days: 7

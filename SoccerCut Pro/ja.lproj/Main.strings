@@ -1,0 +1,159 @@
+
+/* Class = "NSMenuItem"; title = "1フレーム進める"; ObjectID = "0yI-oi-PPo"; */
+"0yI-oi-PPo.title" = "1フレーム進める";
+
+/* Class = "NSMenuItem"; title = "SoccerCut Pro"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "SoccerCut Pro";
+
+/* Class = "NSMenuItem"; title = "フルスクリーンにする"; ObjectID = "4J7-dP-txa"; */
+"4J7-dP-txa.title" = "フルスクリーンにする";
+
+/* Class = "NSMenuItem"; title = "Quit"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Quit";
+
+/* Class = "NSMenuItem"; title = "編集"; ObjectID = "5QF-Oa-p0T"; */
+"5QF-Oa-p0T.title" = "編集";
+
+/* Class = "NSMenuItem"; title = "About"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "About";
+
+/* Class = "NSMenuItem"; title = "再生/一時停止"; ObjectID = "6Ls-ga-TWk"; */
+"6Ls-ga-TWk.title" = "再生/一時停止";
+
+/* Class = "NSMenuItem"; title = "終了"; ObjectID = "7kC-1i-uUQ"; */
+"7kC-1i-uUQ.title" = "終了";
+
+/* Class = "NSTextFieldCell"; title = "動画を保存中です。この処理は数分かかることがあります。"; ObjectID = "8wi-8H-GIO"; */
+"8wi-8H-GIO.title" = "動画を保存中です。この処理は数分かかることがあります。";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Main Menu";
+
+/* Class = "NSMenuItem"; title = "閉じる"; ObjectID = "DVo-aG-piG"; */
+"DVo-aG-piG.title" = "閉じる";
+
+/* Class = "NSMenuItem"; title = "1フレーム戻す"; ObjectID = "Evb-Gg-WHi"; */
+"Evb-Gg-WHi.title" = "1フレーム戻す";
+
+/* Class = "NSMenuItem"; title = "表示"; ObjectID = "H8h-7b-M4v"; */
+"H8h-7b-M4v.title" = "表示";
+
+/* Class = "NSMenuItem"; title = "再生/一時停止"; ObjectID = "HeC-zA-zHQ"; */
+"HeC-zA-zHQ.title" = "再生/一時停止";
+
+/* Class = "NSMenu"; title = "表示"; ObjectID = "HyV-fh-RgO"; */
+"HyV-fh-RgO.title" = "表示";
+
+/* Class = "NSMenuItem"; title = "開く"; ObjectID = "IAo-SY-fd9"; */
+"IAo-SY-fd9.title" = "開く";
+
+/* Class = "NSWindow"; title = "SoccerCut Pro"; ObjectID = "IQv-IB-iLA"; */
+"IQv-IB-iLA.title" = "SoccerCut Pro";
+
+/* Class = "NSMenu"; title = "シーン切り出し"; ObjectID = "JaP-AK-KXG"; */
+"JaP-AK-KXG.title" = "シーン切り出し";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "Show All";
+
+/* Class = "NSMenuItem"; title = "すべてを手前に表示"; ObjectID = "LE2-aR-0XJ"; */
+"LE2-aR-0XJ.title" = "すべてを手前に表示";
+
+/* Class = "NSMenuItem"; title = "巻き戻し"; ObjectID = "N0C-HD-8DR"; */
+"N0C-HD-8DR.title" = "巻き戻し";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz"; */
+"NMo-om-nkz.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "5秒戻す"; ObjectID = "NY3-CJ-FF5"; */
+"NY3-CJ-FF5.title" = "5秒戻す";
+
+/* Class = "NSMenuItem"; title = "しまう"; ObjectID = "OY7-WF-poV"; */
+"OY7-WF-poV.title" = "しまう";
+
+/* Class = "NSMenuItem"; title = "Hide SoccerCut Pro"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "Hide SoccerCut Pro";
+
+/* Class = "NSMenuItem"; title = "画面2"; ObjectID = "P6h-cv-FEh"; */
+"P6h-cv-FEh.title" = "画面2";
+
+/* Class = "NSMenuItem"; title = "拡大/縮小"; ObjectID = "R4o-n2-Eq4"; */
+"R4o-n2-Eq4.title" = "拡大/縮小";
+
+/* Class = "NSMenu"; title = "ウィンドウ"; ObjectID = "Td7-aD-5lo"; */
+"Td7-aD-5lo.title" = "ウィンドウ";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "Hide Others";
+
+/* Class = "NSMenu"; title = "編集"; ObjectID = "W48-6f-4Dl"; */
+"W48-6f-4Dl.title" = "編集";
+
+/* Class = "NSMenuItem"; title = "開始"; ObjectID = "aMB-ua-i2K"; */
+"aMB-ua-i2K.title" = "開始";
+
+/* Class = "NSMenuItem"; title = "ウィンドウ"; ObjectID = "aUF-d1-5bR"; */
+"aUF-d1-5bR.title" = "ウィンドウ";
+
+/* Class = "NSButtonCell"; title = "OK"; ObjectID = "b5S-OK-3Y7"; */
+"b5S-OK-3Y7.title" = "OK";
+
+/* Class = "NSMenu"; title = "ファイル"; ObjectID = "bib-Uj-vzu"; */
+"bib-Uj-vzu.title" = "ファイル";
+
+/* Class = "NSMenuItem"; title = "5秒進める"; ObjectID = "cII-u0-UTa"; */
+"cII-u0-UTa.title" = "5秒進める";
+
+/* Class = "NSMenuItem"; title = "ファイル"; ObjectID = "dMs-cI-mzQ"; */
+"dMs-cI-mzQ.title" = "ファイル";
+
+/* Class = "NSMenu"; title = "再生"; ObjectID = "hIk-nw-0e9"; */
+"hIk-nw-0e9.title" = "再生";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
+"hz9-B4-Xy5.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "画面切替"; ObjectID = "lrf-lH-nb9"; */
+"lrf-lH-nb9.title" = "画面切替";
+
+/* Class = "NSMenuItem"; title = "再生"; ObjectID = "nTf-e3-LaZ"; */
+"nTf-e3-LaZ.title" = "再生";
+
+/* Class = "NSMenuItem"; title = "タブバーを表示"; ObjectID = "nWR-bV-OQG"; */
+"nWR-bV-OQG.title" = "タブバーを表示";
+
+/* Class = "NSMenuItem"; title = "シーン切り出し"; ObjectID = "nae-WS-qYv"; */
+"nae-WS-qYv.title" = "シーン切り出し";
+
+/* Class = "NSMenu"; title = "最近使った項目を開く"; ObjectID = "oas-Oc-fiZ"; */
+"oas-Oc-fiZ.title" = "最近使った項目を開く";
+
+/* Class = "NSMenuItem"; title = "2倍速早送り"; ObjectID = "pdM-le-G9h"; */
+"pdM-le-G9h.title" = "2倍速早送り";
+
+/* Class = "NSMenuItem"; title = "画面1"; ObjectID = "q2I-Me-p0p"; */
+"q2I-Me-p0p.title" = "画面1";
+
+/* Class = "NSMenuItem"; title = "早送り"; ObjectID = "qo0-xY-j7s"; */
+"qo0-xY-j7s.title" = "早送り";
+
+/* Class = "NSMenuItem"; title = "音声切替"; ObjectID = "s8F-rg-00B"; */
+"s8F-rg-00B.title" = "音声切替";
+
+/* Class = "NSMenuItem"; title = "Syncモード切替"; ObjectID = "sYv-jP-3A2"; */
+"sYv-jP-3A2.title" = "Syncモード切替";
+
+/* Class = "NSMenuItem"; title = "最近使った項目を開く"; ObjectID = "tXI-mr-wws"; */
+"tXI-mr-wws.title" = "最近使った項目を開く";
+
+/* Class = "NSMenu"; title = "SoccerCut Pro"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "SoccerCut Pro";
+
+/* Class = "NSMenuItem"; title = "Clear Menu"; ObjectID = "vNY-rz-j42"; */
+"vNY-rz-j42.title" = "Clear Menu";
+
+/* Class = "NSMenuItem"; title = "2倍速巻き戻し"; ObjectID = "w0q-Ld-JgU"; */
+"w0q-Ld-JgU.title" = "2倍速巻き戻し";
+
+/* Class = "NSMenu"; title = "画面切替"; ObjectID = "zPf-R7-mzO"; */
+"zPf-R7-mzO.title" = "画面切替";

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22689"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PlayerView" customModule="SoccerCut_Pro" customModuleProvider="target">
+            <connections>
+                <outlet property="penToolBtn" destination="hoG-dh-oOR" id="18Z-BH-TZY"/>
+                <outlet property="playerBtn" destination="MJW-8R-rmT" id="dMx-o5-tVf"/>
+                <outlet property="reviewBtn" destination="Gnb-Dm-wMg" id="2vc-Ty-eJa"/>
+                <outlet property="subscriptionBtn" destination="TRZ-Ct-zRf" id="QqS-fr-ufN"/>
+                <outlet property="tutorialBtn" destination="Bdn-Fp-72F" id="pb2-ld-5di"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="561" height="428"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MJW-8R-rmT">
+                    <rect key="frame" x="208" y="261" width="144" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="push" title="プレーヤー" bezelStyle="rounded" imagePosition="left" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="C0W-N7-HEU">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <imageReference key="image" image="play.rectangle" catalog="system" symbolScale="large"/>
+                    </buttonCell>
+                    <color key="bezelColor" name="AccentColor"/>
+                    <color key="contentTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <action selector="clickPlayerBtn:" target="-2" id="7S3-y2-Lq1"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hoG-dh-oOR">
+                    <rect key="frame" x="208" y="231" width="144" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="push" title="ペンツール" bezelStyle="rounded" imagePosition="left" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ntb-j7-ve6">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <imageReference key="image" image="pencil.and.outline" catalog="system" symbolScale="large"/>
+                    </buttonCell>
+                    <color key="bezelColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
+                    <color key="contentTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <action selector="clickPenToolBtn:" target="-2" id="0jw-7e-mVc"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gnb-Dm-wMg">
+                    <rect key="frame" x="208" y="140" width="144" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="push" title="レビュー" bezelStyle="rounded" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dSO-jb-RHs">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickReviewBtn:" target="-2" id="x1e-sO-h6D"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TRZ-Ct-zRf" userLabel="サブスクリプション">
+                    <rect key="frame" x="208" y="110" width="144" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="push" title="サブスクリプション" bezelStyle="rounded" alignment="center" controlSize="large" enabled="NO" borderStyle="border" transparent="YES" imageScaling="proportionallyDown" inset="2" id="JfZ-dL-FCQ">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickSubscriptionBtn:" target="-2" id="07A-tx-7kg"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bdn-Fp-72F" userLabel="チュートリアル">
+                    <rect key="frame" x="208" y="172" width="144" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="push" title="チュートリアル" bezelStyle="rounded" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="U4A-ll-oNj">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickTutorialBtn:" target="-2" id="Ab3-HE-Loa"/>
+                    </connections>
+                </button>
+            </subviews>
+            <point key="canvasLocation" x="-6.5" y="6"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="pencil.and.outline" catalog="system" width="20" height="21"/>
+        <image name="play.rectangle" catalog="system" width="24" height="17"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,1510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AB02349E2AFB4232000FAC95 /* PenToolStyleSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB02349D2AFB4232000FAC95 /* PenToolStyleSlider.swift */; };
+		AB0234A52AFB8661000FAC95 /* PenToolStyleArrowUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0234A42AFB8661000FAC95 /* PenToolStyleArrowUserDefaultsKey.swift */; };
+		AB0234A72AFB9D29000FAC95 /* PenToolStyleCircleUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0234A62AFB9D29000FAC95 /* PenToolStyleCircleUserDefaultsKey.swift */; };
+		AB0234A92AFB9E62000FAC95 /* PenToolStyleDashedArrowUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0234A82AFB9E62000FAC95 /* PenToolStyleDashedArrowUserDefaultsKey.swift */; };
+		AB0234AB2AFB9F9D000FAC95 /* PenToolStyleLobPassArrowUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0234AA2AFB9F9D000FAC95 /* PenToolStyleLobPassArrowUserDefaultsKey.swift */; };
+		AB0234AD2AFBA0B8000FAC95 /* PenToolStyleLineUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0234AC2AFBA0B8000FAC95 /* PenToolStyleLineUserDefaultsKey.swift */; };
+		AB0234AF2AFBA154000FAC95 /* PenToolStyleCircleFillUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0234AE2AFBA154000FAC95 /* PenToolStyleCircleFillUserDefaultsKey.swift */; };
+		AB0234B12AFBB6EC000FAC95 /* PenToolStyleTextUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0234B02AFBB6EC000FAC95 /* PenToolStyleTextUserDefaultsKey.swift */; };
+		AB1048122A8F7CF400C8ACB0 /* EraserPathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1048112A8F7CF400C8ACB0 /* EraserPathDrawer.swift */; };
+		AB1048142A8FA4AE00C8ACB0 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1048132A8FA4AE00C8ACB0 /* Notification+Name.swift */; };
+		AB152D5B2A32B2B500B43558 /* NSWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB152D5A2A32B2B500B43558 /* NSWindow+.swift */; };
+		AB17B7A62AFE35520064189A /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB17B7A52AFE35520064189A /* CircleButton.swift */; };
+		AB1C02632A1A1168008B45B0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1C02612A1A1168008B45B0 /* MainViewController.swift */; };
+		AB2226AB2A248BC300B2A734 /* SeekBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2226AA2A248BC300B2A734 /* SeekBar.swift */; };
+		AB231C812A1B559F00921307 /* XibFilesOwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB231C802A1B559F00921307 /* XibFilesOwnerView.swift */; };
+		AB231C832A1B615E00921307 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB231C822A1B615E00921307 /* PlayerView.swift */; };
+		AB231C852A1B627B00921307 /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB231C842A1B627B00921307 /* PlayerView.xib */; };
+		AB2C38FE2ABE957F00731C0C /* PenToolEffectThumbnailListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2C38FD2ABE957F00731C0C /* PenToolEffectThumbnailListViewModel.swift */; };
+		AB32991E2AA41BDA00183AA6 /* PenToolCanvasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32991D2AA41BDA00183AA6 /* PenToolCanvasViewModel.swift */; };
+		AB3AF06F2A3BE0750096287A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3AF06E2A3BE0750096287A /* StoreKit.framework */; };
+		AB3E51512A1C3C6A00E0B473 /* NSView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E51502A1C3C6A00E0B473 /* NSView+.swift */; };
+		AB46F4522A3DE4C000DEEF92 /* ValidTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB46F4512A3DE4C000DEEF92 /* ValidTransactions.swift */; };
+		AB46F4552A3DEBE500DEEF92 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB46F4542A3DEBE500DEEF92 /* Products.swift */; };
+		AB4E9E9A2A73E4BA0060707A /* PenToolWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E9E992A73E4BA0060707A /* PenToolWindowController.swift */; };
+		AB4E9E9C2A73E5700060707A /* PenToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E9E9B2A73E5700060707A /* PenToolViewController.swift */; };
+		AB4E9EA02A73EA120060707A /* PenToolPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E9E9F2A73EA120060707A /* PenToolPlayerView.swift */; };
+		AB4E9EA22A73F7520060707A /* PenToolSceneRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E9EA12A73F7520060707A /* PenToolSceneRootView.swift */; };
+		AB4E9EAA2A73FB720060707A /* PenToolTypePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E9EA92A73FB720060707A /* PenToolTypePanel.swift */; };
+		AB4E9EAC2A73FC290060707A /* PenToolEffectThumbnailListPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E9EAB2A73FC290060707A /* PenToolEffectThumbnailListPanel.swift */; };
+		AB4EF61B2AC8171F008DA7F7 /* PenToolEffectThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4EF61A2AC8171F008DA7F7 /* PenToolEffectThumbnailView.swift */; };
+		AB4EF61F2AC81A06008DA7F7 /* PenToolEffectThumbnailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4EF61E2AC81A06008DA7F7 /* PenToolEffectThumbnailViewModel.swift */; };
+		AB532BFD2A28B74F006B2376 /* PlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB532BFC2A28B74F006B2376 /* PlayersViewModel.swift */; };
+		AB6561B72AF85D03004AF078 /* PurchaseChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6561B62AF85D03004AF078 /* PurchaseChecker.swift */; };
+		AB6561B92AF8626E004AF078 /* WebSiteURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6561B82AF8626E004AF078 /* WebSiteURL.swift */; };
+		AB756CF72AA0C57D00A8B6E8 /* PenToolPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB756CF62AA0C57D00A8B6E8 /* PenToolPlayerViewModel.swift */; };
+		AB75B9152A8CAD1F00C80171 /* PenToolEditPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75B9142A8CAD1F00C80171 /* PenToolEditPanel.swift */; };
+		AB75B9192A8D0CF300C80171 /* PenToolUndoableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75B9182A8D0CF300C80171 /* PenToolUndoableStep.swift */; };
+		AB766D6F2A9F7EAD003934EA /* PenToolPlayerControlsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB766D6E2A9F7EAD003934EA /* PenToolPlayerControlsPanel.swift */; };
+		AB766D772A9F89DB003934EA /* PenToolPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB766D762A9F89DB003934EA /* PenToolPlayer.swift */; };
+		AB7C8C372A3173EC000635E5 /* NSEvent+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7C8C362A3173EC000635E5 /* NSEvent+.swift */; };
+		AB7C8C392A31765F000635E5 /* CGPoint+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7C8C382A31765F000635E5 /* CGPoint+.swift */; };
+		AB7C8C3D2A3176E4000635E5 /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7C8C3C2A3176E4000635E5 /* CGRect+.swift */; };
+		AB7C8C3F2A317787000635E5 /* CGSize+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7C8C3E2A317787000635E5 /* CGSize+.swift */; };
+		AB86EA8E2A2C765600B6DF3C /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86EA8D2A2C765600B6DF3C /* MainWindowController.swift */; };
+		AB88783E2A85DDEE00CA9D71 /* PenToolStylePanelPerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88783D2A85DDEE00CA9D71 /* PenToolStylePanelPerType.swift */; };
+		AB8A29F62AA22420002B9356 /* PenToolPathProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A29F52AA22420002B9356 /* PenToolPathProtocol.swift */; };
+		AB8A29F82AA225FF002B9356 /* EraserPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A29F72AA225FF002B9356 /* EraserPath.swift */; };
+		AB92846C2A4A50C600A9A891 /* PurchaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB92846B2A4A50C600A9A891 /* PurchaseType.swift */; };
+		AB98B9902AA1F2B60088F023 /* PenToolPlayPauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B98F2AA1F2B60088F023 /* PenToolPlayPauseButton.swift */; };
+		AB98B9922AA1F3180088F023 /* PenToolPlayPauseButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B9912AA1F3180088F023 /* PenToolPlayPauseButtonViewModel.swift */; };
+		AB98B9952AA1F6130088F023 /* PenToolMuteSoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B9942AA1F6130088F023 /* PenToolMuteSoundButton.swift */; };
+		AB98B9972AA1F6590088F023 /* PenToolMuteSoundButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B9962AA1F6590088F023 /* PenToolMuteSoundButtonViewModel.swift */; };
+		AB98B9992AA1F7D60088F023 /* PenToolVolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B9982AA1F7D60088F023 /* PenToolVolumeSlider.swift */; };
+		AB98B99B2AA1F87E0088F023 /* PenToolVolumeSliderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B99A2AA1F87E0088F023 /* PenToolVolumeSliderViewModel.swift */; };
+		AB98B99D2AA1FCF80088F023 /* PenToolRewindButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B99C2AA1FCF80088F023 /* PenToolRewindButton.swift */; };
+		AB98B99F2AA1FD510088F023 /* PenToolRewindButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B99E2AA1FD510088F023 /* PenToolRewindButtonViewModel.swift */; };
+		AB98B9A12AA1FEE40088F023 /* PenToolSkipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B9A02AA1FEE40088F023 /* PenToolSkipButton.swift */; };
+		AB98B9A32AA1FF2F0088F023 /* PenToolSkipButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B9A22AA1FF2F0088F023 /* PenToolSkipButtonViewModel.swift */; };
+		AB98B9A52AA1FFD00088F023 /* PenToolSeekBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B9A42AA1FFD00088F023 /* PenToolSeekBar.swift */; };
+		AB98B9A72AA2000E0088F023 /* PenToolSeekBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B9A62AA2000E0088F023 /* PenToolSeekBarViewModel.swift */; };
+		AB9A58582A2FC824002C15DB /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A58572A2FC824002C15DB /* PlayerModel.swift */; };
+		ABA15E232A2FD29400EA7442 /* PlayersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA15E222A2FD29400EA7442 /* PlayersModel.swift */; };
+		ABA4BC672A21E17A00FAAFD6 /* PlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA4BC662A21E17A00FAAFD6 /* PlayerControlsView.swift */; };
+		ABA4BC692A21EE7300FAAFD6 /* PlayingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA4BC682A21EE7300FAAFD6 /* PlayingState.swift */; };
+		ABB18BF22AEC96E9005A5606 /* SaveCounterForReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB18BF12AEC96E9005A5606 /* SaveCounterForReview.swift */; };
+		ABB220472A1F1D0400249945 /* ButtonStaticIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB220462A1F1D0400249945 /* ButtonStaticIcon.swift */; };
+		ABB3F5222AEDFC1700E2F9C4 /* ProductSelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB3F5212AEDFC1700E2F9C4 /* ProductSelectionButton.swift */; };
+		ABB43D722A184F7D0032E8F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB43D712A184F7D0032E8F7 /* AppDelegate.swift */; };
+		ABB43D762A184F7E0032E8F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABB43D752A184F7E0032E8F7 /* Assets.xcassets */; };
+		ABB43D792A184F7E0032E8F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB43D772A184F7E0032E8F7 /* Main.storyboard */; };
+		ABB602352A7F6B7200FA260A /* PenToolPathDrawerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB602342A7F6B7200FA260A /* PenToolPathDrawerProtocol.swift */; };
+		ABB602372A7F7ABA00FA260A /* PenToolPathHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB602362A7F7ABA00FA260A /* PenToolPathHistory.swift */; };
+		ABB6023C2A7F8AE800FA260A /* CirclePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6023B2A7F8AE800FA260A /* CirclePath.swift */; };
+		ABB6023E2A7FDEA700FA260A /* CirclePathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6023D2A7FDEA700FA260A /* CirclePathDrawer.swift */; };
+		ABB8BF682A7DDAD1000FC4C0 /* ArrowPathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8BF672A7DDAD1000FC4C0 /* ArrowPathDrawer.swift */; };
+		ABB8BF6B2A7DDF69000FC4C0 /* PenToolDrawnPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8BF6A2A7DDF69000FC4C0 /* PenToolDrawnPath.swift */; };
+		ABB8BF6D2A7DE3DD000FC4C0 /* PenToolPathFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8BF6C2A7DE3DD000FC4C0 /* PenToolPathFactory.swift */; };
+		ABB8BF6F2A7DE468000FC4C0 /* PenToolPathStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8BF6E2A7DE468000FC4C0 /* PenToolPathStyle.swift */; };
+		ABBAFF4F2A241EF700F042A6 /* ButtonDynamicIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBAFF4E2A241EF700F042A6 /* ButtonDynamicIcon.swift */; };
+		ABBC5A2D2AF1E27E00CF997D /* PenToolEditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBC5A2C2AF1E27E00CF997D /* PenToolEditButton.swift */; };
+		ABBEE15D2A237DAD00E5ADEF /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBEE15C2A237DAD00E5ADEF /* PlayerViewModel.swift */; };
+		ABC0D4CD2BC6626D003EBCFC /* PenToolPathTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0D4CC2BC6626D003EBCFC /* PenToolPathTransform.swift */; };
+		ABC5265D2AED34370087A9E1 /* ApplicationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC5265C2AED34370087A9E1 /* ApplicationMode.swift */; };
+		ABC5265F2AED59B90087A9E1 /* ProductSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC5265E2AED59B90087A9E1 /* ProductSelectionView.swift */; };
+		ABC704D82A297A9A00E0F982 /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC704D72A297A9A00E0F982 /* URL+.swift */; };
+		ABC704DA2A29CBEA00E0F982 /* VolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC704D92A29CBEA00E0F982 /* VolumeSlider.swift */; };
+		ABC704DC2A29D61900E0F982 /* DualSwitchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC704DB2A29D61900E0F982 /* DualSwitchesView.swift */; };
+		ABC7E2AA2ACED70800B79074 /* PenToolSceneRootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC7E2A92ACED70800B79074 /* PenToolSceneRootViewModel.swift */; };
+		ABCF2FD02AA163D400F0A75B /* PenToolModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF2FCF2AA163D400F0A75B /* PenToolModel.swift */; };
+		ABCF52FA2A7786E70033FAE1 /* PenToolTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF52F92A7786E70033FAE1 /* PenToolTypeButton.swift */; };
+		ABCF53002A77AE5E0033FAE1 /* LobPassArrowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF52FF2A77AE5E0033FAE1 /* LobPassArrowButton.swift */; };
+		ABCF53022A77B06D0033FAE1 /* DashedArrowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF53012A77B06D0033FAE1 /* DashedArrowButton.swift */; };
+		ABCF530A2A77C32D0033FAE1 /* PenToolType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF53092A77C32D0033FAE1 /* PenToolType.swift */; };
+		ABCF53112A77E5910033FAE1 /* PenToolCanvasPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF53102A77E5910033FAE1 /* PenToolCanvasPanel.swift */; };
+		ABCF53142A77E7010033FAE1 /* ArrowPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF53132A77E7010033FAE1 /* ArrowPath.swift */; };
+		ABCFD4492A24B51B0092986A /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCFD4482A24B51B0092986A /* Int+.swift */; };
+		ABD3522A2A86665A00EEF3BC /* NSColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD352292A86665A00EEF3BC /* NSColor+.swift */; };
+		ABD3522C2A86666000EEF3BC /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD3522B2A86666000EEF3BC /* Color+.swift */; };
+		ABD391822AAF536B0039558C /* PenToolEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD391812AAF536B0039558C /* PenToolEditViewModel.swift */; };
+		ABD5ECAE2A272FB900F1F9CF /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD5ECAD2A272FB900F1F9CF /* Triangle.swift */; };
+		ABD7BD4E2ACAB7100076A39D /* PenToolDrawnPathsCompositer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD4D2ACAB7100076A39D /* PenToolDrawnPathsCompositer.swift */; };
+		ABD7BD502ACAB7D70076A39D /* PenToolDrawnPathsCompositerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD4F2ACAB7D70076A39D /* PenToolDrawnPathsCompositerViewModel.swift */; };
+		ABD7BD522ACABDF60076A39D /* PenToolEffectThumbnailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD512ACABDF60076A39D /* PenToolEffectThumbnailsModel.swift */; };
+		ABD7BD562ACAF4580076A39D /* PenToolFrozenFrameMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD552ACAF4580076A39D /* PenToolFrozenFrameMovie.swift */; };
+		ABD7BD5A2ACAFB7A0076A39D /* CIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD592ACAFB7A0076A39D /* CIImage+.swift */; };
+		ABD7C17E2AF0F8D300E90BDE /* DashedArrowPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C17D2AF0F8D300E90BDE /* DashedArrowPath.swift */; };
+		ABD7C1802AF0FA1000E90BDE /* DashedArrowPathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C17F2AF0FA1000E90BDE /* DashedArrowPathDrawer.swift */; };
+		ABD7C1842AF112DC00E90BDE /* LobPassArrowPathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C1832AF112DC00E90BDE /* LobPassArrowPathDrawer.swift */; };
+		ABD7C1862AF1133F00E90BDE /* LobPassArrowPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C1852AF1133F00E90BDE /* LobPassArrowPath.swift */; };
+		ABD7C1882AF142AE00E90BDE /* CircleFillPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C1872AF142AE00E90BDE /* CircleFillPath.swift */; };
+		ABD7C18A2AF142B700E90BDE /* LinePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C1892AF142B700E90BDE /* LinePath.swift */; };
+		ABD7C18C2AF1436700E90BDE /* LinePathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C18B2AF1436700E90BDE /* LinePathDrawer.swift */; };
+		ABD7C18E2AF143F500E90BDE /* CircleFillPathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C18D2AF143F500E90BDE /* CircleFillPathDrawer.swift */; };
+		ABD7C1902AF1456400E90BDE /* TextPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C18F2AF1456400E90BDE /* TextPath.swift */; };
+		ABD7C1922AF1496D00E90BDE /* TextPathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C1912AF1496D00E90BDE /* TextPathDrawer.swift */; };
+		ABDEBF452BD63FB30072F6C4 /* PenToolEffectThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4EF61A2AC8171F008DA7F7 /* PenToolEffectThumbnailView.swift */; };
+		ABDEBF462BD63FB30072F6C4 /* PenToolDrawnPathViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF2347E2B1EE8C6007C61DF /* PenToolDrawnPathViewModel.swift */; };
+		ABDEBF472BD63FB30072F6C4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1C02612A1A1168008B45B0 /* MainViewController.swift */; };
+		ABDEBF482BD63FB30072F6C4 /* PenToolVolumeSliderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B99A2AA1F87E0088F023 /* PenToolVolumeSliderViewModel.swift */; };
+		ABDEBF492BD63FB30072F6C4 /* NSImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DF7C2ACC103200ADA2D1 /* NSImage+.swift */; };
+		ABDEBF4A2BD63FB30072F6C4 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1048132A8FA4AE00C8ACB0 /* Notification+Name.swift */; };
+		ABDEBF4B2BD63FB30072F6C4 /* SubscriptionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF15412A3C476B005DB0BD /* SubscriptionError.swift */; };
+		ABDEBF4C2BD63FB30072F6C4 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBEE15C2A237DAD00E5ADEF /* PlayerViewModel.swift */; };
+		ABDEBF4D2BD63FB30072F6C4 /* PenToolPathDrawerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB602342A7F6B7200FA260A /* PenToolPathDrawerProtocol.swift */; };
+		ABDEBF4E2BD63FB30072F6C4 /* ScreenSides.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5367E2A1C991C008F5F4B /* ScreenSides.swift */; };
+		ABDEBF4F2BD63FB30072F6C4 /* ProductId.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF15432A3C4881005DB0BD /* ProductId.swift */; };
+		ABDEBF502BD63FB30072F6C4 /* PenToolDrawnPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8BF6A2A7DDF69000FC4C0 /* PenToolDrawnPath.swift */; };
+		ABDEBF512BD63FB30072F6C4 /* LinePathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C18B2AF1436700E90BDE /* LinePathDrawer.swift */; };
+		ABDEBF522BD63FB30072F6C4 /* PenToolCanvasPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF53102A77E5910033FAE1 /* PenToolCanvasPanel.swift */; };
+		ABDEBF532BD63FB30072F6C4 /* EraserPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A29F72AA225FF002B9356 /* EraserPath.swift */; };
+		ABDEBF542BD63FB30072F6C4 /* WebSiteURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6561B82AF8626E004AF078 /* WebSiteURL.swift */; };
+		ABDEBF552BD63FB30072F6C4 /* PenToolDrawnPathsCompositerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD4F2ACAB7D70076A39D /* PenToolDrawnPathsCompositerViewModel.swift */; };
+		ABDEBF562BD63FB30072F6C4 /* PenToolSkipButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B9A22AA1FF2F0088F023 /* PenToolSkipButtonViewModel.swift */; };
+		ABDEBF572BD63FB30072F6C4 /* PenToolStyleCircleUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0234A62AFB9D29000FAC95 /* PenToolStyleCircleUserDefaultsKey.swift */; };
+		ABDEBF582BD63FB30072F6C4 /* TextPathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C1912AF1496D00E90BDE /* TextPathDrawer.swift */; };
+		ABDEBF592BD63FB30072F6C4 /* ApplicationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC5265C2AED34370087A9E1 /* ApplicationMode.swift */; };
+		ABDEBF5A2BD63FB30072F6C4 /* DashedArrowPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C17D2AF0F8D300E90BDE /* DashedArrowPath.swift */; };
+		ABDEBF5B2BD63FB30072F6C4 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB231C822A1B615E00921307 /* PlayerView.swift */; };
+		ABDEBF5C2BD63FB30072F6C4 /* PenToolEditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBC5A2C2AF1E27E00CF997D /* PenToolEditButton.swift */; };
+		ABDEBF5D2BD63FB30072F6C4 /* PenToolPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E9E9F2A73EA120060707A /* PenToolPlayerView.swift */; };
+		ABDEBF5E2BD63FB30072F6C4 /* PlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB532BFC2A28B74F006B2376 /* PlayersViewModel.swift */; };
+		ABDEBF5F2BD63FB30072F6C4 /* PenToolSeekBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B9A62AA2000E0088F023 /* PenToolSeekBarViewModel.swift */; };
+		ABDEBF602BD63FB30072F6C4 /* TextPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C18F2AF1456400E90BDE /* TextPath.swift */; };
+		ABDEBF612BD63FB30072F6C4 /* ProductSelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB3F5212AEDFC1700E2F9C4 /* ProductSelectionButton.swift */; };
+		ABDEBF622BD63FB30072F6C4 /* ButtonStaticIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB220462A1F1D0400249945 /* ButtonStaticIcon.swift */; };
+		ABDEBF632BD63FB30072F6C4 /* PenToolPlayPauseButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B9912AA1F3180088F023 /* PenToolPlayPauseButtonViewModel.swift */; };
+		ABDEBF642BD63FB30072F6C4 /* PenToolTypePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E9EA92A73FB720060707A /* PenToolTypePanel.swift */; };
+		ABDEBF652BD63FB30072F6C4 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB17B7A52AFE35520064189A /* CircleButton.swift */; };
+		ABDEBF662BD63FB30072F6C4 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCFD4482A24B51B0092986A /* Int+.swift */; };
+		ABDEBF672BD63FB30072F6C4 /* PlayersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA15E222A2FD29400EA7442 /* PlayersModel.swift */; };
+		ABDEBF682BD63FB30072F6C4 /* SaveCounterForReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB18BF12AEC96E9005A5606 /* SaveCounterForReview.swift */; };
+		ABDEBF692BD63FB30072F6C4 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD5ECAD2A272FB900F1F9CF /* Triangle.swift */; };
+		ABDEBF6A2BD63FB30072F6C4 /* PurchaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB92846B2A4A50C600A9A891 /* PurchaseType.swift */; };
+		ABDEBF6B2BD63FB30072F6C4 /* FileIOUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEE206D2A2B316500731A73 /* FileIOUtil.swift */; };
+		ABDEBF6C2BD63FB30072F6C4 /* PenToolPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB766D762A9F89DB003934EA /* PenToolPlayer.swift */; };
+		ABDEBF6D2BD63FB30072F6C4 /* PenToolUndoableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75B9182A8D0CF300C80171 /* PenToolUndoableStep.swift */; };
+		ABDEBF6E2BD63FB30072F6C4 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD3522B2A86666000EEF3BC /* Color+.swift */; };
+		ABDEBF6F2BD63FB30072F6C4 /* PenToolPathFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8BF6C2A7DE3DD000FC4C0 /* PenToolPathFactory.swift */; };
+		ABDEBF702BD63FB30072F6C4 /* CirclePathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6023D2A7FDEA700FA260A /* CirclePathDrawer.swift */; };
+		ABDEBF712BD63FB30072F6C4 /* CIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD592ACAFB7A0076A39D /* CIImage+.swift */; };
+		ABDEBF722BD63FB30072F6C4 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DF7A2ACC0EA300ADA2D1 /* View+.swift */; };
+		ABDEBF732BD63FB30072F6C4 /* ArrowPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF53132A77E7010033FAE1 /* ArrowPath.swift */; };
+		ABDEBF742BD63FB30072F6C4 /* PenToolPathProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A29F52AA22420002B9356 /* PenToolPathProtocol.swift */; };
+		ABDEBF752BD63FB30072F6C4 /* LobPassArrowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF52FF2A77AE5E0033FAE1 /* LobPassArrowButton.swift */; };
+		ABDEBF762BD63FB30072F6C4 /* CirclePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6023B2A7F8AE800FA260A /* CirclePath.swift */; };
+		ABDEBF772BD63FB30072F6C4 /* PenToolMuteSoundButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B9962AA1F6590088F023 /* PenToolMuteSoundButtonViewModel.swift */; };
+		ABDEBF782BD63FB30072F6C4 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A58572A2FC824002C15DB /* PlayerModel.swift */; };
+		ABDEBF792BD63FB30072F6C4 /* PenToolPlayerControlsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB766D6E2A9F7EAD003934EA /* PenToolPlayerControlsPanel.swift */; };
+		ABDEBF7A2BD63FB30072F6C4 /* PenToolMuteSoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B9942AA1F6130088F023 /* PenToolMuteSoundButton.swift */; };
+		ABDEBF7B2BD63FB30072F6C4 /* NSColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD352292A86665A00EEF3BC /* NSColor+.swift */; };
+		ABDEBF7C2BD63FB30072F6C4 /* SeekBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2226AA2A248BC300B2A734 /* SeekBar.swift */; };
+		ABDEBF7D2BD63FB30072F6C4 /* CGSize+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7C8C3E2A317787000635E5 /* CGSize+.swift */; };
+		ABDEBF7E2BD63FB30072F6C4 /* ProcessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE909A42AE7F8CA00F33172 /* ProcessType.swift */; };
+		ABDEBF7F2BD63FB30072F6C4 /* PenToolVolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B9982AA1F7D60088F023 /* PenToolVolumeSlider.swift */; };
+		ABDEBF802BD63FB30072F6C4 /* PlayingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA4BC682A21EE7300FAAFD6 /* PlayingState.swift */; };
+		ABDEBF812BD63FB30072F6C4 /* PenToolFrozenFrameMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD552ACAF4580076A39D /* PenToolFrozenFrameMovie.swift */; };
+		ABDEBF822BD63FB30072F6C4 /* DashedArrowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF53012A77B06D0033FAE1 /* DashedArrowButton.swift */; };
+		ABDEBF832BD63FB30072F6C4 /* LinePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C1892AF142B700E90BDE /* LinePath.swift */; };
+		ABDEBF842BD63FB30072F6C4 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB46F4542A3DEBE500DEEF92 /* Products.swift */; };
+		ABDEBF852BD63FB30072F6C4 /* PenToolSceneRootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC7E2A92ACED70800B79074 /* PenToolSceneRootViewModel.swift */; };
+		ABDEBF862BD63FB30072F6C4 /* PenToolStyleDashedArrowUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0234A82AFB9E62000FAC95 /* PenToolStyleDashedArrowUserDefaultsKey.swift */; };
+		ABDEBF872BD63FB30072F6C4 /* PenToolPathStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8BF6E2A7DE468000FC4C0 /* PenToolPathStyle.swift */; };
+		ABDEBF882BD63FB30072F6C4 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF635132A287702002963E2 /* ProcessingView.swift */; };
+		ABDEBF892BD63FB30072F6C4 /* PenToolTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF52F92A7786E70033FAE1 /* PenToolTypeButton.swift */; };
+		ABDEBF8A2BD63FB30072F6C4 /* PurchaseChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6561B62AF85D03004AF078 /* PurchaseChecker.swift */; };
+		ABDEBF8B2BD63FB30072F6C4 /* PenToolSceneRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E9EA12A73F7520060707A /* PenToolSceneRootView.swift */; };
+		ABDEBF8C2BD63FB30072F6C4 /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7C8C3C2A3176E4000635E5 /* CGRect+.swift */; };
+		ABDEBF8D2BD63FB30072F6C4 /* PenToolWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E9E992A73E4BA0060707A /* PenToolWindowController.swift */; };
+		ABDEBF8E2BD63FB30072F6C4 /* CircleFillPathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C18D2AF143F500E90BDE /* CircleFillPathDrawer.swift */; };
+		ABDEBF8F2BD63FB30072F6C4 /* PenToolProcessingViewStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DF802ACC448500ADA2D1 /* PenToolProcessingViewStateHolder.swift */; };
+		ABDEBF902BD63FB30072F6C4 /* PenToolStyleLineUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0234AC2AFBA0B8000FAC95 /* PenToolStyleLineUserDefaultsKey.swift */; };
+		ABDEBF912BD63FB30072F6C4 /* DualSwitchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC704DB2A29D61900E0F982 /* DualSwitchesView.swift */; };
+		ABDEBF922BD63FB30072F6C4 /* CircleFillPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C1872AF142AE00E90BDE /* CircleFillPath.swift */; };
+		ABDEBF932BD63FB30072F6C4 /* PenToolEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD391812AAF536B0039558C /* PenToolEditViewModel.swift */; };
+		ABDEBF942BD63FB30072F6C4 /* PenToolPathTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0D4CC2BC6626D003EBCFC /* PenToolPathTransform.swift */; };
+		ABDEBF952BD63FB30072F6C4 /* PenToolProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DF842ACC464C00ADA2D1 /* PenToolProcessingView.swift */; };
+		ABDEBF962BD63FB30072F6C4 /* NSWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB152D5A2A32B2B500B43558 /* NSWindow+.swift */; };
+		ABDEBF972BD63FB30072F6C4 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86EA8D2A2C765600B6DF3C /* MainWindowController.swift */; };
+		ABDEBF982BD63FB30072F6C4 /* PenToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E9E9B2A73E5700060707A /* PenToolViewController.swift */; };
+		ABDEBF992BD63FB30072F6C4 /* LobPassArrowPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C1852AF1133F00E90BDE /* LobPassArrowPath.swift */; };
+		ABDEBF9A2BD63FB30072F6C4 /* PenToolEffectThumbnailListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2C38FD2ABE957F00731C0C /* PenToolEffectThumbnailListViewModel.swift */; };
+		ABDEBF9B2BD63FB30072F6C4 /* VolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC704D92A29CBEA00E0F982 /* VolumeSlider.swift */; };
+		ABDEBF9C2BD63FB30072F6C4 /* PenToolEditPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75B9142A8CAD1F00C80171 /* PenToolEditPanel.swift */; };
+		ABDEBF9D2BD63FB30072F6C4 /* LobPassArrowPathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C1832AF112DC00E90BDE /* LobPassArrowPathDrawer.swift */; };
+		ABDEBF9E2BD63FB30072F6C4 /* NSView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E51502A1C3C6A00E0B473 /* NSView+.swift */; };
+		ABDEBF9F2BD63FB30072F6C4 /* PenToolSeekBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B9A42AA1FFD00088F023 /* PenToolSeekBar.swift */; };
+		ABDEBFA02BD63FB30072F6C4 /* PenToolRewindButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B99C2AA1FCF80088F023 /* PenToolRewindButton.swift */; };
+		ABDEBFA12BD63FB30072F6C4 /* XibFilesOwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB231C802A1B559F00921307 /* XibFilesOwnerView.swift */; };
+		ABDEBFA22BD63FB30072F6C4 /* PenToolPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB756CF62AA0C57D00A8B6E8 /* PenToolPlayerViewModel.swift */; };
+		ABDEBFA32BD63FB30072F6C4 /* PlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA4BC662A21E17A00FAAFD6 /* PlayerControlsView.swift */; };
+		ABDEBFA42BD63FB30072F6C4 /* ValidTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB46F4512A3DE4C000DEEF92 /* ValidTransactions.swift */; };
+		ABDEBFA52BD63FB30072F6C4 /* PenToolStyleSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB02349D2AFB4232000FAC95 /* PenToolStyleSlider.swift */; };
+		ABDEBFA62BD63FB30072F6C4 /* PenToolStylePanelPerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88783D2A85DDEE00CA9D71 /* PenToolStylePanelPerType.swift */; };
+		ABDEBFA72BD63FB30072F6C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB43D712A184F7D0032E8F7 /* AppDelegate.swift */; };
+		ABDEBFA82BD63FB30072F6C4 /* PenToolStyleLobPassArrowUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0234AA2AFB9F9D000FAC95 /* PenToolStyleLobPassArrowUserDefaultsKey.swift */; };
+		ABDEBFA92BD63FB30072F6C4 /* PenToolPathHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB602362A7F7ABA00FA260A /* PenToolPathHistory.swift */; };
+		ABDEBFAA2BD63FB30072F6C4 /* PenToolCanvasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32991D2AA41BDA00183AA6 /* PenToolCanvasViewModel.swift */; };
+		ABDEBFAB2BD63FB30072F6C4 /* CGPoint+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7C8C382A31765F000635E5 /* CGPoint+.swift */; };
+		ABDEBFAC2BD63FB30072F6C4 /* PenToolEffectThumbnailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4EF61E2AC81A06008DA7F7 /* PenToolEffectThumbnailViewModel.swift */; };
+		ABDEBFAD2BD63FB30072F6C4 /* PenToolStyleArrowUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0234A42AFB8661000FAC95 /* PenToolStyleArrowUserDefaultsKey.swift */; };
+		ABDEBFAE2BD63FB30072F6C4 /* PenToolDrawnPathsCompositer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD4D2ACAB7100076A39D /* PenToolDrawnPathsCompositer.swift */; };
+		ABDEBFAF2BD63FB30072F6C4 /* PenToolStyleTextUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0234B02AFBB6EC000FAC95 /* PenToolStyleTextUserDefaultsKey.swift */; };
+		ABDEBFB02BD63FB30072F6C4 /* ProductSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC5265E2AED59B90087A9E1 /* ProductSelectionView.swift */; };
+		ABDEBFB12BD63FB30072F6C4 /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC704D72A297A9A00E0F982 /* URL+.swift */; };
+		ABDEBFB22BD63FB30072F6C4 /* PenToolModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF2FCF2AA163D400F0A75B /* PenToolModel.swift */; };
+		ABDEBFB32BD63FB30072F6C4 /* PenToolEffectThumbnailListPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E9EAB2A73FC290060707A /* PenToolEffectThumbnailListPanel.swift */; };
+		ABDEBFB42BD63FB30072F6C4 /* PenToolEffectThumbnailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD512ACABDF60076A39D /* PenToolEffectThumbnailsModel.swift */; };
+		ABDEBFB52BD63FB30072F6C4 /* NSEvent+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7C8C362A3173EC000635E5 /* NSEvent+.swift */; };
+		ABDEBFB62BD63FB30072F6C4 /* DashedArrowPathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7C17F2AF0FA1000E90BDE /* DashedArrowPathDrawer.swift */; };
+		ABDEBFB72BD63FB30072F6C4 /* PenToolRewindButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B99E2AA1FD510088F023 /* PenToolRewindButtonViewModel.swift */; };
+		ABDEBFB82BD63FB30072F6C4 /* EraserPathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1048112A8F7CF400C8ACB0 /* EraserPathDrawer.swift */; };
+		ABDEBFB92BD63FB30072F6C4 /* ArrowPathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8BF672A7DDAD1000FC4C0 /* ArrowPathDrawer.swift */; };
+		ABDEBFBA2BD63FB30072F6C4 /* ProcessingViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DF822ACC450200ADA2D1 /* ProcessingViewState.swift */; };
+		ABDEBFBB2BD63FB30072F6C4 /* PenToolPlayPauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B98F2AA1F2B60088F023 /* PenToolPlayPauseButton.swift */; };
+		ABDEBFBC2BD63FB30072F6C4 /* PenToolType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCF53092A77C32D0033FAE1 /* PenToolType.swift */; };
+		ABDEBFBD2BD63FB30072F6C4 /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5367C2A1C9204008F5F4B /* PlayersView.swift */; };
+		ABDEBFBE2BD63FB30072F6C4 /* ButtonDynamicIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBAFF4E2A241EF700F042A6 /* ButtonDynamicIcon.swift */; };
+		ABDEBFBF2BD63FB30072F6C4 /* PenToolSkipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98B9A02AA1FEE40088F023 /* PenToolSkipButton.swift */; };
+		ABDEBFC02BD63FB30072F6C4 /* PenToolStyleCircleFillUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0234AE2AFBA154000FAC95 /* PenToolStyleCircleFillUserDefaultsKey.swift */; };
+		ABDEBFC22BD63FB30072F6C4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3AF06E2A3BE0750096287A /* StoreKit.framework */; };
+		ABDEBFC42BD63FB30072F6C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABB43D752A184F7E0032E8F7 /* Assets.xcassets */; };
+		ABDEBFC52BD63FB30072F6C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB43D772A184F7E0032E8F7 /* Main.storyboard */; };
+		ABDEBFC62BD63FB30072F6C4 /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB231C842A1B627B00921307 /* PlayerView.xib */; };
+		ABE909A52AE7F8CA00F33172 /* ProcessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE909A42AE7F8CA00F33172 /* ProcessType.swift */; };
+		ABEE206E2A2B316500731A73 /* FileIOUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEE206D2A2B316500731A73 /* FileIOUtil.swift */; };
+		ABF2347F2B1EE8C6007C61DF /* PenToolDrawnPathViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF2347E2B1EE8C6007C61DF /* PenToolDrawnPathViewModel.swift */; };
+		ABF5367D2A1C9204008F5F4B /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5367C2A1C9204008F5F4B /* PlayersView.swift */; };
+		ABF5367F2A1C991C008F5F4B /* ScreenSides.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5367E2A1C991C008F5F4B /* ScreenSides.swift */; };
+		ABF5DF7B2ACC0EA300ADA2D1 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DF7A2ACC0EA300ADA2D1 /* View+.swift */; };
+		ABF5DF7D2ACC103200ADA2D1 /* NSImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DF7C2ACC103200ADA2D1 /* NSImage+.swift */; };
+		ABF5DF812ACC448500ADA2D1 /* PenToolProcessingViewStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DF802ACC448500ADA2D1 /* PenToolProcessingViewStateHolder.swift */; };
+		ABF5DF832ACC450200ADA2D1 /* ProcessingViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DF822ACC450200ADA2D1 /* ProcessingViewState.swift */; };
+		ABF5DF852ACC464C00ADA2D1 /* PenToolProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5DF842ACC464C00ADA2D1 /* PenToolProcessingView.swift */; };
+		ABF635142A287702002963E2 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF635132A287702002963E2 /* ProcessingView.swift */; };
+		ABFF15422A3C476B005DB0BD /* SubscriptionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF15412A3C476B005DB0BD /* SubscriptionError.swift */; };
+		ABFF15442A3C4881005DB0BD /* ProductId.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF15432A3C4881005DB0BD /* ProductId.swift */; };
+		CC000001000000000000001 /* DashedLobPassArrowPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000001000000000000002 /* DashedLobPassArrowPath.swift */; };
+		CC000002000000000000001 /* DashedLobPassArrowPathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000002000000000000002 /* DashedLobPassArrowPathDrawer.swift */; };
+		CC000003000000000000001 /* DashedLobPassArrowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000003000000000000002 /* DashedLobPassArrowButton.swift */; };
+		CC000004000000000000001 /* PenToolStyleDashedLobPassArrowUserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000004000000000000002 /* PenToolStyleDashedLobPassArrowUserDefaultsKey.swift */; };
+		CC000005000000000000001 /* TrianglePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000005000000000000002 /* TrianglePath.swift */; };
+		CC000006000000000000001 /* RectanglePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000006000000000000002 /* RectanglePath.swift */; };
+		CC000007000000000000001 /* ShapePathDrawers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000007000000000000002 /* ShapePathDrawers.swift */; };
+		CC000008000000000000001 /* PenToolStyleShapeUserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000008000000000000002 /* PenToolStyleShapeUserDefaultsKeys.swift */; };
+		CC000009000000000000001 /* RecentColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000009000000000000002 /* RecentColors.swift */; };
+		CC000010000000000000001 /* ConnectedCirclesPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000010000000000000002 /* ConnectedCirclesPath.swift */; };
+		CC000010000000000000003 /* ConnectedCirclesPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000010000000000000002 /* ConnectedCirclesPath.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AB02349D2AFB4232000FAC95 /* PenToolStyleSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolStyleSlider.swift; sourceTree = "<group>"; };
+		AB0234A42AFB8661000FAC95 /* PenToolStyleArrowUserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolStyleArrowUserDefaultsKey.swift; sourceTree = "<group>"; };
+		AB0234A62AFB9D29000FAC95 /* PenToolStyleCircleUserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolStyleCircleUserDefaultsKey.swift; sourceTree = "<group>"; };
+		AB0234A82AFB9E62000FAC95 /* PenToolStyleDashedArrowUserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolStyleDashedArrowUserDefaultsKey.swift; sourceTree = "<group>"; };
+		AB0234AA2AFB9F9D000FAC95 /* PenToolStyleLobPassArrowUserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolStyleLobPassArrowUserDefaultsKey.swift; sourceTree = "<group>"; };
+		AB0234AC2AFBA0B8000FAC95 /* PenToolStyleLineUserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolStyleLineUserDefaultsKey.swift; sourceTree = "<group>"; };
+		AB0234AE2AFBA154000FAC95 /* PenToolStyleCircleFillUserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolStyleCircleFillUserDefaultsKey.swift; sourceTree = "<group>"; };
+		AB0234B02AFBB6EC000FAC95 /* PenToolStyleTextUserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolStyleTextUserDefaultsKey.swift; sourceTree = "<group>"; };
+		AB1048112A8F7CF400C8ACB0 /* EraserPathDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EraserPathDrawer.swift; sourceTree = "<group>"; };
+		AB1048132A8FA4AE00C8ACB0 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
+		AB152D5A2A32B2B500B43558 /* NSWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindow+.swift"; sourceTree = "<group>"; };
+		AB17B7A52AFE35520064189A /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		AB1C02612A1A1168008B45B0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		AB2226AA2A248BC300B2A734 /* SeekBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeekBar.swift; sourceTree = "<group>"; };
+		AB231C802A1B559F00921307 /* XibFilesOwnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibFilesOwnerView.swift; sourceTree = "<group>"; };
+		AB231C822A1B615E00921307 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		AB231C842A1B627B00921307 /* PlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
+		AB2595DD2A5111B30063284C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		AB2C38FD2ABE957F00731C0C /* PenToolEffectThumbnailListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolEffectThumbnailListViewModel.swift; sourceTree = "<group>"; };
+		AB32991D2AA41BDA00183AA6 /* PenToolCanvasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolCanvasViewModel.swift; sourceTree = "<group>"; };
+		AB3AF06E2A3BE0750096287A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		AB3AF0722A3BE6550096287A /* Subscription Test.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Subscription Test.storekit"; sourceTree = "<group>"; };
+		AB3E51502A1C3C6A00E0B473 /* NSView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+.swift"; sourceTree = "<group>"; };
+		AB46F4512A3DE4C000DEEF92 /* ValidTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidTransactions.swift; sourceTree = "<group>"; };
+		AB46F4542A3DEBE500DEEF92 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		AB4E9E992A73E4BA0060707A /* PenToolWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolWindowController.swift; sourceTree = "<group>"; };
+		AB4E9E9B2A73E5700060707A /* PenToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolViewController.swift; sourceTree = "<group>"; };
+		AB4E9E9F2A73EA120060707A /* PenToolPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolPlayerView.swift; sourceTree = "<group>"; };
+		AB4E9EA12A73F7520060707A /* PenToolSceneRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolSceneRootView.swift; sourceTree = "<group>"; };
+		AB4E9EA92A73FB720060707A /* PenToolTypePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolTypePanel.swift; sourceTree = "<group>"; };
+		AB4E9EAB2A73FC290060707A /* PenToolEffectThumbnailListPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolEffectThumbnailListPanel.swift; sourceTree = "<group>"; };
+		AB4EF61A2AC8171F008DA7F7 /* PenToolEffectThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolEffectThumbnailView.swift; sourceTree = "<group>"; };
+		AB4EF61E2AC81A06008DA7F7 /* PenToolEffectThumbnailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolEffectThumbnailViewModel.swift; sourceTree = "<group>"; };
+		AB532BFC2A28B74F006B2376 /* PlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewModel.swift; sourceTree = "<group>"; };
+		AB6561B62AF85D03004AF078 /* PurchaseChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseChecker.swift; sourceTree = "<group>"; };
+		AB6561B82AF8626E004AF078 /* WebSiteURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSiteURL.swift; sourceTree = "<group>"; };
+		AB756CF62AA0C57D00A8B6E8 /* PenToolPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolPlayerViewModel.swift; sourceTree = "<group>"; };
+		AB75B9142A8CAD1F00C80171 /* PenToolEditPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolEditPanel.swift; sourceTree = "<group>"; };
+		AB75B9182A8D0CF300C80171 /* PenToolUndoableStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolUndoableStep.swift; sourceTree = "<group>"; };
+		AB766D6E2A9F7EAD003934EA /* PenToolPlayerControlsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolPlayerControlsPanel.swift; sourceTree = "<group>"; };
+		AB766D762A9F89DB003934EA /* PenToolPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolPlayer.swift; sourceTree = "<group>"; };
+		AB7C8C362A3173EC000635E5 /* NSEvent+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+.swift"; sourceTree = "<group>"; };
+		AB7C8C382A31765F000635E5 /* CGPoint+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+.swift"; sourceTree = "<group>"; };
+		AB7C8C3C2A3176E4000635E5 /* CGRect+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+.swift"; sourceTree = "<group>"; };
+		AB7C8C3E2A317787000635E5 /* CGSize+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+.swift"; sourceTree = "<group>"; };
+		AB86EA8D2A2C765600B6DF3C /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		AB88783D2A85DDEE00CA9D71 /* PenToolStylePanelPerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolStylePanelPerType.swift; sourceTree = "<group>"; };
+		AB8A29F52AA22420002B9356 /* PenToolPathProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolPathProtocol.swift; sourceTree = "<group>"; };
+		AB8A29F72AA225FF002B9356 /* EraserPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EraserPath.swift; sourceTree = "<group>"; };
+		AB92846B2A4A50C600A9A891 /* PurchaseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseType.swift; sourceTree = "<group>"; };
+		AB98B98F2AA1F2B60088F023 /* PenToolPlayPauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolPlayPauseButton.swift; sourceTree = "<group>"; };
+		AB98B9912AA1F3180088F023 /* PenToolPlayPauseButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolPlayPauseButtonViewModel.swift; sourceTree = "<group>"; };
+		AB98B9942AA1F6130088F023 /* PenToolMuteSoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolMuteSoundButton.swift; sourceTree = "<group>"; };
+		AB98B9962AA1F6590088F023 /* PenToolMuteSoundButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolMuteSoundButtonViewModel.swift; sourceTree = "<group>"; };
+		AB98B9982AA1F7D60088F023 /* PenToolVolumeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolVolumeSlider.swift; sourceTree = "<group>"; };
+		AB98B99A2AA1F87E0088F023 /* PenToolVolumeSliderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolVolumeSliderViewModel.swift; sourceTree = "<group>"; };
+		AB98B99C2AA1FCF80088F023 /* PenToolRewindButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolRewindButton.swift; sourceTree = "<group>"; };
+		AB98B99E2AA1FD510088F023 /* PenToolRewindButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolRewindButtonViewModel.swift; sourceTree = "<group>"; };
+		AB98B9A02AA1FEE40088F023 /* PenToolSkipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolSkipButton.swift; sourceTree = "<group>"; };
+		AB98B9A22AA1FF2F0088F023 /* PenToolSkipButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolSkipButtonViewModel.swift; sourceTree = "<group>"; };
+		AB98B9A42AA1FFD00088F023 /* PenToolSeekBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolSeekBar.swift; sourceTree = "<group>"; };
+		AB98B9A62AA2000E0088F023 /* PenToolSeekBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolSeekBarViewModel.swift; sourceTree = "<group>"; };
+		AB9A58572A2FC824002C15DB /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
+		ABA15E222A2FD29400EA7442 /* PlayersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersModel.swift; sourceTree = "<group>"; };
+		ABA4BC662A21E17A00FAAFD6 /* PlayerControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsView.swift; sourceTree = "<group>"; };
+		ABA4BC682A21EE7300FAAFD6 /* PlayingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingState.swift; sourceTree = "<group>"; };
+		ABB18BF12AEC96E9005A5606 /* SaveCounterForReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCounterForReview.swift; sourceTree = "<group>"; };
+		ABB220462A1F1D0400249945 /* ButtonStaticIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStaticIcon.swift; sourceTree = "<group>"; };
+		ABB3F5212AEDFC1700E2F9C4 /* ProductSelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSelectionButton.swift; sourceTree = "<group>"; };
+		ABB43D6E2A184F7D0032E8F7 /* SoccerCut Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SoccerCut Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABB43D712A184F7D0032E8F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ABB43D752A184F7E0032E8F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ABB43D782A184F7E0032E8F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ABB43D7A2A184F7E0032E8F7 /* SoccerCut Pro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SoccerCut Pro.entitlements"; sourceTree = "<group>"; };
+		ABB602342A7F6B7200FA260A /* PenToolPathDrawerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolPathDrawerProtocol.swift; sourceTree = "<group>"; };
+		ABB602362A7F7ABA00FA260A /* PenToolPathHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolPathHistory.swift; sourceTree = "<group>"; };
+		ABB6023B2A7F8AE800FA260A /* CirclePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CirclePath.swift; sourceTree = "<group>"; };
+		ABB6023D2A7FDEA700FA260A /* CirclePathDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CirclePathDrawer.swift; sourceTree = "<group>"; };
+		ABB8BF672A7DDAD1000FC4C0 /* ArrowPathDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowPathDrawer.swift; sourceTree = "<group>"; };
+		ABB8BF6A2A7DDF69000FC4C0 /* PenToolDrawnPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolDrawnPath.swift; sourceTree = "<group>"; };
+		ABB8BF6C2A7DE3DD000FC4C0 /* PenToolPathFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolPathFactory.swift; sourceTree = "<group>"; };
+		ABB8BF6E2A7DE468000FC4C0 /* PenToolPathStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolPathStyle.swift; sourceTree = "<group>"; };
+		ABBAFF4E2A241EF700F042A6 /* ButtonDynamicIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDynamicIcon.swift; sourceTree = "<group>"; };
+		ABBC5A2C2AF1E27E00CF997D /* PenToolEditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolEditButton.swift; sourceTree = "<group>"; };
+		ABBEE15C2A237DAD00E5ADEF /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		ABC0D4CC2BC6626D003EBCFC /* PenToolPathTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolPathTransform.swift; sourceTree = "<group>"; };
+		ABC5265C2AED34370087A9E1 /* ApplicationMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationMode.swift; sourceTree = "<group>"; };
+		ABC5265E2AED59B90087A9E1 /* ProductSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSelectionView.swift; sourceTree = "<group>"; };
+		ABC704D72A297A9A00E0F982 /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
+		ABC704D92A29CBEA00E0F982 /* VolumeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSlider.swift; sourceTree = "<group>"; };
+		ABC704DB2A29D61900E0F982 /* DualSwitchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualSwitchesView.swift; sourceTree = "<group>"; };
+		ABC7E2A92ACED70800B79074 /* PenToolSceneRootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolSceneRootViewModel.swift; sourceTree = "<group>"; };
+		ABCF2FCF2AA163D400F0A75B /* PenToolModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolModel.swift; sourceTree = "<group>"; };
+		ABCF52F92A7786E70033FAE1 /* PenToolTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolTypeButton.swift; sourceTree = "<group>"; };
+		ABCF52FF2A77AE5E0033FAE1 /* LobPassArrowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobPassArrowButton.swift; sourceTree = "<group>"; };
+		ABCF53012A77B06D0033FAE1 /* DashedArrowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedArrowButton.swift; sourceTree = "<group>"; };
+		ABCF53092A77C32D0033FAE1 /* PenToolType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolType.swift; sourceTree = "<group>"; };
+		ABCF53102A77E5910033FAE1 /* PenToolCanvasPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolCanvasPanel.swift; sourceTree = "<group>"; };
+		ABCF53132A77E7010033FAE1 /* ArrowPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowPath.swift; sourceTree = "<group>"; };
+		ABCFD4482A24B51B0092986A /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
+		ABD352292A86665A00EEF3BC /* NSColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+.swift"; sourceTree = "<group>"; };
+		ABD3522B2A86666000EEF3BC /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		ABD391812AAF536B0039558C /* PenToolEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolEditViewModel.swift; sourceTree = "<group>"; };
+		ABD5ECAD2A272FB900F1F9CF /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		ABD7BD4D2ACAB7100076A39D /* PenToolDrawnPathsCompositer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolDrawnPathsCompositer.swift; sourceTree = "<group>"; };
+		ABD7BD4F2ACAB7D70076A39D /* PenToolDrawnPathsCompositerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolDrawnPathsCompositerViewModel.swift; sourceTree = "<group>"; };
+		ABD7BD512ACABDF60076A39D /* PenToolEffectThumbnailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolEffectThumbnailsModel.swift; sourceTree = "<group>"; };
+		ABD7BD552ACAF4580076A39D /* PenToolFrozenFrameMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolFrozenFrameMovie.swift; sourceTree = "<group>"; };
+		ABD7BD592ACAFB7A0076A39D /* CIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+.swift"; sourceTree = "<group>"; };
+		ABD7C17D2AF0F8D300E90BDE /* DashedArrowPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedArrowPath.swift; sourceTree = "<group>"; };
+		ABD7C17F2AF0FA1000E90BDE /* DashedArrowPathDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedArrowPathDrawer.swift; sourceTree = "<group>"; };
+		ABD7C1832AF112DC00E90BDE /* LobPassArrowPathDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobPassArrowPathDrawer.swift; sourceTree = "<group>"; };
+		ABD7C1852AF1133F00E90BDE /* LobPassArrowPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobPassArrowPath.swift; sourceTree = "<group>"; };
+		ABD7C1872AF142AE00E90BDE /* CircleFillPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleFillPath.swift; sourceTree = "<group>"; };
+		ABD7C1892AF142B700E90BDE /* LinePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinePath.swift; sourceTree = "<group>"; };
+		ABD7C18B2AF1436700E90BDE /* LinePathDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinePathDrawer.swift; sourceTree = "<group>"; };
+		ABD7C18D2AF143F500E90BDE /* CircleFillPathDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleFillPathDrawer.swift; sourceTree = "<group>"; };
+		ABD7C18F2AF1456400E90BDE /* TextPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPath.swift; sourceTree = "<group>"; };
+		ABD7C1912AF1496D00E90BDE /* TextPathDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPathDrawer.swift; sourceTree = "<group>"; };
+		ABDEBFCA2BD63FB30072F6C4 /* SoccerCut Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SoccerCut Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABE909A42AE7F8CA00F33172 /* ProcessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessType.swift; sourceTree = "<group>"; };
+		ABEE206D2A2B316500731A73 /* FileIOUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileIOUtil.swift; sourceTree = "<group>"; };
+		ABF2347E2B1EE8C6007C61DF /* PenToolDrawnPathViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolDrawnPathViewModel.swift; sourceTree = "<group>"; };
+		ABF5367C2A1C9204008F5F4B /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
+		ABF5367E2A1C991C008F5F4B /* ScreenSides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSides.swift; sourceTree = "<group>"; };
+		ABF5DF7A2ACC0EA300ADA2D1 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		ABF5DF7C2ACC103200ADA2D1 /* NSImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+.swift"; sourceTree = "<group>"; };
+		ABF5DF802ACC448500ADA2D1 /* PenToolProcessingViewStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolProcessingViewStateHolder.swift; sourceTree = "<group>"; };
+		ABF5DF822ACC450200ADA2D1 /* ProcessingViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingViewState.swift; sourceTree = "<group>"; };
+		ABF5DF842ACC464C00ADA2D1 /* PenToolProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolProcessingView.swift; sourceTree = "<group>"; };
+		ABF635132A287702002963E2 /* ProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
+		ABF635182A288422002963E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		ABFF15412A3C476B005DB0BD /* SubscriptionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionError.swift; sourceTree = "<group>"; };
+		ABFF15432A3C4881005DB0BD /* ProductId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductId.swift; sourceTree = "<group>"; };
+		CC000001000000000000002 /* DashedLobPassArrowPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLobPassArrowPath.swift; sourceTree = "<group>"; };
+		CC000002000000000000002 /* DashedLobPassArrowPathDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLobPassArrowPathDrawer.swift; sourceTree = "<group>"; };
+		CC000003000000000000002 /* DashedLobPassArrowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLobPassArrowButton.swift; sourceTree = "<group>"; };
+		CC000004000000000000002 /* PenToolStyleDashedLobPassArrowUserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolStyleDashedLobPassArrowUserDefaultsKey.swift; sourceTree = "<group>"; };
+		CC000005000000000000002 /* TrianglePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrianglePath.swift; sourceTree = "<group>"; };
+		CC000006000000000000002 /* RectanglePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectanglePath.swift; sourceTree = "<group>"; };
+		CC000007000000000000002 /* ShapePathDrawers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapePathDrawers.swift; sourceTree = "<group>"; };
+		CC000008000000000000002 /* PenToolStyleShapeUserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenToolStyleShapeUserDefaultsKeys.swift; sourceTree = "<group>"; };
+		CC000009000000000000002 /* RecentColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentColors.swift; sourceTree = "<group>"; };
+		CC000010000000000000002 /* ConnectedCirclesPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedCirclesPath.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ABB43D6B2A184F7D0032E8F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB3AF06F2A3BE0750096287A /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABDEBFC12BD63FB30072F6C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABDEBFC22BD63FB30072F6C4 /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AB0234A32AFB8641000FAC95 /* PenToolStyle */ = {
+			isa = PBXGroup;
+			children = (
+				AB0234A42AFB8661000FAC95 /* PenToolStyleArrowUserDefaultsKey.swift */,
+				AB0234A62AFB9D29000FAC95 /* PenToolStyleCircleUserDefaultsKey.swift */,
+				AB0234A82AFB9E62000FAC95 /* PenToolStyleDashedArrowUserDefaultsKey.swift */,
+				AB0234AA2AFB9F9D000FAC95 /* PenToolStyleLobPassArrowUserDefaultsKey.swift */,
+				AB0234AC2AFBA0B8000FAC95 /* PenToolStyleLineUserDefaultsKey.swift */,
+				AB0234AE2AFBA154000FAC95 /* PenToolStyleCircleFillUserDefaultsKey.swift */,
+				AB0234B02AFBB6EC000FAC95 /* PenToolStyleTextUserDefaultsKey.swift */,
+				CC000004000000000000002 /* PenToolStyleDashedLobPassArrowUserDefaultsKey.swift */,
+				CC000008000000000000002 /* PenToolStyleShapeUserDefaultsKeys.swift */,
+			);
+			path = PenToolStyle;
+			sourceTree = "<group>";
+		};
+		AB152D5C2A32C0A600B43558 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				ABEE206D2A2B316500731A73 /* FileIOUtil.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		AB3AF06D2A3BE0750096287A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB3AF06E2A3BE0750096287A /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB46F4532A3DE4CA00DEEF92 /* Subscriptions */ = {
+			isa = PBXGroup;
+			children = (
+				AB46F4512A3DE4C000DEEF92 /* ValidTransactions.swift */,
+				AB46F4542A3DEBE500DEEF92 /* Products.swift */,
+				ABC5265E2AED59B90087A9E1 /* ProductSelectionView.swift */,
+				ABB3F5212AEDFC1700E2F9C4 /* ProductSelectionButton.swift */,
+				ABFF15412A3C476B005DB0BD /* SubscriptionError.swift */,
+				ABFF15432A3C4881005DB0BD /* ProductId.swift */,
+				AB92846B2A4A50C600A9A891 /* PurchaseType.swift */,
+				AB6561B62AF85D03004AF078 /* PurchaseChecker.swift */,
+			);
+			path = Subscriptions;
+			sourceTree = "<group>";
+		};
+		AB4E9E972A73E44C0060707A /* WindowControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB86EA8D2A2C765600B6DF3C /* MainWindowController.swift */,
+				AB4E9E992A73E4BA0060707A /* PenToolWindowController.swift */,
+			);
+			path = WindowControllers;
+			sourceTree = "<group>";
+		};
+		AB4E9E982A73E46A0060707A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB1C02612A1A1168008B45B0 /* MainViewController.swift */,
+				AB4E9E9B2A73E5700060707A /* PenToolViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AB4E9E9D2A73E9A50060707A /* PlayerScene */ = {
+			isa = PBXGroup;
+			children = (
+				ABF5367C2A1C9204008F5F4B /* PlayersView.swift */,
+				AB231C822A1B615E00921307 /* PlayerView.swift */,
+			);
+			path = PlayerScene;
+			sourceTree = "<group>";
+		};
+		AB4E9E9E2A73E9CD0060707A /* PenToolScene */ = {
+			isa = PBXGroup;
+			children = (
+				AB4E9E9F2A73EA120060707A /* PenToolPlayerView.swift */,
+				ABCF53102A77E5910033FAE1 /* PenToolCanvasPanel.swift */,
+				AB4E9EA92A73FB720060707A /* PenToolTypePanel.swift */,
+				AB88783D2A85DDEE00CA9D71 /* PenToolStylePanelPerType.swift */,
+				AB4E9EAB2A73FC290060707A /* PenToolEffectThumbnailListPanel.swift */,
+				AB4EF61A2AC8171F008DA7F7 /* PenToolEffectThumbnailView.swift */,
+				AB75B9142A8CAD1F00C80171 /* PenToolEditPanel.swift */,
+				AB766D6E2A9F7EAD003934EA /* PenToolPlayerControlsPanel.swift */,
+				ABCF52F92A7786E70033FAE1 /* PenToolTypeButton.swift */,
+				AB02349D2AFB4232000FAC95 /* PenToolStyleSlider.swift */,
+				ABBC5A2C2AF1E27E00CF997D /* PenToolEditButton.swift */,
+				ABD7BD4D2ACAB7100076A39D /* PenToolDrawnPathsCompositer.swift */,
+				ABCF53122A77E6EB0033FAE1 /* Canvas */,
+				AB8878412A85DE0D00CA9D71 /* PenToolType */,
+				AB98B98E2AA1F27C0088F023 /* PlayerControls */,
+			);
+			path = PenToolScene;
+			sourceTree = "<group>";
+		};
+		AB562DE62A1DD17100DC73CF /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				AB231C802A1B559F00921307 /* XibFilesOwnerView.swift */,
+				AB231C842A1B627B00921307 /* PlayerView.xib */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
+		AB562DE72A1DD1B100DC73CF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AB152D5A2A32B2B500B43558 /* NSWindow+.swift */,
+				AB3E51502A1C3C6A00E0B473 /* NSView+.swift */,
+				ABCFD4482A24B51B0092986A /* Int+.swift */,
+				ABC704D72A297A9A00E0F982 /* URL+.swift */,
+				AB7C8C362A3173EC000635E5 /* NSEvent+.swift */,
+				AB7C8C3C2A3176E4000635E5 /* CGRect+.swift */,
+				AB7C8C382A31765F000635E5 /* CGPoint+.swift */,
+				AB7C8C3E2A317787000635E5 /* CGSize+.swift */,
+				ABD352292A86665A00EEF3BC /* NSColor+.swift */,
+				ABD3522B2A86666000EEF3BC /* Color+.swift */,
+				AB1048132A8FA4AE00C8ACB0 /* Notification+Name.swift */,
+				ABF5DF7A2ACC0EA300ADA2D1 /* View+.swift */,
+				ABF5DF7C2ACC103200ADA2D1 /* NSImage+.swift */,
+				ABD7BD592ACAFB7A0076A39D /* CIImage+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		AB562DE82A1DD23F00DC73CF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				ABC704DB2A29D61900E0F982 /* DualSwitchesView.swift */,
+				ABA4BC662A21E17A00FAAFD6 /* PlayerControlsView.swift */,
+				ABB220462A1F1D0400249945 /* ButtonStaticIcon.swift */,
+				ABBAFF4E2A241EF700F042A6 /* ButtonDynamicIcon.swift */,
+				ABC704D92A29CBEA00E0F982 /* VolumeSlider.swift */,
+				AB2226AA2A248BC300B2A734 /* SeekBar.swift */,
+				ABD5ECAD2A272FB900F1F9CF /* Triangle.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		AB756CF82AA0C58600A8B6E8 /* PenToolScene */ = {
+			isa = PBXGroup;
+			children = (
+				ABF2347D2B1EE8A6007C61DF /* Canvas */,
+				AB756CF62AA0C57D00A8B6E8 /* PenToolPlayerViewModel.swift */,
+				AB32991D2AA41BDA00183AA6 /* PenToolCanvasViewModel.swift */,
+				ABD391812AAF536B0039558C /* PenToolEditViewModel.swift */,
+				AB2C38FD2ABE957F00731C0C /* PenToolEffectThumbnailListViewModel.swift */,
+				AB4EF61E2AC81A06008DA7F7 /* PenToolEffectThumbnailViewModel.swift */,
+				ABD7BD4F2ACAB7D70076A39D /* PenToolDrawnPathsCompositerViewModel.swift */,
+				AB98B9932AA1F51C0088F023 /* PlayerControls */,
+			);
+			path = PenToolScene;
+			sourceTree = "<group>";
+		};
+		AB8878412A85DE0D00CA9D71 /* PenToolType */ = {
+			isa = PBXGroup;
+			children = (
+				ABCF52FF2A77AE5E0033FAE1 /* LobPassArrowButton.swift */,
+				ABCF53012A77B06D0033FAE1 /* DashedArrowButton.swift */,
+				AB17B7A52AFE35520064189A /* CircleButton.swift */,
+				CC000003000000000000002 /* DashedLobPassArrowButton.swift */,
+			);
+			path = PenToolType;
+			sourceTree = "<group>";
+		};
+		AB98B98E2AA1F27C0088F023 /* PlayerControls */ = {
+			isa = PBXGroup;
+			children = (
+				AB98B98F2AA1F2B60088F023 /* PenToolPlayPauseButton.swift */,
+				AB98B9942AA1F6130088F023 /* PenToolMuteSoundButton.swift */,
+				AB98B9982AA1F7D60088F023 /* PenToolVolumeSlider.swift */,
+				AB98B99C2AA1FCF80088F023 /* PenToolRewindButton.swift */,
+				AB98B9A02AA1FEE40088F023 /* PenToolSkipButton.swift */,
+				AB98B9A42AA1FFD00088F023 /* PenToolSeekBar.swift */,
+			);
+			path = PlayerControls;
+			sourceTree = "<group>";
+		};
+		AB98B9932AA1F51C0088F023 /* PlayerControls */ = {
+			isa = PBXGroup;
+			children = (
+				AB98B9912AA1F3180088F023 /* PenToolPlayPauseButtonViewModel.swift */,
+				AB98B9962AA1F6590088F023 /* PenToolMuteSoundButtonViewModel.swift */,
+				AB98B99A2AA1F87E0088F023 /* PenToolVolumeSliderViewModel.swift */,
+				AB98B99E2AA1FD510088F023 /* PenToolRewindButtonViewModel.swift */,
+				AB98B9A22AA1FF2F0088F023 /* PenToolSkipButtonViewModel.swift */,
+				AB98B9A62AA2000E0088F023 /* PenToolSeekBarViewModel.swift */,
+			);
+			path = PlayerControls;
+			sourceTree = "<group>";
+		};
+		AB9A58522A2FC7A2002C15DB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ABF635132A287702002963E2 /* ProcessingView.swift */,
+				AB4E9E9D2A73E9A50060707A /* PlayerScene */,
+				AB4E9EA12A73F7520060707A /* PenToolSceneRootView.swift */,
+				ABF5DF842ACC464C00ADA2D1 /* PenToolProcessingView.swift */,
+				AB4E9E9E2A73E9CD0060707A /* PenToolScene */,
+				AB562DE82A1DD23F00DC73CF /* Components */,
+				AB562DE62A1DD17100DC73CF /* Xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AB9A58532A2FC7AA002C15DB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				ABCF52F52A777FD00033FAE1 /* PlayerScene */,
+				ABC7E2A92ACED70800B79074 /* PenToolSceneRootViewModel.swift */,
+				AB756CF82AA0C58600A8B6E8 /* PenToolScene */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AB9A58542A2FC7B5002C15DB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ABB602392A7F8A3700FA260A /* PlayerScene */,
+				ABCF530B2A77C4570033FAE1 /* PenToolScene */,
+				ABB18BF12AEC96E9005A5606 /* SaveCounterForReview.swift */,
+				CC000009000000000000002 /* RecentColors.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ABB43D652A184F7D0032E8F7 = {
+			isa = PBXGroup;
+			children = (
+				ABB43D702A184F7D0032E8F7 /* SoccerCut Pro */,
+				ABB43D6F2A184F7D0032E8F7 /* Products */,
+				AB3AF06D2A3BE0750096287A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		ABB43D6F2A184F7D0032E8F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ABB43D6E2A184F7D0032E8F7 /* SoccerCut Pro.app */,
+				ABDEBFCA2BD63FB30072F6C4 /* SoccerCut Pro.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABB43D702A184F7D0032E8F7 /* SoccerCut Pro */ = {
+			isa = PBXGroup;
+			children = (
+				ABF635182A288422002963E2 /* Info.plist */,
+				ABB43D752A184F7E0032E8F7 /* Assets.xcassets */,
+				ABB43D7A2A184F7E0032E8F7 /* SoccerCut Pro.entitlements */,
+				ABB43D712A184F7D0032E8F7 /* AppDelegate.swift */,
+				AB4E9E972A73E44C0060707A /* WindowControllers */,
+				AB4E9E982A73E46A0060707A /* ViewControllers */,
+				ABB43D772A184F7E0032E8F7 /* Main.storyboard */,
+				AB3AF0722A3BE6550096287A /* Subscription Test.storekit */,
+				AB9A58522A2FC7A2002C15DB /* Views */,
+				AB9A58532A2FC7AA002C15DB /* ViewModels */,
+				AB9A58542A2FC7B5002C15DB /* Models */,
+				ABE9C46D2A207DE900A7B21F /* Enum */,
+				AB562DE72A1DD1B100DC73CF /* Extension */,
+				AB152D5C2A32C0A600B43558 /* Util */,
+				AB46F4532A3DE4CA00DEEF92 /* Subscriptions */,
+			);
+			path = "SoccerCut Pro";
+			sourceTree = "<group>";
+		};
+		ABB602382A7F894800FA260A /* PenToolPathDrawer */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8BF672A7DDAD1000FC4C0 /* ArrowPathDrawer.swift */,
+				ABB6023D2A7FDEA700FA260A /* CirclePathDrawer.swift */,
+				AB1048112A8F7CF400C8ACB0 /* EraserPathDrawer.swift */,
+				ABD7C17F2AF0FA1000E90BDE /* DashedArrowPathDrawer.swift */,
+				ABD7C1832AF112DC00E90BDE /* LobPassArrowPathDrawer.swift */,
+				ABD7C18B2AF1436700E90BDE /* LinePathDrawer.swift */,
+				ABD7C18D2AF143F500E90BDE /* CircleFillPathDrawer.swift */,
+				ABD7C1912AF1496D00E90BDE /* TextPathDrawer.swift */,
+				CC000002000000000000002 /* DashedLobPassArrowPathDrawer.swift */,
+				CC000007000000000000002 /* ShapePathDrawers.swift */,
+			);
+			path = PenToolPathDrawer;
+			sourceTree = "<group>";
+		};
+		ABB602392A7F8A3700FA260A /* PlayerScene */ = {
+			isa = PBXGroup;
+			children = (
+				AB9A58572A2FC824002C15DB /* PlayerModel.swift */,
+				ABA15E222A2FD29400EA7442 /* PlayersModel.swift */,
+			);
+			path = PlayerScene;
+			sourceTree = "<group>";
+		};
+		ABB6023A2A7F8AB700FA260A /* PenToolPath */ = {
+			isa = PBXGroup;
+			children = (
+				ABCF53132A77E7010033FAE1 /* ArrowPath.swift */,
+				ABB6023B2A7F8AE800FA260A /* CirclePath.swift */,
+				AB8A29F72AA225FF002B9356 /* EraserPath.swift */,
+				ABD7C17D2AF0F8D300E90BDE /* DashedArrowPath.swift */,
+				ABD7C1852AF1133F00E90BDE /* LobPassArrowPath.swift */,
+				ABD7C1872AF142AE00E90BDE /* CircleFillPath.swift */,
+				ABD7C1892AF142B700E90BDE /* LinePath.swift */,
+				ABD7C18F2AF1456400E90BDE /* TextPath.swift */,
+				CC000001000000000000002 /* DashedLobPassArrowPath.swift */,
+				CC000005000000000000002 /* TrianglePath.swift */,
+				CC000006000000000000002 /* RectanglePath.swift */,
+				CC000010000000000000002 /* ConnectedCirclesPath.swift */,
+			);
+			path = PenToolPath;
+			sourceTree = "<group>";
+		};
+		ABCF52F52A777FD00033FAE1 /* PlayerScene */ = {
+			isa = PBXGroup;
+			children = (
+				ABBEE15C2A237DAD00E5ADEF /* PlayerViewModel.swift */,
+				AB532BFC2A28B74F006B2376 /* PlayersViewModel.swift */,
+			);
+			path = PlayerScene;
+			sourceTree = "<group>";
+		};
+		ABCF53082A77C3060033FAE1 /* PenToolScene */ = {
+			isa = PBXGroup;
+			children = (
+				AB0234A32AFB8641000FAC95 /* PenToolStyle */,
+				ABCF53092A77C32D0033FAE1 /* PenToolType.swift */,
+				ABF5DF822ACC450200ADA2D1 /* ProcessingViewState.swift */,
+				ABE909A42AE7F8CA00F33172 /* ProcessType.swift */,
+			);
+			path = PenToolScene;
+			sourceTree = "<group>";
+		};
+		ABCF530B2A77C4570033FAE1 /* PenToolScene */ = {
+			isa = PBXGroup;
+			children = (
+				ABCF2FCF2AA163D400F0A75B /* PenToolModel.swift */,
+				AB766D762A9F89DB003934EA /* PenToolPlayer.swift */,
+				ABB8BF6C2A7DE3DD000FC4C0 /* PenToolPathFactory.swift */,
+				ABB602342A7F6B7200FA260A /* PenToolPathDrawerProtocol.swift */,
+				ABB602382A7F894800FA260A /* PenToolPathDrawer */,
+				ABB8BF6E2A7DE468000FC4C0 /* PenToolPathStyle.swift */,
+				ABB602362A7F7ABA00FA260A /* PenToolPathHistory.swift */,
+				AB75B9182A8D0CF300C80171 /* PenToolUndoableStep.swift */,
+				ABD7BD512ACABDF60076A39D /* PenToolEffectThumbnailsModel.swift */,
+				ABD7BD552ACAF4580076A39D /* PenToolFrozenFrameMovie.swift */,
+				ABF5DF802ACC448500ADA2D1 /* PenToolProcessingViewStateHolder.swift */,
+			);
+			path = PenToolScene;
+			sourceTree = "<group>";
+		};
+		ABCF53122A77E6EB0033FAE1 /* Canvas */ = {
+			isa = PBXGroup;
+			children = (
+				ABB8BF6A2A7DDF69000FC4C0 /* PenToolDrawnPath.swift */,
+				AB8A29F52AA22420002B9356 /* PenToolPathProtocol.swift */,
+				ABB6023A2A7F8AB700FA260A /* PenToolPath */,
+			);
+			path = Canvas;
+			sourceTree = "<group>";
+		};
+		ABE9C46D2A207DE900A7B21F /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				AB6561B82AF8626E004AF078 /* WebSiteURL.swift */,
+				ABC5265C2AED34370087A9E1 /* ApplicationMode.swift */,
+				ABF5367E2A1C991C008F5F4B /* ScreenSides.swift */,
+				ABA4BC682A21EE7300FAAFD6 /* PlayingState.swift */,
+				ABCF53082A77C3060033FAE1 /* PenToolScene */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		ABF2347D2B1EE8A6007C61DF /* Canvas */ = {
+			isa = PBXGroup;
+			children = (
+				ABF2347E2B1EE8C6007C61DF /* PenToolDrawnPathViewModel.swift */,
+				ABC0D4CC2BC6626D003EBCFC /* PenToolPathTransform.swift */,
+			);
+			path = Canvas;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ABB43D6D2A184F7D0032E8F7 /* Subscription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABB43D7D2A184F7E0032E8F7 /* Build configuration list for PBXNativeTarget "Subscription" */;
+			buildPhases = (
+				ABB43D6A2A184F7D0032E8F7 /* Sources */,
+				ABB43D6B2A184F7D0032E8F7 /* Frameworks */,
+				ABB43D6C2A184F7D0032E8F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Subscription;
+			packageProductDependencies = (
+			);
+			productName = DualPlayer;
+			productReference = ABB43D6E2A184F7D0032E8F7 /* SoccerCut Pro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ABDEBF432BD63FB30072F6C4 /* Paid */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABDEBFC72BD63FB30072F6C4 /* Build configuration list for PBXNativeTarget "Paid" */;
+			buildPhases = (
+				ABDEBF442BD63FB30072F6C4 /* Sources */,
+				ABDEBFC12BD63FB30072F6C4 /* Frameworks */,
+				ABDEBFC32BD63FB30072F6C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Paid;
+			packageProductDependencies = (
+			);
+			productName = DualPlayer;
+			productReference = ABDEBFCA2BD63FB30072F6C4 /* SoccerCut Pro.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ABB43D662A184F7D0032E8F7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					ABB43D6D2A184F7D0032E8F7 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+				};
+			};
+			buildConfigurationList = ABB43D692A184F7D0032E8F7 /* Build configuration list for PBXProject "SoccerCut Pro" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = ja;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ja,
+			);
+			mainGroup = ABB43D652A184F7D0032E8F7;
+			packageReferences = (
+			);
+			productRefGroup = ABB43D6F2A184F7D0032E8F7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ABB43D6D2A184F7D0032E8F7 /* Subscription */,
+				ABDEBF432BD63FB30072F6C4 /* Paid */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ABB43D6C2A184F7D0032E8F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB43D762A184F7E0032E8F7 /* Assets.xcassets in Resources */,
+				ABB43D792A184F7E0032E8F7 /* Main.storyboard in Resources */,
+				AB231C852A1B627B00921307 /* PlayerView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABDEBFC32BD63FB30072F6C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABDEBFC42BD63FB30072F6C4 /* Assets.xcassets in Resources */,
+				ABDEBFC52BD63FB30072F6C4 /* Main.storyboard in Resources */,
+				ABDEBFC62BD63FB30072F6C4 /* PlayerView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ABB43D6A2A184F7D0032E8F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB4EF61B2AC8171F008DA7F7 /* PenToolEffectThumbnailView.swift in Sources */,
+				ABF2347F2B1EE8C6007C61DF /* PenToolDrawnPathViewModel.swift in Sources */,
+				AB1C02632A1A1168008B45B0 /* MainViewController.swift in Sources */,
+				AB98B99B2AA1F87E0088F023 /* PenToolVolumeSliderViewModel.swift in Sources */,
+				ABF5DF7D2ACC103200ADA2D1 /* NSImage+.swift in Sources */,
+				AB1048142A8FA4AE00C8ACB0 /* Notification+Name.swift in Sources */,
+				ABFF15422A3C476B005DB0BD /* SubscriptionError.swift in Sources */,
+				ABBEE15D2A237DAD00E5ADEF /* PlayerViewModel.swift in Sources */,
+				ABB602352A7F6B7200FA260A /* PenToolPathDrawerProtocol.swift in Sources */,
+				ABF5367F2A1C991C008F5F4B /* ScreenSides.swift in Sources */,
+				ABFF15442A3C4881005DB0BD /* ProductId.swift in Sources */,
+				ABB8BF6B2A7DDF69000FC4C0 /* PenToolDrawnPath.swift in Sources */,
+				ABD7C18C2AF1436700E90BDE /* LinePathDrawer.swift in Sources */,
+				ABCF53112A77E5910033FAE1 /* PenToolCanvasPanel.swift in Sources */,
+				AB8A29F82AA225FF002B9356 /* EraserPath.swift in Sources */,
+				AB6561B92AF8626E004AF078 /* WebSiteURL.swift in Sources */,
+				ABD7BD502ACAB7D70076A39D /* PenToolDrawnPathsCompositerViewModel.swift in Sources */,
+				AB98B9A32AA1FF2F0088F023 /* PenToolSkipButtonViewModel.swift in Sources */,
+				AB0234A72AFB9D29000FAC95 /* PenToolStyleCircleUserDefaultsKey.swift in Sources */,
+				ABD7C1922AF1496D00E90BDE /* TextPathDrawer.swift in Sources */,
+				ABC5265D2AED34370087A9E1 /* ApplicationMode.swift in Sources */,
+				ABD7C17E2AF0F8D300E90BDE /* DashedArrowPath.swift in Sources */,
+				AB231C832A1B615E00921307 /* PlayerView.swift in Sources */,
+				ABBC5A2D2AF1E27E00CF997D /* PenToolEditButton.swift in Sources */,
+				AB4E9EA02A73EA120060707A /* PenToolPlayerView.swift in Sources */,
+				AB532BFD2A28B74F006B2376 /* PlayersViewModel.swift in Sources */,
+				AB98B9A72AA2000E0088F023 /* PenToolSeekBarViewModel.swift in Sources */,
+				ABD7C1902AF1456400E90BDE /* TextPath.swift in Sources */,
+				ABB3F5222AEDFC1700E2F9C4 /* ProductSelectionButton.swift in Sources */,
+				ABB220472A1F1D0400249945 /* ButtonStaticIcon.swift in Sources */,
+				AB98B9922AA1F3180088F023 /* PenToolPlayPauseButtonViewModel.swift in Sources */,
+				AB4E9EAA2A73FB720060707A /* PenToolTypePanel.swift in Sources */,
+				AB17B7A62AFE35520064189A /* CircleButton.swift in Sources */,
+				ABCFD4492A24B51B0092986A /* Int+.swift in Sources */,
+				ABA15E232A2FD29400EA7442 /* PlayersModel.swift in Sources */,
+				ABB18BF22AEC96E9005A5606 /* SaveCounterForReview.swift in Sources */,
+				ABD5ECAE2A272FB900F1F9CF /* Triangle.swift in Sources */,
+				AB92846C2A4A50C600A9A891 /* PurchaseType.swift in Sources */,
+				ABEE206E2A2B316500731A73 /* FileIOUtil.swift in Sources */,
+				AB766D772A9F89DB003934EA /* PenToolPlayer.swift in Sources */,
+				AB75B9192A8D0CF300C80171 /* PenToolUndoableStep.swift in Sources */,
+				ABD3522C2A86666000EEF3BC /* Color+.swift in Sources */,
+				ABB8BF6D2A7DE3DD000FC4C0 /* PenToolPathFactory.swift in Sources */,
+				ABB6023E2A7FDEA700FA260A /* CirclePathDrawer.swift in Sources */,
+				ABD7BD5A2ACAFB7A0076A39D /* CIImage+.swift in Sources */,
+				ABF5DF7B2ACC0EA300ADA2D1 /* View+.swift in Sources */,
+				ABCF53142A77E7010033FAE1 /* ArrowPath.swift in Sources */,
+				AB8A29F62AA22420002B9356 /* PenToolPathProtocol.swift in Sources */,
+				ABCF53002A77AE5E0033FAE1 /* LobPassArrowButton.swift in Sources */,
+				ABB6023C2A7F8AE800FA260A /* CirclePath.swift in Sources */,
+				AB98B9972AA1F6590088F023 /* PenToolMuteSoundButtonViewModel.swift in Sources */,
+				AB9A58582A2FC824002C15DB /* PlayerModel.swift in Sources */,
+				AB766D6F2A9F7EAD003934EA /* PenToolPlayerControlsPanel.swift in Sources */,
+				AB98B9952AA1F6130088F023 /* PenToolMuteSoundButton.swift in Sources */,
+				ABD3522A2A86665A00EEF3BC /* NSColor+.swift in Sources */,
+				AB2226AB2A248BC300B2A734 /* SeekBar.swift in Sources */,
+				AB7C8C3F2A317787000635E5 /* CGSize+.swift in Sources */,
+				ABE909A52AE7F8CA00F33172 /* ProcessType.swift in Sources */,
+				AB98B9992AA1F7D60088F023 /* PenToolVolumeSlider.swift in Sources */,
+				ABA4BC692A21EE7300FAAFD6 /* PlayingState.swift in Sources */,
+				ABD7BD562ACAF4580076A39D /* PenToolFrozenFrameMovie.swift in Sources */,
+				ABCF53022A77B06D0033FAE1 /* DashedArrowButton.swift in Sources */,
+				ABD7C18A2AF142B700E90BDE /* LinePath.swift in Sources */,
+				AB46F4552A3DEBE500DEEF92 /* Products.swift in Sources */,
+				ABC7E2AA2ACED70800B79074 /* PenToolSceneRootViewModel.swift in Sources */,
+				AB0234A92AFB9E62000FAC95 /* PenToolStyleDashedArrowUserDefaultsKey.swift in Sources */,
+				ABB8BF6F2A7DE468000FC4C0 /* PenToolPathStyle.swift in Sources */,
+				ABF635142A287702002963E2 /* ProcessingView.swift in Sources */,
+				ABCF52FA2A7786E70033FAE1 /* PenToolTypeButton.swift in Sources */,
+				AB6561B72AF85D03004AF078 /* PurchaseChecker.swift in Sources */,
+				AB4E9EA22A73F7520060707A /* PenToolSceneRootView.swift in Sources */,
+				AB7C8C3D2A3176E4000635E5 /* CGRect+.swift in Sources */,
+				AB4E9E9A2A73E4BA0060707A /* PenToolWindowController.swift in Sources */,
+				ABD7C18E2AF143F500E90BDE /* CircleFillPathDrawer.swift in Sources */,
+				ABF5DF812ACC448500ADA2D1 /* PenToolProcessingViewStateHolder.swift in Sources */,
+				AB0234AD2AFBA0B8000FAC95 /* PenToolStyleLineUserDefaultsKey.swift in Sources */,
+				ABC704DC2A29D61900E0F982 /* DualSwitchesView.swift in Sources */,
+				ABD7C1882AF142AE00E90BDE /* CircleFillPath.swift in Sources */,
+				ABD391822AAF536B0039558C /* PenToolEditViewModel.swift in Sources */,
+				ABC0D4CD2BC6626D003EBCFC /* PenToolPathTransform.swift in Sources */,
+				ABF5DF852ACC464C00ADA2D1 /* PenToolProcessingView.swift in Sources */,
+				AB152D5B2A32B2B500B43558 /* NSWindow+.swift in Sources */,
+				AB86EA8E2A2C765600B6DF3C /* MainWindowController.swift in Sources */,
+				AB4E9E9C2A73E5700060707A /* PenToolViewController.swift in Sources */,
+				ABD7C1862AF1133F00E90BDE /* LobPassArrowPath.swift in Sources */,
+				AB2C38FE2ABE957F00731C0C /* PenToolEffectThumbnailListViewModel.swift in Sources */,
+				ABC704DA2A29CBEA00E0F982 /* VolumeSlider.swift in Sources */,
+				AB75B9152A8CAD1F00C80171 /* PenToolEditPanel.swift in Sources */,
+				ABD7C1842AF112DC00E90BDE /* LobPassArrowPathDrawer.swift in Sources */,
+				AB3E51512A1C3C6A00E0B473 /* NSView+.swift in Sources */,
+				AB98B9A52AA1FFD00088F023 /* PenToolSeekBar.swift in Sources */,
+				AB98B99D2AA1FCF80088F023 /* PenToolRewindButton.swift in Sources */,
+				AB231C812A1B559F00921307 /* XibFilesOwnerView.swift in Sources */,
+				AB756CF72AA0C57D00A8B6E8 /* PenToolPlayerViewModel.swift in Sources */,
+				ABA4BC672A21E17A00FAAFD6 /* PlayerControlsView.swift in Sources */,
+				AB46F4522A3DE4C000DEEF92 /* ValidTransactions.swift in Sources */,
+				AB02349E2AFB4232000FAC95 /* PenToolStyleSlider.swift in Sources */,
+				AB88783E2A85DDEE00CA9D71 /* PenToolStylePanelPerType.swift in Sources */,
+				ABB43D722A184F7D0032E8F7 /* AppDelegate.swift in Sources */,
+				AB0234AB2AFB9F9D000FAC95 /* PenToolStyleLobPassArrowUserDefaultsKey.swift in Sources */,
+				ABB602372A7F7ABA00FA260A /* PenToolPathHistory.swift in Sources */,
+				AB32991E2AA41BDA00183AA6 /* PenToolCanvasViewModel.swift in Sources */,
+				AB7C8C392A31765F000635E5 /* CGPoint+.swift in Sources */,
+				AB4EF61F2AC81A06008DA7F7 /* PenToolEffectThumbnailViewModel.swift in Sources */,
+				AB0234A52AFB8661000FAC95 /* PenToolStyleArrowUserDefaultsKey.swift in Sources */,
+				ABD7BD4E2ACAB7100076A39D /* PenToolDrawnPathsCompositer.swift in Sources */,
+				AB0234B12AFBB6EC000FAC95 /* PenToolStyleTextUserDefaultsKey.swift in Sources */,
+				ABC5265F2AED59B90087A9E1 /* ProductSelectionView.swift in Sources */,
+				ABC704D82A297A9A00E0F982 /* URL+.swift in Sources */,
+				ABCF2FD02AA163D400F0A75B /* PenToolModel.swift in Sources */,
+				AB4E9EAC2A73FC290060707A /* PenToolEffectThumbnailListPanel.swift in Sources */,
+				ABD7BD522ACABDF60076A39D /* PenToolEffectThumbnailsModel.swift in Sources */,
+				AB7C8C372A3173EC000635E5 /* NSEvent+.swift in Sources */,
+				ABD7C1802AF0FA1000E90BDE /* DashedArrowPathDrawer.swift in Sources */,
+				AB98B99F2AA1FD510088F023 /* PenToolRewindButtonViewModel.swift in Sources */,
+				AB1048122A8F7CF400C8ACB0 /* EraserPathDrawer.swift in Sources */,
+				ABB8BF682A7DDAD1000FC4C0 /* ArrowPathDrawer.swift in Sources */,
+				ABF5DF832ACC450200ADA2D1 /* ProcessingViewState.swift in Sources */,
+				AB98B9902AA1F2B60088F023 /* PenToolPlayPauseButton.swift in Sources */,
+				ABCF530A2A77C32D0033FAE1 /* PenToolType.swift in Sources */,
+				ABF5367D2A1C9204008F5F4B /* PlayersView.swift in Sources */,
+				ABBAFF4F2A241EF700F042A6 /* ButtonDynamicIcon.swift in Sources */,
+				AB98B9A12AA1FEE40088F023 /* PenToolSkipButton.swift in Sources */,
+				AB0234AF2AFBA154000FAC95 /* PenToolStyleCircleFillUserDefaultsKey.swift in Sources */,
+				CC000001000000000000001 /* DashedLobPassArrowPath.swift in Sources */,
+				CC000002000000000000001 /* DashedLobPassArrowPathDrawer.swift in Sources */,
+				CC000003000000000000001 /* DashedLobPassArrowButton.swift in Sources */,
+				CC000004000000000000001 /* PenToolStyleDashedLobPassArrowUserDefaultsKey.swift in Sources */,
+				CC000005000000000000001 /* TrianglePath.swift in Sources */,
+				CC000006000000000000001 /* RectanglePath.swift in Sources */,
+				CC000007000000000000001 /* ShapePathDrawers.swift in Sources */,
+				CC000008000000000000001 /* PenToolStyleShapeUserDefaultsKeys.swift in Sources */,
+				CC000009000000000000001 /* RecentColors.swift in Sources */,
+				CC000010000000000000001 /* ConnectedCirclesPath.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABDEBF442BD63FB30072F6C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABDEBF452BD63FB30072F6C4 /* PenToolEffectThumbnailView.swift in Sources */,
+				ABDEBF462BD63FB30072F6C4 /* PenToolDrawnPathViewModel.swift in Sources */,
+				ABDEBF472BD63FB30072F6C4 /* MainViewController.swift in Sources */,
+				ABDEBF482BD63FB30072F6C4 /* PenToolVolumeSliderViewModel.swift in Sources */,
+				ABDEBF492BD63FB30072F6C4 /* NSImage+.swift in Sources */,
+				ABDEBF4A2BD63FB30072F6C4 /* Notification+Name.swift in Sources */,
+				ABDEBF4B2BD63FB30072F6C4 /* SubscriptionError.swift in Sources */,
+				ABDEBF4C2BD63FB30072F6C4 /* PlayerViewModel.swift in Sources */,
+				ABDEBF4D2BD63FB30072F6C4 /* PenToolPathDrawerProtocol.swift in Sources */,
+				ABDEBF4E2BD63FB30072F6C4 /* ScreenSides.swift in Sources */,
+				ABDEBF4F2BD63FB30072F6C4 /* ProductId.swift in Sources */,
+				ABDEBF502BD63FB30072F6C4 /* PenToolDrawnPath.swift in Sources */,
+				ABDEBF512BD63FB30072F6C4 /* LinePathDrawer.swift in Sources */,
+				ABDEBF522BD63FB30072F6C4 /* PenToolCanvasPanel.swift in Sources */,
+				ABDEBF532BD63FB30072F6C4 /* EraserPath.swift in Sources */,
+				ABDEBF542BD63FB30072F6C4 /* WebSiteURL.swift in Sources */,
+				ABDEBF552BD63FB30072F6C4 /* PenToolDrawnPathsCompositerViewModel.swift in Sources */,
+				ABDEBF562BD63FB30072F6C4 /* PenToolSkipButtonViewModel.swift in Sources */,
+				ABDEBF572BD63FB30072F6C4 /* PenToolStyleCircleUserDefaultsKey.swift in Sources */,
+				ABDEBF582BD63FB30072F6C4 /* TextPathDrawer.swift in Sources */,
+				ABDEBF592BD63FB30072F6C4 /* ApplicationMode.swift in Sources */,
+				ABDEBF5A2BD63FB30072F6C4 /* DashedArrowPath.swift in Sources */,
+				ABDEBF5B2BD63FB30072F6C4 /* PlayerView.swift in Sources */,
+				ABDEBF5C2BD63FB30072F6C4 /* PenToolEditButton.swift in Sources */,
+				ABDEBF5D2BD63FB30072F6C4 /* PenToolPlayerView.swift in Sources */,
+				ABDEBF5E2BD63FB30072F6C4 /* PlayersViewModel.swift in Sources */,
+				ABDEBF5F2BD63FB30072F6C4 /* PenToolSeekBarViewModel.swift in Sources */,
+				ABDEBF602BD63FB30072F6C4 /* TextPath.swift in Sources */,
+				ABDEBF612BD63FB30072F6C4 /* ProductSelectionButton.swift in Sources */,
+				ABDEBF622BD63FB30072F6C4 /* ButtonStaticIcon.swift in Sources */,
+				ABDEBF632BD63FB30072F6C4 /* PenToolPlayPauseButtonViewModel.swift in Sources */,
+				ABDEBF642BD63FB30072F6C4 /* PenToolTypePanel.swift in Sources */,
+				ABDEBF652BD63FB30072F6C4 /* CircleButton.swift in Sources */,
+				ABDEBF662BD63FB30072F6C4 /* Int+.swift in Sources */,
+				ABDEBF672BD63FB30072F6C4 /* PlayersModel.swift in Sources */,
+				ABDEBF682BD63FB30072F6C4 /* SaveCounterForReview.swift in Sources */,
+				ABDEBF692BD63FB30072F6C4 /* Triangle.swift in Sources */,
+				ABDEBF6A2BD63FB30072F6C4 /* PurchaseType.swift in Sources */,
+				ABDEBF6B2BD63FB30072F6C4 /* FileIOUtil.swift in Sources */,
+				ABDEBF6C2BD63FB30072F6C4 /* PenToolPlayer.swift in Sources */,
+				ABDEBF6D2BD63FB30072F6C4 /* PenToolUndoableStep.swift in Sources */,
+				ABDEBF6E2BD63FB30072F6C4 /* Color+.swift in Sources */,
+				ABDEBF6F2BD63FB30072F6C4 /* PenToolPathFactory.swift in Sources */,
+				ABDEBF702BD63FB30072F6C4 /* CirclePathDrawer.swift in Sources */,
+				ABDEBF712BD63FB30072F6C4 /* CIImage+.swift in Sources */,
+				ABDEBF722BD63FB30072F6C4 /* View+.swift in Sources */,
+				ABDEBF732BD63FB30072F6C4 /* ArrowPath.swift in Sources */,
+				ABDEBF742BD63FB30072F6C4 /* PenToolPathProtocol.swift in Sources */,
+				ABDEBF752BD63FB30072F6C4 /* LobPassArrowButton.swift in Sources */,
+				ABDEBF762BD63FB30072F6C4 /* CirclePath.swift in Sources */,
+				ABDEBF772BD63FB30072F6C4 /* PenToolMuteSoundButtonViewModel.swift in Sources */,
+				ABDEBF782BD63FB30072F6C4 /* PlayerModel.swift in Sources */,
+				ABDEBF792BD63FB30072F6C4 /* PenToolPlayerControlsPanel.swift in Sources */,
+				ABDEBF7A2BD63FB30072F6C4 /* PenToolMuteSoundButton.swift in Sources */,
+				ABDEBF7B2BD63FB30072F6C4 /* NSColor+.swift in Sources */,
+				ABDEBF7C2BD63FB30072F6C4 /* SeekBar.swift in Sources */,
+				ABDEBF7D2BD63FB30072F6C4 /* CGSize+.swift in Sources */,
+				ABDEBF7E2BD63FB30072F6C4 /* ProcessType.swift in Sources */,
+				ABDEBF7F2BD63FB30072F6C4 /* PenToolVolumeSlider.swift in Sources */,
+				ABDEBF802BD63FB30072F6C4 /* PlayingState.swift in Sources */,
+				ABDEBF812BD63FB30072F6C4 /* PenToolFrozenFrameMovie.swift in Sources */,
+				ABDEBF822BD63FB30072F6C4 /* DashedArrowButton.swift in Sources */,
+				ABDEBF832BD63FB30072F6C4 /* LinePath.swift in Sources */,
+				ABDEBF842BD63FB30072F6C4 /* Products.swift in Sources */,
+				ABDEBF852BD63FB30072F6C4 /* PenToolSceneRootViewModel.swift in Sources */,
+				ABDEBF862BD63FB30072F6C4 /* PenToolStyleDashedArrowUserDefaultsKey.swift in Sources */,
+				ABDEBF872BD63FB30072F6C4 /* PenToolPathStyle.swift in Sources */,
+				ABDEBF882BD63FB30072F6C4 /* ProcessingView.swift in Sources */,
+				ABDEBF892BD63FB30072F6C4 /* PenToolTypeButton.swift in Sources */,
+				ABDEBF8A2BD63FB30072F6C4 /* PurchaseChecker.swift in Sources */,
+				ABDEBF8B2BD63FB30072F6C4 /* PenToolSceneRootView.swift in Sources */,
+				ABDEBF8C2BD63FB30072F6C4 /* CGRect+.swift in Sources */,
+				ABDEBF8D2BD63FB30072F6C4 /* PenToolWindowController.swift in Sources */,
+				ABDEBF8E2BD63FB30072F6C4 /* CircleFillPathDrawer.swift in Sources */,
+				ABDEBF8F2BD63FB30072F6C4 /* PenToolProcessingViewStateHolder.swift in Sources */,
+				ABDEBF902BD63FB30072F6C4 /* PenToolStyleLineUserDefaultsKey.swift in Sources */,
+				ABDEBF912BD63FB30072F6C4 /* DualSwitchesView.swift in Sources */,
+				ABDEBF922BD63FB30072F6C4 /* CircleFillPath.swift in Sources */,
+				ABDEBF932BD63FB30072F6C4 /* PenToolEditViewModel.swift in Sources */,
+				ABDEBF942BD63FB30072F6C4 /* PenToolPathTransform.swift in Sources */,
+				ABDEBF952BD63FB30072F6C4 /* PenToolProcessingView.swift in Sources */,
+				ABDEBF962BD63FB30072F6C4 /* NSWindow+.swift in Sources */,
+				ABDEBF972BD63FB30072F6C4 /* MainWindowController.swift in Sources */,
+				ABDEBF982BD63FB30072F6C4 /* PenToolViewController.swift in Sources */,
+				ABDEBF992BD63FB30072F6C4 /* LobPassArrowPath.swift in Sources */,
+				ABDEBF9A2BD63FB30072F6C4 /* PenToolEffectThumbnailListViewModel.swift in Sources */,
+				ABDEBF9B2BD63FB30072F6C4 /* VolumeSlider.swift in Sources */,
+				ABDEBF9C2BD63FB30072F6C4 /* PenToolEditPanel.swift in Sources */,
+				ABDEBF9D2BD63FB30072F6C4 /* LobPassArrowPathDrawer.swift in Sources */,
+				ABDEBF9E2BD63FB30072F6C4 /* NSView+.swift in Sources */,
+				ABDEBF9F2BD63FB30072F6C4 /* PenToolSeekBar.swift in Sources */,
+				ABDEBFA02BD63FB30072F6C4 /* PenToolRewindButton.swift in Sources */,
+				ABDEBFA12BD63FB30072F6C4 /* XibFilesOwnerView.swift in Sources */,
+				ABDEBFA22BD63FB30072F6C4 /* PenToolPlayerViewModel.swift in Sources */,
+				ABDEBFA32BD63FB30072F6C4 /* PlayerControlsView.swift in Sources */,
+				ABDEBFA42BD63FB30072F6C4 /* ValidTransactions.swift in Sources */,
+				ABDEBFA52BD63FB30072F6C4 /* PenToolStyleSlider.swift in Sources */,
+				ABDEBFA62BD63FB30072F6C4 /* PenToolStylePanelPerType.swift in Sources */,
+				ABDEBFA72BD63FB30072F6C4 /* AppDelegate.swift in Sources */,
+				ABDEBFA82BD63FB30072F6C4 /* PenToolStyleLobPassArrowUserDefaultsKey.swift in Sources */,
+				ABDEBFA92BD63FB30072F6C4 /* PenToolPathHistory.swift in Sources */,
+				ABDEBFAA2BD63FB30072F6C4 /* PenToolCanvasViewModel.swift in Sources */,
+				ABDEBFAB2BD63FB30072F6C4 /* CGPoint+.swift in Sources */,
+				ABDEBFAC2BD63FB30072F6C4 /* PenToolEffectThumbnailViewModel.swift in Sources */,
+				ABDEBFAD2BD63FB30072F6C4 /* PenToolStyleArrowUserDefaultsKey.swift in Sources */,
+				ABDEBFAE2BD63FB30072F6C4 /* PenToolDrawnPathsCompositer.swift in Sources */,
+				ABDEBFAF2BD63FB30072F6C4 /* PenToolStyleTextUserDefaultsKey.swift in Sources */,
+				ABDEBFB02BD63FB30072F6C4 /* ProductSelectionView.swift in Sources */,
+				ABDEBFB12BD63FB30072F6C4 /* URL+.swift in Sources */,
+				ABDEBFB22BD63FB30072F6C4 /* PenToolModel.swift in Sources */,
+				ABDEBFB32BD63FB30072F6C4 /* PenToolEffectThumbnailListPanel.swift in Sources */,
+				ABDEBFB42BD63FB30072F6C4 /* PenToolEffectThumbnailsModel.swift in Sources */,
+				ABDEBFB52BD63FB30072F6C4 /* NSEvent+.swift in Sources */,
+				ABDEBFB62BD63FB30072F6C4 /* DashedArrowPathDrawer.swift in Sources */,
+				ABDEBFB72BD63FB30072F6C4 /* PenToolRewindButtonViewModel.swift in Sources */,
+				ABDEBFB82BD63FB30072F6C4 /* EraserPathDrawer.swift in Sources */,
+				ABDEBFB92BD63FB30072F6C4 /* ArrowPathDrawer.swift in Sources */,
+				ABDEBFBA2BD63FB30072F6C4 /* ProcessingViewState.swift in Sources */,
+				ABDEBFBB2BD63FB30072F6C4 /* PenToolPlayPauseButton.swift in Sources */,
+				ABDEBFBC2BD63FB30072F6C4 /* PenToolType.swift in Sources */,
+				ABDEBFBD2BD63FB30072F6C4 /* PlayersView.swift in Sources */,
+				ABDEBFBE2BD63FB30072F6C4 /* ButtonDynamicIcon.swift in Sources */,
+				ABDEBFBF2BD63FB30072F6C4 /* PenToolSkipButton.swift in Sources */,
+				ABDEBFC02BD63FB30072F6C4 /* PenToolStyleCircleFillUserDefaultsKey.swift in Sources */,
+				CC000001000000000000001 /* DashedLobPassArrowPath.swift in Sources */,
+				CC000002000000000000001 /* DashedLobPassArrowPathDrawer.swift in Sources */,
+				CC000003000000000000001 /* DashedLobPassArrowButton.swift in Sources */,
+				CC000004000000000000001 /* PenToolStyleDashedLobPassArrowUserDefaultsKey.swift in Sources */,
+				CC000005000000000000001 /* TrianglePath.swift in Sources */,
+				CC000006000000000000001 /* RectanglePath.swift in Sources */,
+				CC000007000000000000001 /* ShapePathDrawers.swift in Sources */,
+				CC000008000000000000001 /* PenToolStyleShapeUserDefaultsKeys.swift in Sources */,
+				CC000009000000000000001 /* RecentColors.swift in Sources */,
+				CC000010000000000000003 /* ConnectedCirclesPath.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ABB43D772A184F7E0032E8F7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABB43D782A184F7E0032E8F7 /* Base */,
+				AB2595DD2A5111B30063284C /* ja */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ABB43D7B2A184F7E0032E8F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ABB43D7C2A184F7E0032E8F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		ABB43D7E2A184F7E0032E8F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SoccerCut Pro/SoccerCut Pro.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 18;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 6MHV457VVD;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SoccerCut Pro/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				IS_SUBSCRIPTION = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "blog.daichimatsumoto.SoccerCut-Pro";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		ABB43D7F2A184F7E0032E8F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SoccerCut Pro/SoccerCut Pro.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 18;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 6MHV457VVD;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SoccerCut Pro/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				IS_SUBSCRIPTION = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "blog.daichimatsumoto.SoccerCut-Pro";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		ABDEBFC82BD63FB30072F6C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SoccerCut Pro/SoccerCut Pro.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 18;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 6MHV457VVD;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SoccerCut Pro/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				IS_SUBSCRIPTION = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "blog.daichimatsumoto.SoccerCut-Pro-Paid";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		ABDEBFC92BD63FB30072F6C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SoccerCut Pro/SoccerCut Pro.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 18;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 6MHV457VVD;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SoccerCut Pro/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				IS_SUBSCRIPTION = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "blog.daichimatsumoto.SoccerCut-Pro-Paid";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ABB43D692A184F7D0032E8F7 /* Build configuration list for PBXProject "SoccerCut Pro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABB43D7B2A184F7E0032E8F7 /* Debug */,
+				ABB43D7C2A184F7E0032E8F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABB43D7D2A184F7E0032E8F7 /* Build configuration list for PBXNativeTarget "Subscription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABB43D7E2A184F7E0032E8F7 /* Debug */,
+				ABB43D7F2A184F7E0032E8F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABDEBFC72BD63FB30072F6C4 /* Build configuration list for PBXNativeTarget "Paid" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABDEBFC82BD63FB30072F6C4 /* Debug */,
+				ABDEBFC92BD63FB30072F6C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ABB43D662A184F7D0032E8F7 /* Project object */;
+}

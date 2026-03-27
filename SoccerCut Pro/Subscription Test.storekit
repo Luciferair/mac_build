@@ -1,0 +1,192 @@
+{
+  "identifier" : "57399D52",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_askToBuyEnabled" : false,
+    "_billingIssuesEnabled" : false,
+    "_failTransactionsEnabled" : false,
+    "_locale" : "ja",
+    "_storefront" : "JPN",
+    "_storeKitError" : 0,
+    "_timeRate" : 0
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "44999116",
+      "localizations" : [
+
+      ],
+      "name" : "Licenses",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "390.00",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "59C58AA1",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "SoccerCut Proの基本機能が利用できる月額サブスクリプションです。",
+              "displayName" : "SoccerCut Pro Basic",
+              "locale" : "ja"
+            }
+          ],
+          "productID" : "blog.daichimatsumoto.SoccerCut_Pro.SoccerCut_Pro_Monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "SoccerCut Pro Basic Monthly",
+          "subscriptionGroupID" : "44999116",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "3900.00",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "C1793AB5",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "SoccerCut Proの基本機能が利用できるお得な年額サブスクリプションです。",
+              "displayName" : "SoccerCut Pro Basic",
+              "locale" : "ja"
+            }
+          ],
+          "productID" : "blog.daichimatsumoto.SoccerCut_Pro.SoccerCut_Pro_Yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "SoccerCut Pro Basic Yearly",
+          "subscriptionGroupID" : "44999116",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "780.00",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "819A78F5",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "SoccerCut Proのペンツール機能が利用できる月額サブスクリプションです。",
+              "displayName" : "SoccerCut Pro Editor",
+              "locale" : "ja"
+            }
+          ],
+          "productID" : "blog.daichimatsumoto.SoccerCut_Pro.SoccerCut_Pro_Editor_Monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "SoccerCut Pro Editor Monthly",
+          "subscriptionGroupID" : "44999116",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "7800.00",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "95FBBC52",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "SoccerCut Proのペンツール機能が利用できるお得な年額サブスクリプションです。",
+              "displayName" : "SoccerCut Pro Editor",
+              "locale" : "ja"
+            }
+          ],
+          "productID" : "blog.daichimatsumoto.SoccerCut_Pro.SoccerCut_Pro_Editor_Yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "SoccerCut Pro Editor Yearly",
+          "subscriptionGroupID" : "44999116",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "990.00",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "05B7BC68",
+          "introductoryOffer" : {
+            "displayPrice" : "0.99",
+            "internalID" : "3697346B",
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P2W"
+          },
+          "localizations" : [
+            {
+              "description" : "SoccerCut Proの全機能が利用できる月額サブスクリプションです。",
+              "displayName" : "SoccerCut Pro Expert",
+              "locale" : "ja"
+            }
+          ],
+          "productID" : "blog.daichimatsumoto.SoccerCut_Pro.SoccerCut_Pro_Expert_Monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "SoccerCut Pro Expert Monthly",
+          "subscriptionGroupID" : "44999116",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "9900.00",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "61B0A364",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "SoccerCut Proの全機能が利用できるお得な年額サブスクリプションです。",
+              "displayName" : "SoccerCut Pro Expert",
+              "locale" : "ja"
+            }
+          ],
+          "productID" : "blog.daichimatsumoto.SoccerCut_Pro.SoccerCut_Pro_Expert_Yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "SoccerCut Pro Expert Yearly",
+          "subscriptionGroupID" : "44999116",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "subscriptionOffersKeyPair" : {
+    "id" : "5C1313BC",
+    "privateKey" : "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg3XzKm+LWnO3EPG85bPf1K9t08rEvTW3hqm7GimcT0PigCgYIKoZIzj0DAQehRANCAARYpyT2l1LsrdTXzcY28uy3R5DYb+TyztTsBn0XeSER01HO9a+jubq7rgn1hH0rWXLkLT9n4JnY6OTH7/IOqzVB"
+  },
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}
