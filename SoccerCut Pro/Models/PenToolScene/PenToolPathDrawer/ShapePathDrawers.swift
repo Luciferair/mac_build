@@ -132,7 +132,8 @@ struct ConnectedCirclesPathDrawer: PenToolPathDrawerProtocol {
         )
     }
     func isValidInput(startInResolution: CGPoint, endInResolution: CGPoint) -> Bool {
-        let d = endInResolution - startInResolution; return abs(d.x) > 5 || abs(d.y) > 5
+        // Allow tap-to-place nodes for faster chained drawing.
+        true
     }
     func makePath(startInResolution: CGPoint, endInResolution: CGPoint) -> any PenToolPathProtocol {
         var p = ConnectedCirclesPath(); p.initialize(startInResolution: startInResolution, endInResolution: endInResolution); return p

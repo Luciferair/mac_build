@@ -75,6 +75,14 @@ struct ConnectedCirclesPath: View, PenToolPathProtocol {
         pathHistory.addTransformUndoableStep(oldTransform: old)
     }
 
+    private func markerCircleAngle() -> Angle {
+        Angle(degrees: 270)
+    }
+
+    private func markerStartAngle() -> Angle {
+        Angle(degrees: -90 + (360 - markerCircleAngle().degrees) / 2)
+    }
+
     var body: some View {
         GeometryReader { _ in
             let pts = nodes.points
@@ -108,7 +116,11 @@ struct ConnectedCirclesPath: View, PenToolPathProtocol {
                         let lx = p.x - off.width
                         let ly = p.y - off.height
                         Path { path in
-                            path.addEllipse(in: CGRect(x: lx - r, y: ly - r, width: r * 2, height: r * 2))
+                            path.addArc(center: CGPoint(x: lx, y: ly),
+                                        radius: r,
+                                        startAngle: markerStartAngle(),
+                                        endAngle: markerStartAngle() + markerCircleAngle(),
+                                        clockwise: false)
                         }
                         .stroke(color, lineWidth: lw)
                     }
