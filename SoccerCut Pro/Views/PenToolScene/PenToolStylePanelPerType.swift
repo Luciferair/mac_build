@@ -30,6 +30,13 @@ struct PenToolStylePanelPerType: View {
         circleNumberFormatter.minimum = NSNumber(value: 1)
         circleNumberFormatter.maximum = NSNumber(value: 360)
     }
+
+    private var selectedConnectedNodeAngleBinding: Binding<Int32> {
+        Binding(
+            get: { pathFactory.pathHistory.selectedConnectedCirclesNodeAngle() ?? 270 },
+            set: { pathFactory.pathHistory.setAngleToSelectedConnectedCirclesNode($0) }
+        )
+    }
         
     var body: some View {
         if pathFactory.currentType == type {
@@ -155,6 +162,22 @@ struct PenToolStylePanelPerType: View {
                         }
                         .padding(.horizontal, 10)
                         .padding(.bottom, spacing)
+                    }
+
+                    if type == .connectedCircles {
+                        Section(header: Text("選択中プレイヤーの向き")) {
+                            HStack {
+                                PenToolStyleSlider(value: selectedConnectedNodeAngleBinding, minValue: 0, maxValue: 359, step: 1, showValueLabel: false)
+                                Text(String(pathFactory.pathHistory.selectedConnectedCirclesNodeAngle() ?? 270))
+                                    .frame(width: 30, height: 10)
+                                    .padding(.leading, -5)
+                            }
+                            .padding(.horizontal, 10)
+                            Text("円をクリックすると個別向きを変更できます")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            .padding(.bottom, spacing)
+                        }
                     }
                 }
                 

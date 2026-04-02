@@ -54,27 +54,29 @@ class PenToolCanvasViewModel: ObservableObject {
             pathHistory.clearDrawing()
             return
         }
-        
-        let path = pathFactory.makePath(startInResolution: startLocationInResolution, endInResolution: locationInResolution)
-        if isEnd {
-            if pathFactory.currentType == .connectedCircles {
-                if pathFactory.isChainInHistory {
-                    // Subsequent segment: chain already in history, just extend it
-                    pathFactory.confirmChainSegment(endInResolution: locationInResolution)
-                    pathHistory.clearDrawing()
-                    NotificationCenter.default.post(name: .drawnPathDidChangeNotification, object: pathHistory,
-                                                    userInfo: ["targetFrame": pathHistory.currentTargetFrame])
-                } else {
-                    // First segment: add chain to history
-                    pathFactory.confirmChainSegment(endInResolution: locationInResolution)
-                    pathFactory.markChainInHistory()
-                    pathHistory.confirmDrawing(type: pathFactory.currentType, path: path)
-                    pathFactory.saveStyle()
-                }
+
+        if pathFactory.currentType == .connectedCircles {
+            // connectedCircles は「1点目タップ -> 2点目タップ」で確定していく。
+            if !isEnd { return }
+
+            if pathFactory.isChainInHistory {
+                pathFactory.confirmChainSegment(endInResolution: locationInResolution)
+                pathHistory.clearDrawing()
+                NotificationCenter.default.post(name: .drawnPathDidChangeNotification, object: pathHistory,
+                                                userInfo: ["targetFrame": pathHistory.currentTargetFrame])
             } else {
+                let path = pathFactory.makePath(startInResolution: locationInResolution, endInResolution: locationInResolution)
+                pathFactory.markChainInHistory()
                 pathHistory.confirmDrawing(type: pathFactory.currentType, path: path)
                 pathFactory.saveStyle()
             }
+            return
+        }
+        
+        let path = pathFactory.makePath(startInResolution: startLocationInResolution, endInResolution: locationInResolution)
+        if isEnd {
+            pathHistory.confirmDrawing(type: pathFactory.currentType, path: path)
+            pathFactory.saveStyle()
         } else {
             pathHistory.updateDrawing(type: pathFactory.currentType, path: path)
         }

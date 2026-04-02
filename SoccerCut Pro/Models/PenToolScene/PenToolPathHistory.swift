@@ -147,6 +147,19 @@ class PenToolPathHistory {
             if drawnPath.isSelected { drawnPath.applyStyle(newStyle) }
         }
     }
+
+    func selectedConnectedCirclesNodeAngle() -> Int32? {
+        selectedPath()?.connectedCirclesSelectedNodeAngle()
+    }
+
+    func hasSelectedConnectedCirclesNode() -> Bool {
+        selectedPath()?.hasSelectedConnectedCirclesNode() ?? false
+    }
+
+    func setAngleToSelectedConnectedCirclesNode(_ newAngle: Int32) {
+        guard let selectedPath = selectedPath() else { return }
+        selectedPath.setConnectedCirclesSelectedNodeAngle(newAngle)
+    }
     
     func changeShowingEffectSecs(newSecs: Double) {
         currentShowingEffectSecsSetting = newSecs

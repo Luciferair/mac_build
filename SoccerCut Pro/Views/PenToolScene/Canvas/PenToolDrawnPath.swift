@@ -33,9 +33,23 @@ struct PenToolDrawnPath: View, Identifiable {
     func applyStyle(_ newStyle: PenToolPathStyle) { path.applyStyle(newStyle) }
     func drawnTransform() -> PenToolPathTransform { return path.drawnTransform() }
     func applyTransform(_ newTransform: PenToolPathTransform) { path.applyTransform(newTransform) }
+    func connectedCirclesSelectedNodeAngle() -> Int32? {
+        guard let connected = path as? ConnectedCirclesPath else { return nil }
+        return connected.selectedNodeAngleDegrees()
+    }
+    func setConnectedCirclesSelectedNodeAngle(_ angle: Int32) {
+        guard let connected = path as? ConnectedCirclesPath else { return }
+        connected.setSelectedNodeAngleDegrees(angle)
+    }
+    func hasSelectedConnectedCirclesNode() -> Bool {
+        connectedCirclesSelectedNodeAngle() != nil
+    }
     
     func setIsSelected(_ isSelected: Bool) {
         viewModel.isSelected = isSelected
+        if !isSelected, let connected = path as? ConnectedCirclesPath {
+            connected.clearSelectedNode()
+        }
     }
         
     var drag: some Gesture {
@@ -45,10 +59,29 @@ struct PenToolDrawnPath: View, Identifiable {
                     viewModel.isSelected = true
                     NotificationCenter.default.post(name: .clickedDrawnPathNotification, object: nil, userInfo: ["pathId": id])
                 }
+                let moveDistance = hypot(value.location.x - value.startLocation.x, value.location.y - value.startLocation.y)
+                if moveDistance < 1 { return }
                 path.onDragged(startInVideoRect: value.startLocation, endInVideoRect: value.location)
             }
             .onEnded { value in
+                let moveDistance = hypot(value.location.x - value.startLocation.x, value.location.y - value.startLocation.y)
+                if moveDistance < 3, let connected = path as? ConnectedCirclesPath {
+                    let pathOffset = path.offset()
+                    let resolutionPoint = CGPoint(x: value.location.x + pathOffset.width, y: value.location.y + pathOffset.height)
+                    _ = connected.selectNearestNode(at: resolutionPoint)
+                    return
+                }
                 path.onDragEnded(startInVideoRect: value.startLocation, endInVideoRect: value.location)
+            }
+    }
+
+    var tap: some Gesture {
+        TapGesture()
+            .onEnded {
+                if !viewModel.isSelected {
+                    viewModel.isSelected = true
+                }
+                NotificationCenter.default.post(name: .clickedDrawnPathNotification, object: nil, userInfo: ["pathId": id])
             }
     }
         
@@ -57,13 +90,12 @@ struct PenToolDrawnPath: View, Identifiable {
         GeometryReader { geometry in
             ZStack {
                 AnyView(path)
-                    .if(type == viewModel.currentType()) {
-                        $0.contentShape(Rectangle())
-                    }
+                    .contentShape(Rectangle())
 //                    .border(.blue, width: 3)
                     .offset(path.offset())
                     .frame(width: path.frame().width, height: path.frame().height)
                     .gesture(drag)
+                    .simultaneousGesture(tap)
                 
                 if viewModel.isSelected {
                     Rectangle()

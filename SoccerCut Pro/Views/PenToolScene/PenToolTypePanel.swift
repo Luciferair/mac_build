@@ -23,7 +23,7 @@ struct PenToolTypePanel: View {
             DashedLobPassArrowButton()
             CircleButton()
             PenToolTypeButton(systemImageName: "circle.fill", type: .circleFill)
-            PenToolTypeButton(systemImageName: "circle.grid.2x1", type: .connectedCircles)
+            ConnectedCirclesButton()
             PenToolTypeButton(systemImageName: "triangle", type: .triangle)
             PenToolTypeButton(systemImageName: "triangle.fill", type: .triangleFill)
             PenToolTypeButton(systemImageName: "rectangle", type: .rectangle)
@@ -42,5 +42,35 @@ struct PenToolTypePanel: View {
 struct PenToolsPanel_Previews: PreviewProvider {
     static var previews: some View {
         PenToolTypePanel()
+    }
+}
+
+struct ConnectedCirclesButton: View {
+    @ObservedObject private(set) var pathFactory: PenToolPathFactory
+
+    init() {
+        self.pathFactory = PenToolModel.now.pathFactory
+    }
+
+    private var iconColor: Color {
+        pathFactory.currentType == .connectedCircles ? PenToolTypeButton.selectedColor : PenToolTypeButton.iconColor
+    }
+
+    var body: some View {
+        Button(action: {
+            pathFactory.changeType(to: .connectedCircles)
+        }) {
+            VStack(spacing: 1) {
+                Image(systemName: "person.2")
+                    .font(.system(size: PenToolTypeButton.size - 2))
+                    .foregroundColor(iconColor)
+                Capsule()
+                    .fill(iconColor)
+                    .frame(width: 12, height: 2)
+            }
+            .frame(height: PenToolTypeButton.size + 3)
+            .background(PenToolTypePanel.backgroundColor)
+        }
+        .buttonStyle(PlainButtonStyle())
     }
 }

@@ -122,13 +122,15 @@ struct ConnectedCirclesPathDrawer: PenToolPathDrawerProtocol {
         UserDefaults.standard.register(defaults: [
             PenToolStyleConnectedCirclesUserDefaultsKey.colorData.rawValue: Color.black.jsonEncoded()!,
             PenToolStyleConnectedCirclesUserDefaultsKey.opacity.rawValue: 100,
-            PenToolStyleConnectedCirclesUserDefaultsKey.lineWidth.rawValue: 10
+            PenToolStyleConnectedCirclesUserDefaultsKey.lineWidth.rawValue: 10,
+            PenToolStyleConnectedCirclesUserDefaultsKey.circleDegrees.rawValue: 270
         ])
         let colorData = UserDefaults.standard.data(forKey: PenToolStyleConnectedCirclesUserDefaultsKey.colorData.rawValue)
         style = PenToolPathStyle(
             color: colorData == nil ? .black : Color.jsonDecoded(colorData!),
             opacity: Int32(UserDefaults.standard.integer(forKey: PenToolStyleConnectedCirclesUserDefaultsKey.opacity.rawValue)),
-            lineWidth: Int32(UserDefaults.standard.integer(forKey: PenToolStyleConnectedCirclesUserDefaultsKey.lineWidth.rawValue))
+            lineWidth: Int32(UserDefaults.standard.integer(forKey: PenToolStyleConnectedCirclesUserDefaultsKey.lineWidth.rawValue)),
+            circleDegrees: Int32(UserDefaults.standard.integer(forKey: PenToolStyleConnectedCirclesUserDefaultsKey.circleDegrees.rawValue))
         )
     }
     func isValidInput(startInResolution: CGPoint, endInResolution: CGPoint) -> Bool {
@@ -142,6 +144,7 @@ struct ConnectedCirclesPathDrawer: PenToolPathDrawerProtocol {
         UserDefaults.standard.set(style.color.jsonEncoded(), forKey: PenToolStyleConnectedCirclesUserDefaultsKey.colorData.rawValue)
         UserDefaults.standard.setValue(style.opacity,   forKey: PenToolStyleConnectedCirclesUserDefaultsKey.opacity.rawValue)
         UserDefaults.standard.setValue(style.lineWidth, forKey: PenToolStyleConnectedCirclesUserDefaultsKey.lineWidth.rawValue)
+        UserDefaults.standard.setValue(style.circleDegrees, forKey: PenToolStyleConnectedCirclesUserDefaultsKey.circleDegrees.rawValue)
         UserDefaults.standard.synchronize()
     }
 }
