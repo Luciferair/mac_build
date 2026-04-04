@@ -15,65 +15,80 @@ class PenToolCanvasViewModel: ObservableObject {
     @Published private(set) var resolutionToVideoRectSizeRatio = CGSize(width: 1, height: 1)
     @Published private(set) var drawnPathsOnCurrentFrame: [PenToolDrawnPath] = []
     @Published private(set) var drawingPathOnCurrentFrame: PenToolDrawnPath? = nil
-    
+
     var videoRect: CGSize {
-        get { return CGSize(width: player.resolution.width * resolutionToVideoRectSizeRatio.width,
-                            height: player.resolution.height * resolutionToVideoRectSizeRatio.height) }
+        CGSize(width: player.resolution.width * resolutionToVideoRectSizeRatio.width,
+               height: player.resolution.height * resolutionToVideoRectSizeRatio.height)
     }
-    
+
     init() {
         player = PenToolModel.now.player
         pathFactory = PenToolModel.now.pathFactory
         pathHistory = PenToolModel.now.pathHistory
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateDrawnPath), name: .drawnPathDidChangeNotification, object: pathHistory)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateDrawnPath),
+                                               name: .drawnPathDidChangeNotification, object: pathHistory)
     }
-    
+
     func resizePaths(canvasOrigin: CGPoint, newVideoRect: CGRect) {
-        Task { @MainActor in // エラー対策: Publishing changes from within view updates is not allowed, this will cause undefined behavior.
-            resolutionToVideoRectSizeRatio.width = newVideoRect.width / player.resolution.width
+        Task { @MainActor in
+            resolutionToVideoRectSizeRatio.width  = newVideoRect.width  / player.resolution.width
             resolutionToVideoRectSizeRatio.height = newVideoRect.height / player.resolution.height
         }
     }
-    
+
     func onStartDrag() {
         pathHistory.clearSelectedStateOfPath()
     }
 
     func onDoubleClick() {
-        // End the connectedCircles chain so the next drag starts a fresh one
         pathFactory.endChain()
     }
-    
+
     func onDrag(startLocationInVideoRect: CGPoint, locationInVideoRect: CGPoint, isEnd: Bool) {
-        if player.isPlaying { player.togglePlayPause() } // 描画が始まったら強制的に一時停止にする
-        
-        let startLocationInResolution = videoRectToResolution(locationInVideoRect: startLocationInVideoRect)
-        let locationInResolution = videoRectToResolution(locationInVideoRect: locationInVideoRect)
-        
-        if !pathFactory.isValidInput(start: startLocationInResolution, end: locationInResolution) {
+        if player.isPlaying { player.togglePlayPause() }
+
+        let centerInResolution = videoRectToResolution(locationInVideoRect: startLocationInVideoRect)
+        let edgeInResolution   = videoRectToResolution(locationInVideoRect: locationInVideoRect)
+        let radius = (edgeInResolution - centerInResolution).length
+
+        if pathFactory.currentType == .connectedCircles {
+            if !isEnd {
+                // Show a live preview circle (standalone, not yet in chain)
+                let preview = pathFactory.makePreviewPath(centerInResolution: centerInResolution,
+                                                          endInResolution: edgeInResolution)
+                pathHistory.updateDrawing(type: pathFactory.currentType, path: preview)
+            } else {
+                pathHistory.clearDrawing()
+                guard radius >= 3 else { return }
+
+                // Confirm this circle into the chain
+                pathFactory.addCircleToChain(center: centerInResolution, radius: radius)
+
+                guard let chain = pathFactory.currentChain else { return }
+
+                if pathFactory.isChainInHistory {
+                    // Chain already in history — it's a reference type, SwiftUI will re-render
+                    NotificationCenter.default.post(name: .drawnPathDidChangeNotification,
+                                                    object: pathHistory,
+                                                    userInfo: ["targetFrame": pathHistory.currentTargetFrame])
+                } else {
+                    // First circle — add chain to history
+                    pathFactory.markChainInHistory()
+                    pathHistory.confirmDrawing(type: pathFactory.currentType, path: chain)
+                    pathFactory.saveStyle()
+                }
+            }
+            return
+        }
+
+        // All other tools
+        if !pathFactory.isValidInput(start: centerInResolution, end: edgeInResolution) {
             pathHistory.clearDrawing()
             return
         }
 
-        if pathFactory.currentType == .connectedCircles {
-            // connectedCircles は「1点目タップ -> 2点目タップ」で確定していく。
-            if !isEnd { return }
-
-            if pathFactory.isChainInHistory {
-                pathFactory.confirmChainSegment(endInResolution: locationInResolution)
-                pathHistory.clearDrawing()
-                NotificationCenter.default.post(name: .drawnPathDidChangeNotification, object: pathHistory,
-                                                userInfo: ["targetFrame": pathHistory.currentTargetFrame])
-            } else {
-                let path = pathFactory.makePath(startInResolution: locationInResolution, endInResolution: locationInResolution)
-                pathFactory.markChainInHistory()
-                pathHistory.confirmDrawing(type: pathFactory.currentType, path: path)
-                pathFactory.saveStyle()
-            }
-            return
-        }
-        
-        let path = pathFactory.makePath(startInResolution: startLocationInResolution, endInResolution: locationInResolution)
+        let path = pathFactory.makePath(startInResolution: centerInResolution,
+                                        endInResolution: edgeInResolution)
         if isEnd {
             pathHistory.confirmDrawing(type: pathFactory.currentType, path: path)
             pathFactory.saveStyle()
@@ -81,16 +96,12 @@ class PenToolCanvasViewModel: ObservableObject {
             pathHistory.updateDrawing(type: pathFactory.currentType, path: path)
         }
     }
-    
-    // 表示中の動画の座標から動画のオリジナルの解像度上の座標に変換
+
     func videoRectToResolution(locationInVideoRect: CGPoint) -> CGPoint {
-        var locationInResolution = locationInVideoRect
-        locationInResolution.x /= resolutionToVideoRectSizeRatio.width
-        locationInResolution.y /= resolutionToVideoRectSizeRatio.height
-        
-        return locationInResolution
+        CGPoint(x: locationInVideoRect.x / resolutionToVideoRectSizeRatio.width,
+                y: locationInVideoRect.y / resolutionToVideoRectSizeRatio.height)
     }
-    
+
     @objc func updateDrawnPath() {
         drawnPathsOnCurrentFrame = pathHistory.currentTargetFrameDrawns
         drawingPathOnCurrentFrame = pathHistory.drawing

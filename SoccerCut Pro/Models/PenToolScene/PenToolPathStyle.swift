@@ -20,6 +20,7 @@ class PenToolPathStyle: ObservableObject {
     @Published var fontSize: Int32
     @Published var textString: String
     @Published var isEraser: Bool
+    @Published var connectorLineWidth: Int32
     
     // 本来はフラグ変数を定義したくないが、PenToolStylePanelでのViewの表示/非表示切替でわかりづらくなるので導入
     @Published var useColor: Bool
@@ -29,9 +30,10 @@ class PenToolPathStyle: ObservableObject {
     @Published var useDashedLine: Bool
     @Published var useCircleDegrees: Bool
     @Published var useText: Bool
+    @Published var useConnectorLineWidth: Bool
     
     // 値が0 = そのPathでは使わないStyle
-    init(color: Color = .clear, opacity: Int32 = 100, lineWidth: Int32 = 0, arrowheadSize: Int32 = 0, lineTopHeight: Int32 = 0, dashLength: Int32 = 0, dashInterval: Int32 = 0, circleDegrees: Int32 = 0, fontSize: Int32 = 0, textString: String = "", isEraser: Bool = false) {
+    init(color: Color = .clear, opacity: Int32 = 100, lineWidth: Int32 = 0, arrowheadSize: Int32 = 0, lineTopHeight: Int32 = 0, dashLength: Int32 = 0, dashInterval: Int32 = 0, circleDegrees: Int32 = 0, fontSize: Int32 = 0, textString: String = "", isEraser: Bool = false, connectorLineWidth: Int32 = 0) {
         self.color = color
         self.opacity = opacity
         self.lineWidth = lineWidth
@@ -43,6 +45,7 @@ class PenToolPathStyle: ObservableObject {
         self.fontSize = fontSize
         self.textString = textString
         self.isEraser = isEraser
+        self.connectorLineWidth = connectorLineWidth
         
         self.useColor = color != .clear
         self.useLineWidth = lineWidth != 0
@@ -51,6 +54,7 @@ class PenToolPathStyle: ObservableObject {
         self.useDashedLine = dashLength != 0
         self.useCircleDegrees = circleDegrees != 0
         self.useText = fontSize != 0
+        self.useConnectorLineWidth = connectorLineWidth != 0
     }
     
     func copyValues(from: PenToolPathStyle) {
@@ -65,6 +69,7 @@ class PenToolPathStyle: ObservableObject {
         self.fontSize = from.fontSize
         self.textString = from.textString
         self.isEraser = from.isEraser
+        self.connectorLineWidth = from.connectorLineWidth
         
         self.useColor = color != .clear
         self.useLineWidth = lineWidth != 0
@@ -73,5 +78,6 @@ class PenToolPathStyle: ObservableObject {
         self.useDashedLine = dashLength != 0
         self.useCircleDegrees = circleDegrees != 0
         self.useText = fontSize != 0
+        self.useConnectorLineWidth = connectorLineWidth != 0
     }
 }

@@ -149,6 +149,17 @@ struct PenToolStylePanelPerType: View {
                     }
                 }
                 
+                if $style.useConnectorLineWidth.wrappedValue {
+                    Section(header: Text("接続線の太さ")) {
+                        PenToolStyleSlider(value: $style.connectorLineWidth, minValue: 1, maxValue: 40, step: 1)
+                            .padding(.horizontal, 10)
+                            .padding(.bottom, spacing)
+                            .onChange(of: style.connectorLineWidth, perform: { value in
+                                pathFactory.pathHistory.applyStyleToSelectedPath(style)
+                            })
+                    }
+                }
+
                 if $style.useCircleDegrees.wrappedValue {
                     Section(header: Text("円を描く角度")) {
                         HStack {

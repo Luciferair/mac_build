@@ -25,8 +25,9 @@ enum PenToolStyleRectangleFillUserDefaultsKey: String {
 }
 
 enum PenToolStyleConnectedCirclesUserDefaultsKey: String {
-    case colorData = "penToolStyleConnectedCircles_colorData"
-    case opacity   = "penToolStyleConnectedCircles_opacity"
-    case lineWidth = "penToolStyleConnectedCircles_lineWidth"
-    case circleDegrees = "penToolStyleConnectedCircles_circleDegrees"
+    case colorData          = "penToolStyleConnectedCircles_colorData"
+    case opacity            = "penToolStyleConnectedCircles_opacity"
+    case lineWidth          = "penToolStyleConnectedCircles_lineWidth"
+    case circleDegrees      = "penToolStyleConnectedCircles_circleDegrees"
+    case connectorLineWidth = "penToolStyleConnectedCircles_connectorLineWidth"
 }

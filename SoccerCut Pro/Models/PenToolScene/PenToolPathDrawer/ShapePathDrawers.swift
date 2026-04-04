@@ -123,28 +123,31 @@ struct ConnectedCirclesPathDrawer: PenToolPathDrawerProtocol {
             PenToolStyleConnectedCirclesUserDefaultsKey.colorData.rawValue: Color.black.jsonEncoded()!,
             PenToolStyleConnectedCirclesUserDefaultsKey.opacity.rawValue: 100,
             PenToolStyleConnectedCirclesUserDefaultsKey.lineWidth.rawValue: 10,
-            PenToolStyleConnectedCirclesUserDefaultsKey.circleDegrees.rawValue: 270
+            PenToolStyleConnectedCirclesUserDefaultsKey.circleDegrees.rawValue: 270,
+            PenToolStyleConnectedCirclesUserDefaultsKey.connectorLineWidth.rawValue: 6
         ])
         let colorData = UserDefaults.standard.data(forKey: PenToolStyleConnectedCirclesUserDefaultsKey.colorData.rawValue)
         style = PenToolPathStyle(
             color: colorData == nil ? .black : Color.jsonDecoded(colorData!),
             opacity: Int32(UserDefaults.standard.integer(forKey: PenToolStyleConnectedCirclesUserDefaultsKey.opacity.rawValue)),
             lineWidth: Int32(UserDefaults.standard.integer(forKey: PenToolStyleConnectedCirclesUserDefaultsKey.lineWidth.rawValue)),
-            circleDegrees: Int32(UserDefaults.standard.integer(forKey: PenToolStyleConnectedCirclesUserDefaultsKey.circleDegrees.rawValue))
+            circleDegrees: Int32(UserDefaults.standard.integer(forKey: PenToolStyleConnectedCirclesUserDefaultsKey.circleDegrees.rawValue)),
+            connectorLineWidth: Int32(UserDefaults.standard.integer(forKey: PenToolStyleConnectedCirclesUserDefaultsKey.connectorLineWidth.rawValue))
         )
     }
     func isValidInput(startInResolution: CGPoint, endInResolution: CGPoint) -> Bool {
-        // Allow tap-to-place nodes for faster chained drawing.
-        true
+        let d = endInResolution - startInResolution
+        return abs(d.x) > 3 || abs(d.y) > 3
     }
     func makePath(startInResolution: CGPoint, endInResolution: CGPoint) -> any PenToolPathProtocol {
         var p = ConnectedCirclesPath(); p.initialize(startInResolution: startInResolution, endInResolution: endInResolution); return p
     }
     func saveStyle() {
         UserDefaults.standard.set(style.color.jsonEncoded(), forKey: PenToolStyleConnectedCirclesUserDefaultsKey.colorData.rawValue)
-        UserDefaults.standard.setValue(style.opacity,   forKey: PenToolStyleConnectedCirclesUserDefaultsKey.opacity.rawValue)
-        UserDefaults.standard.setValue(style.lineWidth, forKey: PenToolStyleConnectedCirclesUserDefaultsKey.lineWidth.rawValue)
-        UserDefaults.standard.setValue(style.circleDegrees, forKey: PenToolStyleConnectedCirclesUserDefaultsKey.circleDegrees.rawValue)
+        UserDefaults.standard.setValue(style.opacity,             forKey: PenToolStyleConnectedCirclesUserDefaultsKey.opacity.rawValue)
+        UserDefaults.standard.setValue(style.lineWidth,           forKey: PenToolStyleConnectedCirclesUserDefaultsKey.lineWidth.rawValue)
+        UserDefaults.standard.setValue(style.circleDegrees,       forKey: PenToolStyleConnectedCirclesUserDefaultsKey.circleDegrees.rawValue)
+        UserDefaults.standard.setValue(style.connectorLineWidth,  forKey: PenToolStyleConnectedCirclesUserDefaultsKey.connectorLineWidth.rawValue)
         UserDefaults.standard.synchronize()
     }
 }

@@ -5,8 +5,12 @@
 import SwiftUI
 
 class ConnectedCirclesNodes: ObservableObject {
-    @Published var points: [CGPoint] = []
-    @Published var nodeGapCenterDegrees: [Double] = []
+    struct Node {
+        var center: CGPoint
+        var radius: CGFloat
+        var gapCenterDegrees: Double
+    }
+    @Published var nodes: [Node] = []
     @Published var selectedNodeIndex: Int? = nil
     @Published var draggingOffset: CGSize = .zero
 }
@@ -22,34 +26,42 @@ struct ConnectedCirclesPath: View, PenToolPathProtocol {
         pathHistory = PenToolModel.now.pathHistory
     }
 
+    // start = circle center, end = radius point
     func initialize(startInResolution: CGPoint, endInResolution: CGPoint) {
         self._drawnStyle.copyValues(from: PenToolModel.now.pathFactory.styleOf(type))
         self.transform.start = startInResolution
         self.transform.end = endInResolution
-        nodes.points = [startInResolution]
-        nodes.nodeGapCenterDegrees = [270]
+        let r = (endInResolution - startInResolution).length
+        nodes.nodes = [ConnectedCirclesNodes.Node(center: startInResolution,
+                                                  radius: max(r, 5),
+                                                  gapCenterDegrees: 270)]
         nodes.selectedNodeIndex = 0
     }
 
-    /// Called by the drawer to start a new segment from the last confirmed node
-    func appendNode(_ point: CGPoint) {
-        nodes.points.append(point)
-        nodes.nodeGapCenterDegrees.append(nodes.nodeGapCenterDegrees.last ?? 270)
-        nodes.selectedNodeIndex = nodes.points.count - 1
+    /// Append a confirmed node
+    func appendNode(_ center: CGPoint, radius: CGFloat) {
+        let defaultAngle = nodes.nodes.last?.gapCenterDegrees ?? 270
+        nodes.nodes.append(ConnectedCirclesNodes.Node(center: center,
+                                                      radius: max(radius, 5),
+                                                      gapCenterDegrees: defaultAngle))
+        nodes.selectedNodeIndex = nodes.nodes.count - 1
     }
 
-    /// Called by the drawer to update the preview of the in-progress segment
-    func updateLastNode(_ point: CGPoint) {
-        guard !nodes.points.isEmpty else { return }
-        nodes.points[nodes.points.count - 1] = point
+    /// Update the last node during live drag preview
+    func updateLastNode(center: CGPoint, radius: CGFloat) {
+        guard !nodes.nodes.isEmpty else { return }
+        nodes.nodes[nodes.nodes.count - 1].center = center
+        nodes.nodes[nodes.nodes.count - 1].radius = max(radius, 5)
     }
 
     func selectNearestNode(at pointInResolution: CGPoint, hitRadius: CGFloat = 40) -> Bool {
         var bestIndex: Int? = nil
         var bestDistance: CGFloat = .greatestFiniteMagnitude
-        for i in 0..<nodes.points.count {
-            let d = hypot(nodes.points[i].x - pointInResolution.x, nodes.points[i].y - pointInResolution.y)
-            if d <= hitRadius && d < bestDistance {
+        for i in 0..<nodes.nodes.count {
+            let d = hypot(nodes.nodes[i].center.x - pointInResolution.x,
+                          nodes.nodes[i].center.y - pointInResolution.y)
+            let threshold = max(hitRadius, nodes.nodes[i].radius)
+            if d <= threshold && d < bestDistance {
                 bestDistance = d
                 bestIndex = i
             }
@@ -58,19 +70,18 @@ struct ConnectedCirclesPath: View, PenToolPathProtocol {
         return bestIndex != nil
     }
 
-    func clearSelectedNode() {
-        nodes.selectedNodeIndex = nil
-    }
+    func clearSelectedNode() { nodes.selectedNodeIndex = nil }
 
     func selectedNodeAngleDegrees() -> Int32? {
-        guard let i = nodes.selectedNodeIndex, i >= 0, i < nodes.nodeGapCenterDegrees.count else { return nil }
-        return Int32(nodes.nodeGapCenterDegrees[i].rounded())
+        guard let i = nodes.selectedNodeIndex, i < nodes.nodes.count else { return nil }
+        return Int32(nodes.nodes[i].gapCenterDegrees.rounded())
     }
 
     func setSelectedNodeAngleDegrees(_ newValue: Int32) {
-        guard let i = nodes.selectedNodeIndex, i >= 0, i < nodes.nodeGapCenterDegrees.count else { return }
-        let normalized = ((Double(newValue).truncatingRemainder(dividingBy: 360)) + 360).truncatingRemainder(dividingBy: 360)
-        nodes.nodeGapCenterDegrees[i] = normalized
+        guard let i = nodes.selectedNodeIndex, i < nodes.nodes.count else { return }
+        let normalized = ((Double(newValue).truncatingRemainder(dividingBy: 360)) + 360)
+            .truncatingRemainder(dividingBy: 360)
+        nodes.nodes[i].gapCenterDegrees = normalized
     }
 
     func drawnStyle() -> PenToolPathStyle { _drawnStyle }
@@ -78,21 +89,24 @@ struct ConnectedCirclesPath: View, PenToolPathProtocol {
     func drawnTransform() -> PenToolPathTransform { transform }
     func applyTransform(_ newTransform: PenToolPathTransform) { transform.copyValues(from: newTransform) }
 
-    // Bounding box over all nodes + dragging offset
     func offset() -> CGSize {
-        guard !nodes.points.isEmpty else { return .zero }
-        let minX = nodes.points.map(\.x).min()!
-        let minY = nodes.points.map(\.y).min()!
+        guard !nodes.nodes.isEmpty else { return .zero }
+        // Bounding box: each node occupies [center - radius, center + radius]
+        let minX = nodes.nodes.map { $0.center.x - $0.radius }.min()!
+        let minY = nodes.nodes.map { $0.center.y - $0.radius }.min()!
         return CGSize(width: minX, height: minY) + nodes.draggingOffset
     }
 
     func frame() -> CGSize {
-        guard nodes.points.count >= 2 else { return CGSize(width: 1, height: 1) }
-        let minX = nodes.points.map(\.x).min()!
-        let minY = nodes.points.map(\.y).min()!
-        let maxX = nodes.points.map(\.x).max()!
-        let maxY = nodes.points.map(\.y).max()!
-        return CGSize(width: max(maxX - minX, 1), height: max(maxY - minY, 1))
+        guard !nodes.nodes.isEmpty else { return CGSize(width: 1, height: 1) }
+        let minX = nodes.nodes.map { $0.center.x - $0.radius }.min()!
+        let minY = nodes.nodes.map { $0.center.y - $0.radius }.min()!
+        let maxX = nodes.nodes.map { $0.center.x + $0.radius }.max()!
+        let maxY = nodes.nodes.map { $0.center.y + $0.radius }.max()!
+        // Add strokeLW/2 padding so the stroke isn't clipped at the edge
+        let pad = CGFloat(_drawnStyle.lineWidth) / 2 + 2
+        return CGSize(width: max(maxX - minX + pad * 2, 1),
+                      height: max(maxY - minY + pad * 2, 1))
     }
 
     func onDragged(startInVideoRect: CGPoint, endInVideoRect: CGPoint) {
@@ -101,7 +115,8 @@ struct ConnectedCirclesPath: View, PenToolPathProtocol {
     }
 
     func onDragEnded(startInVideoRect: CGPoint, endInVideoRect: CGPoint) {
-        if abs(endInVideoRect.x - startInVideoRect.x) < 0.5 && abs(endInVideoRect.y - startInVideoRect.y) < 0.5 {
+        if abs(endInVideoRect.x - startInVideoRect.x) < 0.5 &&
+           abs(endInVideoRect.y - startInVideoRect.y) < 0.5 {
             nodes.draggingOffset = .zero
             return
         }
@@ -109,87 +124,100 @@ struct ConnectedCirclesPath: View, PenToolPathProtocol {
         old.copyValues(from: transform)
         old.draggingOffset = .zero
         let delta = endInVideoRect - startInVideoRect
-        nodes.points = nodes.points.map { CGPoint(x: $0.x + delta.x, y: $0.y + delta.y) }
+        for i in 0..<nodes.nodes.count {
+            nodes.nodes[i].center = CGPoint(x: nodes.nodes[i].center.x + delta.x,
+                                            y: nodes.nodes[i].center.y + delta.y)
+        }
         nodes.draggingOffset = .zero
         pathHistory.addTransformUndoableStep(oldTransform: old)
     }
 
-    private func markerCircleAngle() -> Angle {
-        Angle(degrees: Double(_drawnStyle.circleDegrees))
-    }
-
-    private func markerStartAngle(gapCenterDegrees: Double) -> Angle {
-        let gapDegrees = 360 - markerCircleAngle().degrees
-        return Angle(degrees: gapCenterDegrees + gapDegrees / 2)
-    }
-
-    private func lineEndpoints(from a: CGPoint, to b: CGPoint, radius: CGFloat, margin: CGFloat) -> (CGPoint, CGPoint)? {
-        let dx = b.x - a.x
-        let dy = b.y - a.y
+    private func lineEndpoints(from a: ConnectedCirclesNodes.Node,
+                                to b: ConnectedCirclesNodes.Node,
+                                margin: CGFloat = 2) -> (CGPoint, CGPoint)? {
+        let dx = b.center.x - a.center.x
+        let dy = b.center.y - a.center.y
         let distance = sqrt(dx * dx + dy * dy)
         if distance < 0.001 { return nil }
-
         let ux = dx / distance
         let uy = dy / distance
-        let inset = min(radius + margin, distance / 2)
-
-        let start = CGPoint(x: a.x + ux * inset, y: a.y + uy * inset)
-        let end = CGPoint(x: b.x - ux * inset, y: b.y - uy * inset)
-        return (start, end)
+        let startInset = min(a.radius + margin, distance / 2)
+        let endInset   = min(b.radius + margin, distance / 2)
+        return (CGPoint(x: a.center.x + ux * startInset, y: a.center.y + uy * startInset),
+                CGPoint(x: b.center.x - ux * endInset,   y: b.center.y - uy * endInset))
     }
 
     var body: some View {
         GeometryReader { _ in
-            let pts = nodes.points
-            guard !pts.isEmpty else { return AnyView(EmptyView()) }
+            let ns = nodes.nodes
+            guard !ns.isEmpty else { return AnyView(EmptyView()) }
 
             let off = offset()
-            let lw = CGFloat(_drawnStyle.lineWidth)
-            let color = Color(red: _drawnStyle.color.r,
-                              green: _drawnStyle.color.g,
-                              blue: _drawnStyle.color.b,
-                              opacity: _drawnStyle.color.a)
-
-            // Circle radius: fixed in resolution space, scaled by parent scaleEffect
-            let r: CGFloat = 30
-            let lineMargin: CGFloat = 2
+            let strokeLW = CGFloat(_drawnStyle.lineWidth)
+            let connLW   = CGFloat(max(_drawnStyle.connectorLineWidth, 1))
+            let baseColor = Color(red: _drawnStyle.color.r,
+                                  green: _drawnStyle.color.g,
+                                  blue: _drawnStyle.color.b,
+                                  opacity: _drawnStyle.color.a)
+            let circleAngleDeg = Double(_drawnStyle.circleDegrees)
 
             return AnyView(
                 ZStack {
-                    // Lines between consecutive nodes
-                    if pts.count >= 2 {
-                        ForEach(0..<pts.count - 1, id: \.self) { i in
-                            let a = pts[i]
-                            let b = pts[i + 1]
-                            if let endpoints = lineEndpoints(from: a, to: b, radius: r, margin: lineMargin) {
+                    // Connecting lines
+                    if ns.count >= 2 {
+                        ForEach(0..<ns.count - 1, id: \.self) { i in
+                            if let ep = lineEndpoints(from: ns[i], to: ns[i + 1]) {
                                 Path { path in
-                                    path.move(to: CGPoint(x: endpoints.0.x - off.width, y: endpoints.0.y - off.height))
-                                    path.addLine(to: CGPoint(x: endpoints.1.x - off.width, y: endpoints.1.y - off.height))
+                                    path.move(to: CGPoint(x: ep.0.x - off.width,
+                                                          y: ep.0.y - off.height))
+                                    path.addLine(to: CGPoint(x: ep.1.x - off.width,
+                                                             y: ep.1.y - off.height))
                                 }
-                                .stroke(color, lineWidth: lw)
+                                .stroke(baseColor, lineWidth: connLW)
                             }
                         }
                     }
-                    // Circles at each node
-                    ForEach(0..<pts.count, id: \.self) { i in
-                        let p = pts[i]
-                        let lx = p.x - off.width
-                        let ly = p.y - off.height
-                        let gapCenter = i < nodes.nodeGapCenterDegrees.count ? nodes.nodeGapCenterDegrees[i] : 270
-                        Path { path in
-                            path.addArc(center: CGPoint(x: lx, y: ly),
-                                        radius: r,
-                                        startAngle: markerStartAngle(gapCenterDegrees: gapCenter),
-                                        endAngle: markerStartAngle(gapCenterDegrees: gapCenter) + markerCircleAngle(),
-                                        clockwise: false)
-                        }
-                        .stroke(color, lineWidth: lw)
 
-                        if nodes.selectedNodeIndex == i {
-                            Circle()
-                                .stroke(Color.white, lineWidth: max(2, lw / 2))
-                                .frame(width: r * 2 + 8, height: r * 2 + 8)
-                                .position(x: lx, y: ly)
+                    // Circles — gradient fade (same style as CirclePath)
+                    ForEach(0..<ns.count, id: \.self) { i in
+                        let node = ns[i]
+                        let lx = node.center.x - off.width
+                        let ly = node.center.y - off.height
+                        let r  = node.radius
+                        let gapDeg    = 360 - circleAngleDeg
+                        let arcStart  = Angle(degrees: node.gapCenterDegrees + gapDeg / 2)
+                        let arcEnd    = arcStart + Angle(degrees: circleAngleDeg)
+
+                        ZStack {
+                            Path { path in
+                                path.addArc(center: CGPoint(x: lx, y: ly),
+                                            radius: r,
+                                            startAngle: arcStart,
+                                            endAngle: arcEnd,
+                                            clockwise: false)
+                            }
+                            .stroke(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [
+                                        baseColor,
+                                        baseColor,
+                                        baseColor,
+                                        baseColor.opacity(0.8),
+                                        baseColor.opacity(0)
+                                    ]),
+                                    startPoint: .bottom,
+                                    endPoint: UnitPoint(x: 0.5,
+                                                        y: (sin(arcStart.radians) + 1) / 2)
+                                ),
+                                lineWidth: strokeLW
+                            )
+
+                            if nodes.selectedNodeIndex == i {
+                                Circle()
+                                    .stroke(Color.white, lineWidth: max(2, strokeLW / 2))
+                                    .frame(width: r * 2 + 8, height: r * 2 + 8)
+                                    .position(x: lx, y: ly)
+                            }
                         }
                     }
                 }
