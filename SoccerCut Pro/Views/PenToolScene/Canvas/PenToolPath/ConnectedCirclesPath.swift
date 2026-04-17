@@ -33,7 +33,8 @@ struct ConnectedCirclesPath: View, PenToolPathProtocol {
 
     private func directionDegrees(from source: CGPoint, to target: CGPoint) -> Double {
         let delta = target - source
-        return normalizedDegrees(atan2(-delta.y, delta.x) * 180 / .pi)
+        let radians = atan2(Double(-delta.y), Double(delta.x))
+        return normalizedDegrees(radians * 180.0 / Double.pi)
     }
 
     // start = circle center, end = radius point
