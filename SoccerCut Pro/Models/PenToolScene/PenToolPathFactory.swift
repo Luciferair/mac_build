@@ -87,15 +87,16 @@ class PenToolPathFactory: ObservableObject {
     }
 
     /// Confirms a new circle into the chain. Call only on drag-end with valid radius.
-    func addCircleToChain(center: CGPoint, radius: CGFloat) {
+    func addCircleToChain(center: CGPoint, radius: CGFloat, previewEnd: CGPoint? = nil) {
         if let chain = currentChain {
             chain.appendNode(center, radius: max(radius, 5))
         } else {
             var p = ConnectedCirclesPath()
             let r = max(radius, 5)
-            // initialize expects start=center, end=radius-point; distance = radius
+            let endPoint = previewEnd ?? CGPoint(x: center.x + r, y: center.y)
+            // initialize expects start=center and uses the drag direction to orient the opening
             p.initialize(startInResolution: center,
-                         endInResolution: CGPoint(x: center.x + r, y: center.y))
+                         endInResolution: endPoint)
             currentChain = p
         }
     }

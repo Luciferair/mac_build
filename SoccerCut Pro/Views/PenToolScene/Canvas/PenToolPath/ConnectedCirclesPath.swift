@@ -26,6 +26,16 @@ struct ConnectedCirclesPath: View, PenToolPathProtocol {
         pathHistory = PenToolModel.now.pathHistory
     }
 
+    private func normalizedDegrees(_ value: Double) -> Double {
+        ((value.truncatingRemainder(dividingBy: 360)) + 360)
+            .truncatingRemainder(dividingBy: 360)
+    }
+
+    private func directionDegrees(from source: CGPoint, to target: CGPoint) -> Double {
+        let delta = target - source
+        return normalizedDegrees(atan2(-delta.y, delta.x) * 180 / .pi)
+    }
+
     // start = circle center, end = radius point
     func initialize(startInResolution: CGPoint, endInResolution: CGPoint) {
         self._drawnStyle.copyValues(from: PenToolModel.now.pathFactory.styleOf(type))
@@ -34,13 +44,18 @@ struct ConnectedCirclesPath: View, PenToolPathProtocol {
         let r = (endInResolution - startInResolution).length
         nodes.nodes = [ConnectedCirclesNodes.Node(center: startInResolution,
                                                   radius: max(r, 5),
-                                                  gapCenterDegrees: 270)]
+                                                  gapCenterDegrees: directionDegrees(from: startInResolution,
+                                                                                     to: endInResolution))]
         nodes.selectedNodeIndex = 0
     }
 
     /// Append a confirmed node
     func appendNode(_ center: CGPoint, radius: CGFloat) {
-        let defaultAngle = nodes.nodes.last?.gapCenterDegrees ?? 270
+        if let previous = nodes.nodes.last {
+            nodes.nodes[nodes.nodes.count - 1].gapCenterDegrees = directionDegrees(from: previous.center,
+                                                                                   to: center)
+        }
+        let defaultAngle = nodes.nodes.last.map { directionDegrees(from: center, to: $0.center) } ?? 270
         nodes.nodes.append(ConnectedCirclesNodes.Node(center: center,
                                                       radius: max(radius, 5),
                                                       gapCenterDegrees: defaultAngle))

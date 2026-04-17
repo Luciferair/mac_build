@@ -62,7 +62,9 @@ class PenToolCanvasViewModel: ObservableObject {
                 guard radius >= 3 else { return }
 
                 // Confirm this circle into the chain
-                pathFactory.addCircleToChain(center: centerInResolution, radius: radius)
+                pathFactory.addCircleToChain(center: centerInResolution,
+                                             radius: radius,
+                                             previewEnd: edgeInResolution)
 
                 guard let chain = pathFactory.currentChain else { return }
 
