@@ -77,13 +77,6 @@ class PenToolCanvasViewModel: ObservableObject {
                     if let chainPath = pathHistory.currentTargetFrameDrawns.last(where: { $0.type == .connectedCircles }) {
                         pathHistory.selectPathWithoutClear(pathId: chainPath.id)
                     }
-                    // Auto-end chain after 2 circles (hold Shift to keep adding more)
-                    if (pathFactory.currentChain?.nodes.nodes.count ?? 0) >= 2 {
-                        let shiftHeld = NSApp.currentEvent?.modifierFlags.contains(.shift) ?? false
-                        if !shiftHeld {
-                            pathFactory.endChain()
-                        }
-                    }
                 } else {
                     // First circle — add chain to history
                     pathFactory.markChainInHistory()

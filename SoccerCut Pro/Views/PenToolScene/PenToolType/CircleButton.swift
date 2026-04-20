@@ -16,19 +16,19 @@ struct CircleButton: View {
     
     var body: some View {
         Button(action: {
-            pathFactory.changeType(to: .circle)
+            pathFactory.changeType(to: .connectedCircles)
         })
         {
             ZStack {
                 Image(systemName: "circle")
                     .font(.system(size: PenToolTypeButton.size))
-                    .foregroundColor(pathFactory.currentType == .circle ? PenToolTypeButton.selectedColor : PenToolTypeButton.iconColor)
+                    .foregroundColor(pathFactory.currentType == .connectedCircles ? PenToolTypeButton.selectedColor : PenToolTypeButton.iconColor)
                     .offset(x: 0, y: PenToolTypeButton.size * 0.9)
                     .scaleEffect(y: 0.5)
                 
                 Image(systemName: "figure.arms.open")
                     .font(.system(size: PenToolTypeButton.size))
-                    .foregroundColor(pathFactory.currentType == .circle ? PenToolTypeButton.selectedColor : PenToolTypeButton.iconColor)
+                    .foregroundColor(pathFactory.currentType == .connectedCircles ? PenToolTypeButton.selectedColor : PenToolTypeButton.iconColor)
             }
             .background(PenToolTypePanel.backgroundColor) // クリック可能範囲をアイコンからframeまで拡張する
         }
@@ -42,3 +42,4 @@ struct CircleButton_Previews: PreviewProvider {
             .background(.gray)
     }
 }
+                                                                                    
