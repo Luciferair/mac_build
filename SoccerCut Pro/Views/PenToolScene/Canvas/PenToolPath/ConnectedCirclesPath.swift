@@ -146,6 +146,41 @@ struct ConnectedCirclesPath: View, PenToolPathProtocol {
                 CGPoint(x: b.center.x - ux * endInset,   y: b.center.y - uy * endInset))
     }
 
+    private func pointOnEllipse(center: CGPoint,
+                                radiusX: CGFloat,
+                                radiusY: CGFloat,
+                                radians: Double) -> CGPoint {
+        CGPoint(x: center.x + radiusX * CGFloat(cos(radians)),
+                y: center.y + radiusY * CGFloat(sin(radians)))
+    }
+
+    private func addEllipticalArc(path: inout Path,
+                                  center: CGPoint,
+                                  radiusX: CGFloat,
+                                  radiusY: CGFloat,
+                                  startAngle: Angle,
+                                  endAngle: Angle) {
+        let startRad = startAngle.radians
+        let endRad = endAngle.radians
+        let span = endRad - startRad
+        if abs(span) < 0.0001 { return }
+
+        let segmentCount = max(Int(ceil(abs(span) / (Double.pi / 30))), 8)
+        for idx in 0...segmentCount {
+            let t = Double(idx) / Double(segmentCount)
+            let angle = startRad + span * t
+            let point = pointOnEllipse(center: center,
+                                       radiusX: radiusX,
+                                       radiusY: radiusY,
+                                       radians: angle)
+            if idx == 0 {
+                path.move(to: point)
+            } else {
+                path.addLine(to: point)
+            }
+        }
+    }
+
     var body: some View {
         GeometryReader { _ in
             let ns = nodes.nodes
@@ -160,6 +195,8 @@ struct ConnectedCirclesPath: View, PenToolPathProtocol {
                                   blue: _drawnStyle.color.b,
                                   opacity: _drawnStyle.color.a)
             let circleAngleDeg = Double(_drawnStyle.circleDegrees)
+            let groundScaleY: CGFloat = 0.58
+            let groundOffsetRatio: CGFloat = 0.18
 
             return AnyView(
                 ZStack {
@@ -184,17 +221,20 @@ struct ConnectedCirclesPath: View, PenToolPathProtocol {
                         let lx = node.center.x - off.width
                         let ly = node.center.y - off.height
                         let r  = node.radius
+                        let ry = max(r * groundScaleY, 1)
+                        let ellipseCenter = CGPoint(x: lx, y: ly + r * groundOffsetRatio)
                         let gapDeg    = 360 - circleAngleDeg
                         let arcStart  = Angle(degrees: node.gapCenterDegrees + gapDeg / 2)
                         let arcEnd    = arcStart + Angle(degrees: circleAngleDeg)
 
                         ZStack {
                             Path { path in
-                                path.addArc(center: CGPoint(x: lx, y: ly),
-                                            radius: r,
-                                            startAngle: arcStart,
-                                            endAngle: arcEnd,
-                                            clockwise: false)
+                                addEllipticalArc(path: &path,
+                                                 center: ellipseCenter,
+                                                 radiusX: r,
+                                                 radiusY: ry,
+                                                 startAngle: arcStart,
+                                                 endAngle: arcEnd)
                             }
                             .stroke(
                                 AngularGradient(
@@ -204,8 +244,8 @@ struct ConnectedCirclesPath: View, PenToolPathProtocol {
                                         .init(color: baseColor, location: 0.92),
                                         .init(color: baseColor.opacity(0), location: 1.0)
                                     ]),
-                                    center: UnitPoint(x: lx / max(frameSize.width, 1),
-                                                      y: ly / max(frameSize.height, 1)),
+                                    center: UnitPoint(x: ellipseCenter.x / max(frameSize.width, 1),
+                                                      y: ellipseCenter.y / max(frameSize.height, 1)),
                                     startAngle: arcStart,
                                     endAngle: arcEnd
                                 ),
@@ -213,10 +253,10 @@ struct ConnectedCirclesPath: View, PenToolPathProtocol {
                             )
 
                             if nodes.selectedNodeIndex == i {
-                                Circle()
+                                Ellipse()
                                     .stroke(Color.white, lineWidth: max(2, strokeLW / 2))
-                                    .frame(width: r * 2 + 8, height: r * 2 + 8)
-                                    .position(x: lx, y: ly)
+                                    .frame(width: r * 2 + 8, height: ry * 2 + 8)
+                                    .position(x: ellipseCenter.x, y: ellipseCenter.y)
                             }
                         }
                     }
