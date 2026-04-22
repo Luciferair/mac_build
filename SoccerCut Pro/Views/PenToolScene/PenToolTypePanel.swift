@@ -23,7 +23,7 @@ struct PenToolTypePanel: View {
             DashedLobPassArrowButton()
             PenToolTypeButton(systemImageName: "line.diagonal", type: .line)
             CircleButton()
-            // ConnectedCirclesButton()
+            ConnectedCirclesButton()
             PenToolTypeButton(systemImageName: "circle.fill", type: .circleFill)
             PenToolTypeButton(systemImageName: "triangle", type: .triangle)
             PenToolTypeButton(systemImageName: "triangle.fill", type: .triangleFill)
