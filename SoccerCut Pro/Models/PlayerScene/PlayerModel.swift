@@ -187,9 +187,11 @@ class PlayerModel {
             try? FileManager.default.removeItem(atPath: path)
         }
 
+        let finalErrorMsg = lastError ?? "動画の書き出しに失敗しました。"
+        let finalStatus = lastStatus
         await MainActor.run {
-            self.trimmingErrorMsg = lastError ?? "動画の書き出しに失敗しました。"
-            self.trimmingStatus = lastStatus
+            self.trimmingErrorMsg = finalErrorMsg
+            self.trimmingStatus = finalStatus
         }
     }
 
