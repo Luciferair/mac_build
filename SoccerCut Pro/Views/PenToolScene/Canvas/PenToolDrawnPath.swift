@@ -89,13 +89,22 @@ struct PenToolDrawnPath: View, Identifiable {
         // GeometryReaderを使うとなぜかframeの位置とサイズがバグる問題が解決するので使っておく
         GeometryReader { geometry in
             ZStack {
-                AnyView(path)
-                    .contentShape(Rectangle())
+                if type == .connectedCircles {
+                    AnyView(path)
 //                    .border(.blue, width: 3)
-                    .offset(path.offset())
-                    .frame(width: path.frame().width, height: path.frame().height)
-                    .gesture(drag)
-                    .simultaneousGesture(tap)
+                        .offset(path.offset())
+                        .frame(width: path.frame().width, height: path.frame().height)
+                        .gesture(drag)
+                        .simultaneousGesture(tap)
+                } else {
+                    AnyView(path)
+                        .contentShape(Rectangle())
+//                    .border(.blue, width: 3)
+                        .offset(path.offset())
+                        .frame(width: path.frame().width, height: path.frame().height)
+                        .gesture(drag)
+                        .simultaneousGesture(tap)
+                }
                 
                 if viewModel.isSelected {
                     Rectangle()

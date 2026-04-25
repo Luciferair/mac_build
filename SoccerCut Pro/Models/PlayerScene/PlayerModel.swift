@@ -107,123 +107,107 @@ class PlayerModel {
               let trimmingStartSecs = trimmingStartSecs,
               let trimmingEndSecs = trimmingEndSecs   // Bug②: use frozen end time
         else { return }
-        
-        self.isExecutingTrimming = true
-        defer {
-            self.isExecutingTrimming = false
-            self.trimmingStartSecs = nil
-            self.trimmingEndSecs = nil
-        }
-        
-        // トリミング開始時間と終了時間を取得
-        var startSecs: Double
-        var endSecs: Double
-        if trimmingStartSecs < trimmingEndSecs {
-            startSecs = trimmingStartSecs
-            endSecs = trimmingEndSecs
-        } else {
-            startSecs = trimmingEndSecs
-            endSecs = trimmingStartSecs
-        }
-        
-        // アセットの作成
-        let asset = AVURLAsset(url: sourceUrl)
 
-        do {
-            // 動画のアセットとトラックを作成
-            let videoTrack = try await asset.loadTracks(withMediaType: .video)[0]
-            // 音声が無い動画の場合も考慮
-            var audioTrack: AVAssetTrack? = nil
-            let audioTracks = try await asset.loadTracks(withMediaType: .audio)
-            if !audioTracks.isEmpty {
-                audioTrack = audioTracks[0]
-            }
-
-            // コンポジション作成
-            let mixComposition = AVMutableComposition()
-            // ベースとなる動画のコンポジション作成
-            let compositionVideoTrack: AVMutableCompositionTrack! = mixComposition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
-            var compositionAudioTrack: AVMutableCompositionTrack? = nil
-            if audioTrack != nil {
-                // ベースとなる音声のコンポジション作成
-                compositionAudioTrack = mixComposition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
-            }
-                
-            // 動画と音声の長さ設定 -> 精度を上げるためvalueとtimescale両方にNSEC_PER_SECを掛け算
-            let startTime = CMTime(value: CMTimeValue(startSecs * Double(NSEC_PER_SEC)),
-                                   timescale: CMTimeScale(NSEC_PER_SEC))
-            let newDuration = CMTime(value: CMTimeValue((endSecs - startSecs) * Double(NSEC_PER_SEC)),
-                                     timescale: CMTimeScale(NSEC_PER_SEC))
-            try compositionVideoTrack.insertTimeRange(CMTimeRangeMake(start: startTime, duration: newDuration), of: videoTrack, at: .zero)
-            if audioTrack != nil {
-                try compositionAudioTrack!.insertTimeRange(CMTimeRangeMake(start: startTime, duration: newDuration), of: audioTrack!, at: .zero)
-            }
-            // 回転方向の設定
-            compositionVideoTrack.preferredTransform = try await videoTrack.load(.preferredTransform)
-            // 動画のサイズを取得
-            let videoSize = try await videoTrack.load(.naturalSize)
-
-            // 合成用コンポジション作成
-            let videoComposition = AVMutableVideoComposition()
-            videoComposition.renderSize = videoSize
-            videoComposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
-
-            // インストラクションを合成用コンポジションに設定
-            let instruction = AVMutableVideoCompositionInstruction()
-            instruction.timeRange = CMTimeRangeMake(start: .zero, duration: newDuration)
-            let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: compositionVideoTrack)
-            instruction.layerInstructions = [ layerInstruction ]
-            videoComposition.instructions = [ instruction ]
-
-            // 動画のコンポジションをベースにAVAssetExportを生成
-            guard let assetExport = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality) else {
-                throw NSError(domain: "couldn't get AVAssetExportSettion", code: -1, userInfo: nil)
-            }
-
-            // 合成用コンポジションを設定
-            assetExport.videoComposition = videoComposition
-
-            // Bug①: explicit audio mix prevents crackling during re-encode
-            if let compositionAudioTrack = compositionAudioTrack {
-                let audioMixInputParams = AVMutableAudioMixInputParameters(track: compositionAudioTrack)
-                audioMixInputParams.setVolume(1.0, at: .zero)
-                let audioMix = AVMutableAudioMix()
-                audioMix.inputParameters = [audioMixInputParams]
-                assetExport.audioMix = audioMix
-            }
-
-            // エクスポートファイルの設定
-            assetExport.outputFileType = .mp4
-            assetExport.outputURL = exportUrl
-            assetExport.shouldOptimizeForNetworkUse = true
-
-            // ファイルが存在している場合は削除しないとエラーになる
-            let path = exportUrl.pathMacOSVersionFree
-            if FileManager.default.fileExists(atPath: path) {
-                try FileManager.default.removeItem(atPath: path)
-            }
-
-            // エクスポート実行
-            await assetExport.export()
-            self.trimmingErrorMsg = assetExport.error?.localizedDescription
-            self.trimmingStatus = assetExport.status
-            
-            // ファイルの存在確認後、動画を新規ウィンドウで開く
-            if FileManager.default.fileExists(atPath: path) {
-                Task { @MainActor in
-                    let storyboard = NSStoryboard(name: "Main", bundle: nil)
-                    guard let windowController = storyboard.instantiateController(withIdentifier: "PlayersWindowID") as? MainWindowController,
-                          let viewController = windowController.contentViewController as? MainViewController else { return }
-                    viewController.doubleClickedFileUrl = exportUrl
-                    windowController.showWindow(self)
-                }
-            }
-            
-        } catch {
-            self.trimmingErrorMsg = error.localizedDescription
+        await MainActor.run {
+            self.isExecutingTrimming = true
+            self.trimmingErrorMsg = nil
             self.trimmingStatus = nil
+        }
+        defer {
+            Task { @MainActor in
+                self.isExecutingTrimming = false
+                self.trimmingStartSecs = nil
+                self.trimmingEndSecs = nil
+            }
+        }
+ 
+        let startSecs = min(trimmingStartSecs, trimmingEndSecs)
+        let endSecs = max(trimmingStartSecs, trimmingEndSecs)
+        let durationSecs = endSecs - startSecs
+        if durationSecs <= 0 {
+            await MainActor.run {
+                self.trimmingErrorMsg = "切り出し範囲が正しくありません。"
+                self.trimmingStatus = .failed
+            }
             return
         }
+
+        let asset = AVURLAsset(url: sourceUrl)
+        let startTime = CMTime(seconds: startSecs, preferredTimescale: 600)
+        let duration = CMTime(seconds: durationSecs, preferredTimescale: 600)
+        let timeRange = CMTimeRange(start: startTime, duration: duration)
+
+        let presets = [
+            AVAssetExportPresetPassthrough,
+            AVAssetExportPresetHighestQuality,
+            AVAssetExportPresetMediumQuality
+        ]
+        var lastError: String? = nil
+        var lastStatus: AVAssetExportSession.Status = .failed
+        let path = exportUrl.pathMacOSVersionFree
+
+        for preset in presets {
+            guard let exporter = AVAssetExportSession(asset: asset, presetName: preset) else { continue }
+            guard let outputFileType = preferredOutputFileType(for: exporter, exportUrl: exportUrl) else { continue }
+
+            do {
+                if FileManager.default.fileExists(atPath: path) {
+                    try FileManager.default.removeItem(atPath: path)
+                }
+            } catch {
+                lastError = error.localizedDescription
+                continue
+            }
+
+            exporter.outputURL = exportUrl
+            exporter.outputFileType = outputFileType
+            exporter.timeRange = timeRange
+            exporter.shouldOptimizeForNetworkUse = (preset != AVAssetExportPresetPassthrough)
+            await exporter.export()
+
+            if exporter.status == .completed {
+                await MainActor.run {
+                    self.trimmingErrorMsg = nil
+                    self.trimmingStatus = .completed
+                }
+                if FileManager.default.fileExists(atPath: path) {
+                    await MainActor.run {
+                        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+                        guard let windowController = storyboard.instantiateController(withIdentifier: "PlayersWindowID") as? MainWindowController,
+                              let viewController = windowController.contentViewController as? MainViewController else { return }
+                        viewController.doubleClickedFileUrl = exportUrl
+                        windowController.showWindow(self)
+                    }
+                }
+                return
+            }
+
+            lastError = exporter.error?.localizedDescription
+            lastStatus = exporter.status
+            try? FileManager.default.removeItem(atPath: path)
+        }
+
+        await MainActor.run {
+            self.trimmingErrorMsg = lastError ?? "動画の書き出しに失敗しました。"
+            self.trimmingStatus = lastStatus
+        }
+    }
+
+    private func preferredOutputFileType(for exporter: AVAssetExportSession, exportUrl: URL) -> AVFileType? {
+        let supported = exporter.supportedFileTypes
+        if supported.isEmpty { return nil }
+
+        let ext = exportUrl.pathExtension.lowercased()
+        if ext == "mp4" {
+            return supported.contains(.mp4) ? .mp4 : nil
+        }
+        if ext == "mov" {
+            return supported.contains(.mov) ? .mov : nil
+        }
+
+        if supported.contains(.mp4) { return .mp4 }
+        if supported.contains(.mov) { return .mov }
+        return supported.first
     }
     
     func clearTrimmingErrorMsgAndStatus() {

@@ -184,7 +184,8 @@ class PlayerViewModel: ObservableObject {
     
     func onSelectPathForSavingTrimmedFile(exportUrl: URL) {
         playerModel.pause()
-        Task.detached { @MainActor in
+        Task.detached(priority: .userInitiated) { [weak self] in
+            guard let self = self else { return }
             await self.playerModel.trim(exportUrl: exportUrl)
         }
     }
