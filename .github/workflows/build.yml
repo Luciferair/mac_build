@@ -45,7 +45,8 @@ jobs:
           security import ~/certs/key.pem -k ~/Library/Keychains/build.keychain -A
 
           security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "" ~/Library/Keychains/build.keychain
-          security list-keychains -s ~/Library/Keychains/build.keychain
+          security list-keychains -s ~/Library/Keychains/build.keychain ~/Library/Keychains/login.keychain-db /Library/Keychains/System.keychain
+          security find-identity -v -p codesigning
 
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           if [ "$SCHEME" = "Subscription" ]; then
