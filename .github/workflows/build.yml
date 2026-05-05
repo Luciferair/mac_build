@@ -70,7 +70,7 @@ jobs:
           <plist version="1.0">
           <dict>
               <key>method</key>
-              <string>app-store</string>
+              <string>app-store-connect</string>
               <key>teamID</key>
               <string>${{ secrets.APPLE_TEAM_ID }}</string>
               <key>provisioningProfiles</key>
@@ -80,6 +80,10 @@ jobs:
               </dict>
               <key>signingStyle</key>
               <string>manual</string>
+              <key>signingCertificate</key>
+              <string>3rd Party Mac Developer Application: Daichi Matsumoto (6MHV457VVD)</string>
+              <key>installerSigningCertificate</key>
+              <string>3rd Party Mac Developer Installer: Daichi Matsumoto (6MHV457VVD)</string>
               <key>uploadSymbols</key>
               <true/>
           </dict>
