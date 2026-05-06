@@ -29,7 +29,6 @@ jobs:
       - name: Install certificate & provisioning profile
         env:
           MAC_CERTIFICATE_P12: ${{ secrets.MAC_CERTIFICATE_P12 }}
-          MAC_CERT_PASSWORD: ${{ secrets.MAC_CERT_PASSWORD }}
           PROVISIONING_PROFILE_SUBSCRIPTION: ${{ secrets.PROVISIONING_PROFILE_SUBSCRIPTION }}
           PROVISIONING_PROFILE_PAID: ${{ secrets.PROVISIONING_PROFILE_PAID }}
           SCHEME: ${{ matrix.scheme }}
@@ -38,8 +37,8 @@ jobs:
 
           # Decode p12 and extract pem files
           echo "$MAC_CERTIFICATE_P12" | base64 -d > ~/certs/mac_distribution.p12
-          openssl pkcs12 -in ~/certs/mac_distribution.p12 -clcerts -nokeys -out ~/certs/cert.pem -passin pass:"$MAC_CERT_PASSWORD"
-          openssl pkcs12 -in ~/certs/mac_distribution.p12 -nocerts -nodes  -out ~/certs/key.pem  -passin pass:"$MAC_CERT_PASSWORD"
+          openssl pkcs12 -in ~/certs/mac_distribution.p12 -clcerts -nokeys -out ~/certs/cert.pem -passin pass:
+          openssl pkcs12 -in ~/certs/mac_distribution.p12 -nocerts -nodes  -out ~/certs/key.pem  -passin pass:
 
           # Setup keychain
           security create-keychain -p "build" build.keychain
