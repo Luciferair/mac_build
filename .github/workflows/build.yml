@@ -1,19 +1,21 @@
-name: Build SoccerCut Pro
+name: Build and Deploy SoccerCut Pro
 
 on:
   push:
     branches: [main, master]
-  pull_request:
-    branches: [main, master]
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: macos-14  # Apple Silicon, Xcode 15+
 
     strategy:
       matrix:
-        scheme: [Paid, Subscription]
+        include:
+          - scheme: Subscription
+            bundle_id: blog.daichimatsumoto.SoccerCut-Pro
+          - scheme: Paid
+            bundle_id: blog.daichimatsumoto.SoccerCut-Pro-Paid
 
     steps:
       - name: Checkout
@@ -22,29 +24,100 @@ jobs:
       - name: Select Xcode
         run: sudo xcode-select -s /Applications/Xcode_15.4.app
 
-      - name: Build ${{ matrix.scheme }}
+      - name: Install certificate & provisioning profile
         run: |
-          xcodebuild \
+          mkdir -p ~/certs
+
+          # Import Mac distribution certificate
+          echo "${{ secrets.MAC_CERTIFICATE_P12 }}" | base64 -d > ~/certs/mac_distribution.p12
+
+          # Import provisioning profile for this scheme
+          echo "${{ matrix.scheme == 'Subscription' && secrets.PROVISIONING_PROFILE_SUBSCRIPTION || secrets.PROVISIONING_PROFILE_PAID }}" | base64 -d > ~/certs/profile.provisionprofile
+
+          # Create keychain
+          security create-keychain -p "" build.keychain
+          security set-keychain-settings -lut 21600 build.keychain
+          security default-keychain -s build.keychain
+          security unlock-keychain -p "" build.keychain
+
+          # Import certificate into keychain
+          security import ~/certs/mac_distribution.p12 \
+            -k ~/Library/Keychains/build.keychain \
+            -P "${{ secrets.MAC_CERT_PASSWORD }}" \
+            -A
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "" ~/Library/Keychains/build.keychain
+          security list-keychains -s ~/Library/Keychains/build.keychain
+
+          # Install provisioning profile
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          PROFILE_UUID=$(security cms -D -i ~/certs/profile.provisionprofile | plutil -extract UUID raw -)
+          cp ~/certs/profile.provisionprofile ~/Library/MobileDevice/Provisioning\ Profiles/${PROFILE_UUID}.provisionprofile
+
+      - name: Create ExportOptions.plist
+        run: |
+          cat > ExportOptions-${{ matrix.scheme }}.plist << EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+              <key>method</key>
+              <string>app-store</string>
+              <key>teamID</key>
+              <string>${{ secrets.APPLE_TEAM_ID }}</string>
+              <key>provisioningProfiles</key>
+              <dict>
+                  <key>${{ matrix.bundle_id }}</key>
+                  <string>${{ matrix.scheme == 'Subscription' && secrets.PROFILE_NAME_SUBSCRIPTION || secrets.PROFILE_NAME_PAID }}</string>
+              </dict>
+              <key>signingStyle</key>
+              <string>manual</string>
+              <key>uploadSymbols</key>
+              <true/>
+          </dict>
+          </plist>
+          EOF
+
+      - name: Archive ${{ matrix.scheme }}
+        run: |
+          xcodebuild archive \
             -project "SoccerCut Pro.xcodeproj" \
             -scheme "${{ matrix.scheme }}" \
             -configuration Release \
-            -destination "platform=macOS" \
-            CODE_SIGN_IDENTITY="" \
-            CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGNING_ALLOWED=NO \
-            DEVELOPMENT_TEAM="" \
-            -derivedDataPath build/DerivedData \
-            build
+            -destination "generic/platform=macOS" \
+            -archivePath "build/${{ matrix.scheme }}.xcarchive" \
+            DEVELOPMENT_TEAM="${{ secrets.APPLE_TEAM_ID }}" \
+            CODE_SIGN_STYLE=Manual
 
-      - name: Package app
+      - name: Export archive ${{ matrix.scheme }}
         run: |
-          APP_PATH=$(find build/DerivedData -name "SoccerCut Pro.app" -type d | head -1)
-          mkdir -p artifacts
-          ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" "artifacts/SoccerCut-Pro-${{ matrix.scheme }}.zip"
+          xcodebuild -exportArchive \
+            -archivePath "build/${{ matrix.scheme }}.xcarchive" \
+            -exportPath "build/${{ matrix.scheme }}-export" \
+            -exportOptionsPlist "ExportOptions-${{ matrix.scheme }}.plist"
 
-      - name: Upload artifact
+      - name: Upload artifact ${{ matrix.scheme }}
         uses: actions/upload-artifact@v4
         with:
           name: SoccerCut-Pro-${{ matrix.scheme }}
-          path: artifacts/SoccerCut-Pro-${{ matrix.scheme }}.zip
+          path: build/${{ matrix.scheme }}-export/
           retention-days: 7
+
+      - name: Create API Key file
+        run: |
+          mkdir -p ~/private_keys
+          echo "${{ secrets.APPSTORE_PRIVATE_KEY }}" > ~/private_keys/AuthKey_${{ secrets.APPSTORE_KEY_ID }}.p8
+
+      - name: Upload to App Store Connect
+        run: |
+          xcrun altool --upload-app \
+            --type macos \
+            --file "$(find build/${{ matrix.scheme }}-export -name '*.pkg' | head -1)" \
+            --apiKey ${{ secrets.APPSTORE_KEY_ID }} \
+            --apiIssuer ${{ secrets.APPSTORE_ISSUER_ID }}
+
+      - name: Clean up
+        if: always()
+        run: |
+          rm -f ~/private_keys/AuthKey_${{ secrets.APPSTORE_KEY_ID }}.p8
+          rm -rf ~/certs
+          security delete-keychain build.keychain || true

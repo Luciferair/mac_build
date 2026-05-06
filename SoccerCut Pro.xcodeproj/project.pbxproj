@@ -1351,7 +1351,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6MHV457VVD;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -1367,7 +1367,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "blog.daichimatsumoto.SoccerCut-Pro";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1384,7 +1384,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6MHV457VVD;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -1400,7 +1400,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "blog.daichimatsumoto.SoccerCut-Pro";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1417,7 +1417,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6MHV457VVD;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -1433,7 +1433,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "blog.daichimatsumoto.SoccerCut-Pro-Paid";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1450,7 +1450,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6MHV457VVD;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -1466,7 +1466,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "blog.daichimatsumoto.SoccerCut-Pro-Paid";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
