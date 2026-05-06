@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: macos-14
+    runs-on: macos-latest
 
     strategy:
       matrix:
@@ -23,50 +23,38 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_15.4.app
-
       - name: Install certificate & provisioning profile
         env:
-          MAC_CERTIFICATE_P12: ${{ secrets.MAC_CERTIFICATE_P12 }}
-          PROVISIONING_PROFILE_SUBSCRIPTION: ${{ secrets.PROVISIONING_PROFILE_SUBSCRIPTION }}
-          PROVISIONING_PROFILE_PAID: ${{ secrets.PROVISIONING_PROFILE_PAID }}
           SCHEME: ${{ matrix.scheme }}
         run: |
           mkdir -p ~/certs
 
-          # Decode p12
-          echo "$MAC_CERTIFICATE_P12" | base64 -d > ~/certs/mac_distribution.p12
+          echo "${{ secrets.MAC_CERTIFICATE_P12 }}" | base64 -d > ~/certs/mac_distribution.p12
+          echo "${{ secrets.PROVISIONING_PROFILE_SUBSCRIPTION }}" | base64 -d > ~/certs/subscription.provisionprofile
+          echo "${{ secrets.PROVISIONING_PROFILE_PAID }}" | base64 -d > ~/certs/paid.provisionprofile
 
-          # Setup keychain
-          security create-keychain -p "build" build.keychain
+          openssl pkcs12 -in ~/certs/mac_distribution.p12 -clcerts -nokeys -out ~/certs/cert.pem -passin pass:"${{ secrets.MAC_CERT_PASSWORD }}"
+          openssl pkcs12 -in ~/certs/mac_distribution.p12 -nocerts -nodes -out ~/certs/key.pem -passin pass:"${{ secrets.MAC_CERT_PASSWORD }}"
+
+          security create-keychain -p "" build.keychain
           security set-keychain-settings -lut 21600 build.keychain
           security default-keychain -s build.keychain
-          security unlock-keychain -p "build" build.keychain
+          security unlock-keychain -p "" build.keychain
 
-          # Import p12 directly
-          security import ~/certs/mac_distribution.p12 \
-            -k ~/Library/Keychains/build.keychain \
-            -f pkcs12 \
-            -P "Abc123" \
-            -T /usr/bin/codesign \
-            -T /usr/bin/security \
-            -A
-          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "build" ~/Library/Keychains/build.keychain
-          security list-keychains -s ~/Library/Keychains/build.keychain ~/Library/Keychains/login.keychain-db
+          security import ~/certs/cert.pem -k ~/Library/Keychains/build.keychain -A
+          security import ~/certs/key.pem -k ~/Library/Keychains/build.keychain -A
 
-          # Show imported identities
-          security find-identity -v -p codesigning
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "" ~/Library/Keychains/build.keychain
+          security list-keychains -s ~/Library/Keychains/build.keychain
 
-          # Install provisioning profile
-          if [ "$SCHEME" = "Subscription" ]; then
-            echo "$PROVISIONING_PROFILE_SUBSCRIPTION" | base64 -d > ~/certs/profile.provisionprofile
-          else
-            echo "$PROVISIONING_PROFILE_PAID" | base64 -d > ~/certs/profile.provisionprofile
-          fi
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          PROFILE_UUID=$(security cms -D -i ~/certs/profile.provisionprofile | plutil -extract UUID raw -)
-          cp ~/certs/profile.provisionprofile ~/Library/MobileDevice/Provisioning\ Profiles/${PROFILE_UUID}.provisionprofile
+          if [ "$SCHEME" = "Subscription" ]; then
+            PROFILE_UUID=$(security cms -D -i ~/certs/subscription.provisionprofile | plutil -extract UUID raw -)
+            cp ~/certs/subscription.provisionprofile ~/Library/MobileDevice/Provisioning\ Profiles/${PROFILE_UUID}.provisionprofile
+          else
+            PROFILE_UUID=$(security cms -D -i ~/certs/paid.provisionprofile | plutil -extract UUID raw -)
+            cp ~/certs/paid.provisionprofile ~/Library/MobileDevice/Provisioning\ Profiles/${PROFILE_UUID}.provisionprofile
+          fi
 
       - name: Create ExportOptions.plist
         run: |
@@ -119,13 +107,10 @@ jobs:
           path: build/${{ matrix.scheme }}-export/
           retention-days: 7
 
-      - name: Create API Key file
+      - name: Upload to App Store Connect
         run: |
           mkdir -p ~/private_keys
           echo "${{ secrets.APPSTORE_PRIVATE_KEY }}" | base64 -d > ~/private_keys/AuthKey_${{ secrets.APPSTORE_KEY_ID }}.p8
-
-      - name: Upload to App Store Connect
-        run: |
           xcrun altool --upload-app \
             --type macos \
             --file "$(find build/${{ matrix.scheme }}-export -name '*.pkg' | head -1)" \
