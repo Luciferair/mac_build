@@ -41,8 +41,8 @@ jobs:
           echo "$MAC_CERTIFICATE_P12" | base64 -d > ~/certs/mac_distribution.p12
 
           # Extract cert and key from p12 (no password)
-          openssl pkcs12 -in ~/certs/mac_distribution.p12 -clcerts -nokeys -out ~/certs/cert.pem -passin pass: -legacy
-          openssl pkcs12 -in ~/certs/mac_distribution.p12 -nocerts -nodes -out ~/certs/key.pem -passin pass: -legacy
+          openssl pkcs12 -in ~/certs/mac_distribution.p12 -clcerts -nokeys -out ~/certs/cert.pem -passin pass:
+          openssl pkcs12 -in ~/certs/mac_distribution.p12 -nocerts -nodes -out ~/certs/key.pem -passin pass:
 
           # Create keychain
           security create-keychain -p "build" build.keychain
