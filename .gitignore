@@ -8,7 +8,6 @@ profile
 ## ファイル内のカーソル位置などの情報ファイルが格納されているディレクトリ
 xcuserdata/
 
-
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 ## ソースコード管理(SCM)に関する設定ファイル
 *.xcscmblueprint
