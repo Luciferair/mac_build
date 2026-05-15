@@ -13,9 +13,9 @@ enum ProductId: String, CaseIterable {
     case basicYearly = "blog.daichimatsumoto.SoccerCut_Pro.SoccerCut_Pro_Yearly"
     case expertMonthly = "blog.daichimatsumoto.SoccerCut_Pro.SoccerCut_Pro_Expert_Monthly"
     case expertYearly = "blog.daichimatsumoto.SoccerCut_Pro.SoccerCut_Pro_Expert_Yearly"
-    // 以下は使用しなくなったが、削除しても同じIDを二度と使えないので残しておく
-    //    case editorMonthly = "blog.daichimatsumoto.SoccerCut_Pro.SoccerCut_Pro_Editor_Monthly"
-    //    case editorYearly = "blog.daichimatsumoto.SoccerCut_Pro.SoccerCut_Pro_Editor_Yearly"
+    // 以下は新規購入には使用しなくなったが、すでに購入されている方が使えなくなってしまうので残しておく
+    case editorMonthly = "blog.daichimatsumoto.SoccerCut_Pro.SoccerCut_Pro_Editor_Monthly"
+    case editorYearly = "blog.daichimatsumoto.SoccerCut_Pro.SoccerCut_Pro_Editor_Yearly"
     
     static var allRawValues: [String] {
         var rawValues: [String] = []
@@ -27,11 +27,11 @@ enum ProductId: String, CaseIterable {
     }
     
     static var playerAvailableIdList: [ProductId] {
-        return [.basicMonthly, .basicYearly, .expertMonthly, .expertYearly]
+        return [.basicMonthly, .basicYearly, .expertMonthly, .expertYearly, .editorMonthly, .editorYearly]
     }
     
     static var penToolAvailableIdList: [ProductId] {
-        return [.expertMonthly, .expertYearly]
+        return [.expertMonthly, .expertYearly, .editorMonthly, .editorYearly]
     }
     
     var isFreeTrialAvailable: Bool {

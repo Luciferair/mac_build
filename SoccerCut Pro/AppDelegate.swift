@@ -47,6 +47,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             // 購入済みサブスクリプションを一覧取得
             await ValidTransactions.instance.fetch()
             
+            // 何か1つでもサブスクリプション購入済みであればアプリを使用可能
+            // 先にチェックすることで、StoreKitの一時的なエラーでも購入済みユーザーが使えなくなるのを防ぐ
+            if ValidTransactions.instance.containsAnyProductId() { return }
+            
             do {
                 // 購入可能なサブスクリプションを一覧取得
                 try await Products.instance.fetch()
@@ -66,9 +70,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let purchaseDates = ValidTransactions.instance.purchaseDates
             let productIDs = ValidTransactions.instance.purchaseProductIds
             PurchaseChecker.checkPurchases(purchasedDates: purchaseDates, productIDs: productIDs)
-            
-            // 何か1つでもサブスクリプション購入済みであればアプリを使用可能
-            if ValidTransactions.instance.containsAnyProductId() { return }
             
             // サブスクリプション選択画面を表示
             Products.instance.selection()

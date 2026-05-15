@@ -28,7 +28,7 @@ struct ProductSelectionButton: View {
                 canClick = false
                 label = "年額購入済み"
                 color = .gray
-            } else if ValidTransactions.instance.containsOneOfProductIds([.expertMonthly, .expertYearly]) {
+            } else if ValidTransactions.instance.containsOneOfProductIds([.expertMonthly, .expertYearly, .editorMonthly, .editorYearly]) {
                 canClick = false
                 label = "Expert購入済み"
                 color = .gray
@@ -39,12 +39,12 @@ struct ProductSelectionButton: View {
             }
             break
             
-        case .expertMonthly, .expertYearly:
+        case .expertMonthly, .expertYearly, .editorMonthly, .editorYearly:
             if ValidTransactions.instance.containsOneOfProductIds([productId]) {
                 canClick = false
                 label = "購入済み"
                 color = .gray
-            } else if productId == .expertMonthly && ValidTransactions.instance.containsOneOfProductIds([.expertYearly]) {
+            } else if (productId == .expertMonthly || productId == .editorMonthly) && ValidTransactions.instance.containsOneOfProductIds([.expertYearly, .editorYearly]) {
                 canClick = false
                 label = "年額購入済み"
                 color = .gray
