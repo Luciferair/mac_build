@@ -47,8 +47,8 @@ struct PenToolCanvasPanel: View {
             Rectangle()
                 .foregroundColor(.clear)
                 .contentShape(Rectangle())
-                .gesture(doubleClick)
                 .gesture(drag)
+                .simultaneousGesture(doubleClick)
             
             // 追加ずみのPathの描画
             ForEach(viewModel.drawnPathsOnCurrentFrame) { path in
