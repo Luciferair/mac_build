@@ -15,13 +15,6 @@ struct PenToolCanvasPanel: View {
         viewModel.resizePaths(canvasOrigin: origin, newVideoRect: newVideoRect)
     }
     
-    var doubleClick: some Gesture {
-        TapGesture(count: 2)
-            .onEnded {
-                viewModel.onDoubleClick()
-            }
-    }
-
     var drag: some Gesture {
         DragGesture(minimumDistance: 0)
             .onChanged { value in
@@ -48,7 +41,6 @@ struct PenToolCanvasPanel: View {
                 .foregroundColor(.clear)
                 .contentShape(Rectangle())
                 .gesture(drag)
-                .simultaneousGesture(doubleClick)
             
             // 追加ずみのPathの描画
             ForEach(viewModel.drawnPathsOnCurrentFrame) { path in

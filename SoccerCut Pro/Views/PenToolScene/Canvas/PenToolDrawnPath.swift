@@ -75,15 +75,6 @@ struct PenToolDrawnPath: View, Identifiable {
             }
     }
 
-    var tap: some Gesture {
-        TapGesture()
-            .onEnded {
-                if !viewModel.isSelected {
-                    viewModel.isSelected = true
-                }
-                NotificationCenter.default.post(name: .clickedDrawnPathNotification, object: nil, userInfo: ["pathId": id])
-            }
-    }
         
     var body: some View {
         // GeometryReaderを使うとなぜかframeの位置とサイズがバグる問題が解決するので使っておく
@@ -97,7 +88,6 @@ struct PenToolDrawnPath: View, Identifiable {
                     .offset(path.offset())
                     .frame(width: path.frame().width, height: path.frame().height)
                     .gesture(drag)
-                    .simultaneousGesture(tap)
                 
                 if viewModel.isSelected {
                     Rectangle()
