@@ -5,14 +5,87 @@
 //  Created by Naoki Tanaka on 2023/08/11.
 //
 
+import AppKit
 import SwiftUI
+
+/// NSTextView wrapper that properly claims and holds first-responder status,
+/// preventing the macOS menu/keyboard shortcut system from intercepting
+/// key events (Space, arrow keys, etc.) while the user is typing text.
+private struct FocusableTextEditor: NSViewRepresentable {
+    @Binding var text: String
+    var onTextChange: (String) -> Void
+
+    func makeNSView(context: Context) -> NSScrollView {
+        let textView = FirstResponderTextView()
+        textView.delegate = context.coordinator
+        textView.isEditable = true
+        textView.isSelectable = true
+        textView.allowsUndo = true
+        textView.isRichText = false
+        textView.font = NSFont.systemFont(ofSize: NSFont.systemFontSize)
+        textView.string = text
+        textView.isVerticallyResizable = true
+        textView.isHorizontallyResizable = false
+        textView.autoresizingMask = [.width]
+        textView.textContainer?.widthTracksTextView = true
+        textView.textContainer?.containerSize = NSSize(
+            width: CGFloat.greatestFiniteMagnitude,
+            height: CGFloat.greatestFiniteMagnitude
+        )
+
+        let scrollView = NSScrollView()
+        scrollView.documentView = textView
+        scrollView.hasVerticalScroller = false
+        scrollView.hasHorizontalScroller = false
+        scrollView.borderType = .bezelBorder
+        scrollView.autohidesScrollers = true
+        return scrollView
+    }
+
+    func updateNSView(_ scrollView: NSScrollView, context: Context) {
+        guard let textView = scrollView.documentView as? NSTextView else { return }
+        // Only update if changed externally to avoid resetting cursor
+        if textView.string != text {
+            textView.string = text
+        }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(onTextChange: onTextChange)
+    }
+
+    final class Coordinator: NSObject, NSTextViewDelegate {
+        let onTextChange: (String) -> Void
+        init(onTextChange: @escaping (String) -> Void) {
+            self.onTextChange = onTextChange
+        }
+        func textDidChange(_ notification: Notification) {
+            guard let textView = notification.object as? NSTextView else { return }
+            onTextChange(textView.string)
+        }
+    }
+
+    /// Custom NSTextView that overrides acceptsFirstResponder so the
+    /// macOS responder chain never bypasses it for menu key equivalents.
+    private class FirstResponderTextView: NSTextView {
+        override var acceptsFirstResponder: Bool { true }
+        override func becomeFirstResponder() -> Bool {
+            let result = super.becomeFirstResponder()
+            return result
+        }
+        // Consume all key-down events so they never bubble up to menu shortcuts
+        override func keyDown(with event: NSEvent) {
+            // Let the text view handle the key normally
+            super.keyDown(with: event)
+        }
+    }
+}
 
 struct PenToolStylePanelPerType: View {
     @State private var type: PenToolType
     @ObservedObject private(set) var pathFactory: PenToolPathFactory
     @ObservedObject private(set) var style: PenToolPathStyle
     @ObservedObject private var recentColors = RecentColors.shared
-    @FocusState private var isFocusedOnTextEditor: Bool
     
     private let spacing: CGFloat = 15
     private let commonNumberFormatter = NumberFormatter()
@@ -207,32 +280,15 @@ struct PenToolStylePanelPerType: View {
                         .padding(.bottom, spacing)
                     }
                     
-                    if #available(macOS 13.0, *) {
-                        Section(header: Text("文字")) {
-                            TextEditor(text: $style.textString)
-                                .frame(height: 200)
-                                .focused($isFocusedOnTextEditor)
-                                .border(.gray, width: 1)
-                                .scrollDisabled(true) // macOS 13.0以上でしか使えない
-                                .padding(.top, 3)
-                                .padding(.bottom, spacing)
-                                .onChange(of: style.textString, perform: { value in
-                                    pathFactory.pathHistory.applyStyleToSelectedPath(style)
-                                })
+                    Section(header: Text("文字")) {
+                            FocusableTextEditor(text: $style.textString) { newValue in
+                                pathFactory.pathHistory.applyStyleToSelectedPath(style)
+                            }
+                            .frame(height: 200)
+                            .padding(.top, 3)
+                            .padding(.bottom, spacing)
                         }
-                    } else {
-                        Section(header: Text("文字")) {
-                            TextEditor(text: $style.textString)
-                                .frame(height: 200)
-                                .focused($isFocusedOnTextEditor)
-                                .border(.gray, width: 1)
-                                .padding(.top, 3)
-                                .padding(.bottom, spacing)
-                                .onChange(of: style.textString, perform: { value in
-                                    pathFactory.pathHistory.applyStyleToSelectedPath(style)
-                                })
-                        }
-                    }
+
                 }
                 
                 if $style.isEraser.wrappedValue {

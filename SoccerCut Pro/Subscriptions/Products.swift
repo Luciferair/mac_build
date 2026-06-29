@@ -115,12 +115,18 @@ struct Products {
                     alert.informativeText = error.localizedDescription
                     alert.runModal()
                     
-                    // TODO 再度サブスクリプション選択画面を表示 -> AppDelegate.applicationWillBecomeActiveが自動的に呼ばれる？
+                    // ユーザー操作禁止を解除してアプリが凍結しないようにする
+                    AppDelegate.setViewIsHidden(false)
                     return
                 }
             }
             else if result == .cancel { AppDelegate.setViewIsHidden(false) }
             else if result == .alertSecondButtonReturn { NSApplication.shared.terminate(self) }
+            else {
+                // .abort など購入ボタンタップ時に abortModal() で返るケースを含む
+                // ビュー非表示のままにならないよう必ず解除する
+                AppDelegate.setViewIsHidden(false)
+            }
         }
     }
     
