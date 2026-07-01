@@ -48,16 +48,35 @@ class PlayerView: XibFilesOwnerView {
         self.playerViewModel = playerViewModel
         self.processingView = processingView
         controlsHV = self.addSwiftUIView(PlayerControlsView(playerViewModel: playerViewModel))
+        // Hide the controls overlay initially so it does not block click events
+        // on the XIB buttons (プレーヤー, ペンツール, etc.) underneath.
+        // It will be shown when a file is loaded in onSelectFile().
+        controlsHV?.isHidden = true
     }
     
     func openSelectFilePanel(appMode: ApplicationMode) {
         // サブスクの有無確認
         if !ValidTransactions.instance.isEligibleFor(appMode: appMode) {
-            // サブスクリプションライセンスが無いので選択画面を表示
-            Products.instance.selection()
+            // Transactions may not have been fetched yet (race with applicationWillBecomeActive).
+            // Re-fetch before showing subscription selection to avoid a false negative.
+            Task { @MainActor in
+                await ValidTransactions.instance.fetch()
+                if ValidTransactions.instance.isEligibleFor(appMode: appMode) {
+                    // Now eligible – show the file picker
+                    self.showOpenPanel(appMode: appMode)
+                } else {
+                    // サブスクリプションライセンスが無いので選択画面を表示
+                    do { try await Products.instance.fetch() } catch {}
+                    Products.instance.selection()
+                }
+            }
             return
         }
         
+        showOpenPanel(appMode: appMode)
+    }
+    
+    private func showOpenPanel(appMode: ApplicationMode) {
         let openPanel = NSOpenPanel()
         
         if #available(macOS 11.0, *) {
@@ -101,6 +120,9 @@ class PlayerView: XibFilesOwnerView {
         tutorialBtn.isHidden = true
         reviewBtn.isHidden = true
         subscriptionBtn.isHidden = true
+        
+        // Show the player controls overlay now that a file is loaded
+        controlsHV?.isHidden = false
         
         self.playersView.prepareDefaultScreens(loadedSide: side)
     }

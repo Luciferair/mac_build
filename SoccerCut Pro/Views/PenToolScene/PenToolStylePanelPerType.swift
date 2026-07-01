@@ -51,16 +51,20 @@ private struct FocusableTextEditor: NSViewRepresentable {
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(onTextChange: onTextChange)
+        Coordinator(text: $text, onTextChange: onTextChange)
     }
 
     final class Coordinator: NSObject, NSTextViewDelegate {
+        var text: Binding<String>
         let onTextChange: (String) -> Void
-        init(onTextChange: @escaping (String) -> Void) {
+        init(text: Binding<String>, onTextChange: @escaping (String) -> Void) {
+            self.text = text
             self.onTextChange = onTextChange
         }
         func textDidChange(_ notification: Notification) {
             guard let textView = notification.object as? NSTextView else { return }
+            // Write the new value back to the binding so the model stays in sync
+            text.wrappedValue = textView.string
             onTextChange(textView.string)
         }
     }
@@ -77,6 +81,21 @@ private struct FocusableTextEditor: NSViewRepresentable {
         override func keyDown(with event: NSEvent) {
             // Let the text view handle the key normally
             super.keyDown(with: event)
+        }
+        // Override performKeyEquivalent to prevent menu shortcuts from stealing
+        // plain key events (Space, letters, etc.) while typing in the text view.
+        override func performKeyEquivalent(with event: NSEvent) -> Bool {
+            guard window?.firstResponder == self else {
+                return super.performKeyEquivalent(with: event)
+            }
+            // Allow Cmd+key combos (copy/paste/undo) to pass through normally
+            if event.modifierFlags.contains(.command) {
+                return super.performKeyEquivalent(with: event)
+            }
+            // For plain keys or shift-only keys, consume the event here and
+            // feed it to the text input system so typing works normally.
+            self.keyDown(with: event)
+            return true
         }
     }
 }
